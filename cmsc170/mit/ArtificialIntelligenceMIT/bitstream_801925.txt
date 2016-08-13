@@ -1,0 +1,260 @@
+6.034 Quiz 2 
+
+November 15,2004 
+
+Problem number 
+
+1 
+
+2 
+
+3 
+phw rcb@ sn vm 110 ipb js
+
+/401 
+
+phhw rcb lo s vm 110 lpb js
+4 
+ /cj
+0 
+
+Total 
+Problem 1: Frames (15 Points) 
+Select the single BEST answer for the following questions. No points can be awarded for multiple 
+selections. No points are deducted for wrong answers. 
+1. Transition frames make explicit 
+1. 	 How state leads to state 
+2. How change in state leads to state. 
+
+@ How change in state leads to change in state 
+
+4. 	 How agent classifications shape change in state 
+5. 	 How goals and motives shape change in state 
+6. 	 All of the above. 
+7. 	 None of the above 
+2. Trajectory frames make explicit 
+1. 	How object classifications govern motion 
+2. 	 Plots in the stories that determine cultural bias 
+3. 	How learning progresses with experience 
+4. 	 How sentence structure maps into transition-space frames 
+5. 	 How object appearance changes with point of view 
+All of the above 
+
+6
+7 None of the above. 
+
+3. The following are readily translated, at least in part, into a transition space: 
+1. 	 The car crashed into a wall 
+2. 	 The sun rose and then set 
+3. 	The boy picked up a ball 
+4. 	 Time stood still 
+5. 	 The market fell 
+
+None of the above 
+
+7.
+6
+All of the above 
+4. Some psychological evidence indicates that knowledge tends to concentrate such that 
+1. The most specific classes provide the most knowledge 
+
+@ Intermediate classes provide the most knowledge 
+
+3. 	 The most general classes provide the most knowledge 
+4. 	 Knowledge is spread about evenly throughout all classification levels 
+5. The topological sorting algorithm 
+1. 	Attempts to transform an inheritance hierarchy into a linear precedence ordering 
+2. 	 Sometimes cannot find an ordering that satisfies all left-to-right constraints 
+3. Sometimes returns a different result from the depth-first up-to-join algorithm 
+
+@ All of the above 
+
+5. 	 None of the above 
+Question 2: Trees and Neighbors (30 points) 
+As you probably know, Ben Bitdiddle and Louis Reasoner each have little brothers who are freshman in 
+MIT's class of 2008. Ben and Louis have decided to use some machine learning techniques to determine 
+what major would best suite their respective younger siblings. 
+Part A (10 points) 
+Ben and Louis collect 16 data points, shown on the graph below (make sure not to miss the two points on 
+the Y axis). The Y axis represents a student's score on the MIT math assessment test (normalized to range 
+from 0 to lo), while the X axis represents how nice a student's clothes are (again normalized to range fi-om 
+0 to 10). The "B" represents Ben's little brother, while the "L" represents Louis's little brother. 
+Carefully and precisely draw the decision boundary on the graph above by applying the principle of 
+nearest neighbors (ignore the "B" and "L" points for now). 
+Clothes 
+
+Part B (2 points) 
+
+How is Ben's little brother classified using 1 nearest neighbor? 
+c 
+How is Louis's little brother classified using 1 nearest neighbor? 
+Part C (2 points) 
+"That can't be right" muttered one Course 6 hero to the other. "Must be noisy data.. .Let's use three 
+nearest neighbors instead." 
+How is Ben's little brother classified using 3 nearest neighbors? 
+How is Louis's little brother classified using 3 nearest neighbors? 
+Part D (1 point) 
+Finally, how would each little brother be classified if Ben and Louis were to use 16 nearest neighbors? 
+Part E (7 points) 
+"I'm still not convinced this is working. Why don't we give ID trees a shot?" Ben and Louis decide to 
+make their first test be: 
+Clothes < 5.5 
+The boundary created by this test is shown on the graph below. 
+Clothes 
+Give the average disorder produced by the test (again ignoring the "B" and "L" points). Your answer 
+may contain logarithms but no variables. 
+7 2
+
+9 
+
+- - log, E) j-
+7 9 
+
+Part F (8 points) 
+Further subdivision is needed no matter what the result of the first test. In particular, the samples that fall 
+into the "Yes" category of the first test (those on the left of the vertical line in the graph) still need to be 
+divided further. What test would you use to divide them into groups of minimal average disorder 
+-
+and what would be the resulting average disorder? 
+Question 3: Neural nets (40 points) 
+The following sigmoid network has 4 units labeled 1,2, 3,4. All units are sigmoid units, meaning that 
+their output s(z) is computed using the sum of their weighted inputs: 
+Part A. Forward propagation (8 points) 
+Using the initial weights provided below, and the input vector [XI, x2]= [-2,4], compute the output at each 
+unit after forward propagation. 
+Initial weights: 
+WI 
+0.0 
+W11 
+2.0 
+W12 
+0.5 
+W2 
+0.0 
+w21 
+1.0 
+W22 
+0.25 
+W13 
+-8.0 
+W14 
+0.0 
+w23 
+8.0 
+w24 
+0.0 
+W3 
+0.0 
+W4 
+0.0 
+A graph of sigmoid values is included for you on the next page. 
+yl(outputofunit I)= 5 (o(-l)+ 2L-2) 
+4(1'1 
+-
+-
+5(0) -5 
+y2 (output of unit 2) = S ( 0 (
+-\) <.a-2) + ( 1 ) -s(o) 
+= ,$ 
+~ ( 6 ' '
+y3(outputofunit3)= 5 ( 0(-\)+e$I(*s) 
+'(" 
+= ,5 
+y4(outputofunit4)= ~[oc-,)t 0 (!T)+ ~(*r))~'("= 
+Wide-angle view 
+Zoomed view 
+Part B. Backward propagation (20 points) 
+For this part of the problem, you may find the notes on the next page helpful; they are drawn from the on- 
+line notes. 
+Using a learning rate of 4, and desired output of b3*, ~4*) = [+I, 01, and an error function 
+I 1
+E =-(y, -y;)2 +-(y4 -yi)2 for the input (XI, x2) = [-2,4], backpropagate the network for one iteration, 
+2 2 
+by computing the 6 values for nodes 2 and 3, and the new values for the weights W23 and ~22and filling 
+out the table below. 
+Express 62, and 63 in terms of weights, inputs and outputs (no derivatives), and compute their exact 
+numerical values: 
+Expression (Derivative free) -4pts each Exact Numerical Value -Ips each 
+Express the new weights in terms of 6s (non-numerical) and numbers. 
+Expression using 6s -4pts each Exact Numerical Value -Ips each 
+Backprop notes 
+
+w,+ j =wj+.j -Aw;+, 
+Aw~,~=R x oli x Srj 
+where R is a rate constant and the 6s are computed with the following formulas: 
+where 
+ok 
+is output k of the output layer 
+dk 
+is the desired output k of the output layer 
+Sk 
+is a delta associated with the output layer 
+ori 
+is output i of left layer in a left-right pair 
+SIi 
+is a delta associated with the layer 1 
+S,, 
+is a delta associated with the adjacent layer to the right, layer r 
+Part C (5 points) 
+Consider the following network: 
+All units have step function thresholds, not sigmoids. 
+That is, output = 1 for input greater than 0; output = 0 for input equal to or less than zero. 
+There are five versions corresponding to five sets of weights: 
+You are to determine which set of weights in the table do well, given that you want unit y, = 1 for the 
+circular points and y, = 0for the square points: 
+Indicate which of the networks you expect to give nearly zero error on the given data set by circling one or 
+more of the following: 
+Part D (4 Points) 
+Indicate whether the following statement is true or false by writing "true" or "false" in the box, and 
+explain why in a few words. Our solution will have 10 words or less. 
+For a fixed network architecture, the backpropagation algorithm is guaranteed to find the best possible set 
+of weights, given sufficient training data. 
+Part E (3 Points) 
+Indicate whether the following statement is true or false by writing "true" or "false" in the box, and 
+explain why in a few words. Our solution will have 10 words or less. 
+You can always improve performance on both your training and test sets by adding more hidden layers to 
+your network. 
+This page is a spacer. Go to next page. 
+Problem 4: Support Vector Machines (15 Points) 
+The following diagrams illustrate the behavior of support vector machines that have been trained to 
+separate pluses (+) from minuses (-). The origin is at the lower left corner in all diagrams. 
+Exactly the same kernel function was used to produce both left and right pictures in each pair, and that 
+kernel has one of two forms: 
+In some diagrams, red vectors are marked because the machine was unable to handle all the samples; it 
+gave up on noting that one or more weights seemed to be climbing toward infinity. 
+For each pair, circle the kernel that was used to generate both diagrams of each pair. 
+Part 1 
+-
+Fadial basis function, sigma- 
+Radial basis function, sigma 0.50 
+Dot product, n = 1 
+Dot product, n = 3 
+Part 2 
+Radial basis function, sigma 0.12 
+@aZiil'I5~Zi~,sigma 03 
+Dot product, n = 1 
+Dot product, n = 3 
+. 
+Part 3 
+Radial basis function, sigma 0.12 
+
+Radial basis function, sigma 0.50 
+
+Dot product, n = 1
+
+pjG3 
+Part 4 
+Radial basis function, sigma 0.12 
+Radial basis function, sigma 0.50 
+(~ot product, n d 
+Dot produzG = 3 
+Part 5 
+Radial basis function, sigma 0.12 
+
+Radial basis function, sigma 0.50 
+
+Dot product, n= 1
+
+POW~~? 
+
+-

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="x-shader/x-vertex" id="vshader">
+      attribute vec4 aPosition;
+      uniform mat4 uTransformationMatrix;
+      
+      void main() {
+
+        gl_Position = uTransformationMatrix * aPosition;
+        gl_PointSize = 10.0;
+      }
+    </script>
+    
+    <script type="x-shader/x-fragment" id="fshader">
+      precision mediump float;
+      uniform vec4 uColor;		
+      void main() {
+      gl_FragColor = uColor;
+      }
+    </script>
+    
+    <!--Import external javascript file-->
+    <!--Helper javascript methods for initializing webgl-->
+    <script src="./lib/webgl-init.js"></script>
+    <script src="./lib/webgl-utils.js"></script>
+    <script src="./lib/webgl-debug.js"></script>
+    <script src="./lib/gl-matrix-min.js"></script>
+    
+    
+    <script>
+      function drawAxis(gl,uTransformationMatrixPointer,aPositionPointer,uFragColorPointer) {
+        var transformationMatrix = mat4.create();
+        gl.uniformMatrix4fv(uTransformationMatrixPointer,false,new Float32Array(transformationMatrix));
+      
+        var lines = [
+         0.0, 1.0,0.0,1.0,
+         0.0,-1.0,0.0,1.0,
+         1.0, 0.0,0.0,1.0,
+        -1.0, 0.0,0.0,1.0
+        ];
+        var linebuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,linebuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(lines),gl.STATIC_DRAW);
+        
+        
+        gl.vertexAttribPointer(aPositionPointer,4,gl.FLOAT,false,0,0);
+        gl.uniform4f(uFragColorPointer,1.0,0.0,0.0,1.0);
+        gl.drawArrays(gl.LINES,0,2);
+        gl.uniform4f(uFragColorPointer,0.0,1.0,0.0,1.0);
+        gl.drawArrays(gl.LINES,2,2);
+			
+      }
+    
+      function main() {
+        //Retrieve <canvas> element
+        var canvas = document.getElementById("main_canvas");
+        if(!canvas) {
+          console.log("Failed to retrieve the <canvas> element");
+        }
+        
+        //Get the rendering context (WebGL)
+        var gl = initializeWebGL(canvas,true);
+        //initialize shaders program
+        var vertexShader = initializeShader(gl,"vshader");
+        var fragmentShader = initializeShader(gl, "fshader");
+        var program = initializeProgram(gl,vertexShader,fragmentShader);
+        gl.useProgram(program);
+
+        var aPositionPointer = gl.getAttribLocation(program,"aPosition");
+        gl.enableVertexAttribArray(aPositionPointer);
+        var uTransformationMatrixPointer = gl.getUniformLocation(program,"uTransformationMatrix");
+        
+        var uFragColorPointer = gl.getUniformLocation(program,"uColor");
+        
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        
+        drawAxis(gl,uTransformationMatrixPointer,aPositionPointer,uFragColorPointer);
+        
+        var vertices = 
+        [0.1,0.1,0.0,1.0,
+        0.9,0.1,0.0,1.0,
+        0.5,0.8,0.0,1.0];
+        
+        
+        
+        var vertexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,4,gl.FLOAT,false,0,0);
+        
+        
+        
+        var pointOfRotation = vec4.clone([0.5,0.5,0.0,1.0]);
+        var origin          = vec4.clone([0.0,0.0,0.0,1.0]);
+        
+        //Step 1 - compute T as pointOfRotation (X) minus origin (0,0)
+        var T = vec4.create();
+        vec4.subtract(T,pointOfRotation,origin);
+        
+        //Step 2 - translate primitive by -T
+        var translateNegativeTMatrix = mat4.create();
+        var negatedT = vec4.create();
+        vec4.negate(negatedT,T)
+        mat4.translate(translateNegativeTMatrix,translateNegativeTMatrix,negatedT);
+        
+        //Step 3 - Rotate Result by theta
+        var rotationMatrix = mat4.create();
+        var angleOfRotation = 45.0;
+        var toRadians = glMatrix.toRadian(angleOfRotation);
+        mat4.rotateZ(rotationMatrix,rotationMatrix,toRadians);
+        
+        //Step 4 - Translate Result by T
+        var translatePositiveTMatrix = mat4.create();
+        mat4.translate(translatePositiveTMatrix,translatePositiveTMatrix,T);
+        console.log(translatePositiveTMatrix);
+        //Q = T_pos * R * T_neg * P
+        //Q =         M         * P
+        
+        var transformationMatrix = mat4.create();
+        //R * T_neg
+        mat4.multiply(transformationMatrix,rotationMatrix,translateNegativeTMatrix);
+        //T_pos * (R * T_neg)
+        mat4.multiply(transformationMatrix,translatePositiveTMatrix,transformationMatrix);
+        gl.uniformMatrix4fv(uTransformationMatrixPointer,false,new Float32Array(transformationMatrix));
+        
+        
+        gl.drawArrays(gl.TRIANGLES,0,3);
+        
+        
+      }
+    </script>
+  </head>
+
+  <body onload="main()">
+    <canvas id="main_canvas" width="400" height="400" style="border: 1px black solid; ">
+    </canvas>
+  </body>
+</html>

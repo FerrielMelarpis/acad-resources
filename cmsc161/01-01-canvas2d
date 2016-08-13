@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Canvas in HTML5
+    </title>
+    <script>
+    function main() {
+        //1. Retrieve <canvas> element
+        var canvas = document.getElementById("main_canvas");
+        if(!canvas) {
+            console.log("Failed to retrieve the <canvas> element");
+        }
+        
+        //2. Get the rendering context (HTML 2D)
+        var context = canvas.getContext("2d");
+        
+        //3. Draw using methods on that context
+        context.fillStyle = 'rgba(0,0,255,1.0)';
+        context.fillRect(10,10,200,200);
+    }
+    </script>
+</head>
+
+<body onload="main()">
+	<canvas id="main_canvas" width="400" height="400" style="border: 1px black solid">
+	</canvas>
+	
+</body>
+</html>

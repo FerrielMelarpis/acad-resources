@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="x-shader/x-vertex" id="vshader">
+      attribute vec4 aPosition;
+      attribute vec2 aUVCoordinates;
+    
+      uniform mat4 uModelMatrix;                //Model Matrix
+      uniform mat4 uViewMatrix;                 //View Matrix
+      uniform mat4 uProjectionMatrix;           //Projection Matrix
+
+      varying vec2 vUVCoordinates;
+      void main() {
+
+        gl_Position = uProjectionMatrix * uViewMatrix * uModelMatrix * aPosition;
+
+        vUVCoordinates = aUVCoordinates;
+      }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fshader">
+      precision mediump float;
+
+      uniform sampler2D uSampler;
+      
+      varying vec2 vUVCoordinates;
+      void main() {
+        gl_FragColor = texture2D(uSampler, vUVCoordinates);
+      }
+    </script>
+
+    <!--Import external javascript file-->
+    <!--Helper javascript methods for initializing webgl-->
+    <script src="./lib/webgl-init.js"></script>
+    <script src="./lib/webgl-utils.js"></script>
+    <script src="./lib/webgl-debug.js"></script>
+    <script src="./lib/gl-matrix-min.js"></script>
+
+
+    <script>
+
+      function main() {
+        //Retrieve <canvas> element
+        var canvas = document.getElementById("main_canvas");
+        if(!canvas) {
+          console.log("Failed to retrieve the <canvas> element");
+        }
+
+        //Get the rendering context (WebGL)
+        var gl = initializeWebGL(canvas,true);
+        //initialize shaders program
+        var vertexShader = initializeShader(gl,"vshader");
+        var fragmentShader = initializeShader(gl, "fshader");
+        var program = initializeProgram(gl,vertexShader,fragmentShader);
+        gl.useProgram(program);
+
+        var aPositionPointer = gl.getAttribLocation(program,"aPosition");
+        gl.enableVertexAttribArray(aPositionPointer);
+   
+        
+        var uFragColorPointer = gl.getUniformLocation(program,"uColor");
+        var uModelMatrixPointer = gl.getUniformLocation(program,"uModelMatrix");
+        var uViewMatrixPointer = gl.getUniformLocation(program,"uViewMatrix");
+        var uProjectionMatrixPointer = gl.getUniformLocation(program,"uProjectionMatrix");
+
+        gl.clearColor(0.0,0.0,0.0,1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+
+        //ENABLE DEPTH TESTING
+        gl.enable(gl.DEPTH_TEST);
+        gl.clear(gl.DEPTH_BUFFER_BIT);
+
+        var modelMatrix;
+        var viewMatrix;
+        var projectionMatrix;
+
+        /**START PROJECTION MATRIX SPECIFICATION**/
+        var fieldOfViewYAxis = glMatrix.toRadian(30);
+        var aspectRatio      = canvas.width/canvas.height;
+        var nearPlane        = 1;
+        var farPlane         = 100;
+
+        projectionMatrix = mat4.create();
+        mat4.perspective(projectionMatrix,fieldOfViewYAxis,aspectRatio,nearPlane,farPlane);
+        gl.uniformMatrix4fv(uProjectionMatrixPointer,false,new Float32Array(projectionMatrix));
+        /**END PROJECTION MATRIX SPECIFICATION**/
+
+        /**START VIEW MATRIX SPECIFICATION**/
+        var lookAtPoint = [0.0,0.0,0.0,1.0];              //where the camera is looking
+        var eyePoint    = [0.0,0.0,12.0,1.0];              //where the camera is placed
+        var upVector    = [0.0,1.0,0.0,0.0];              //orientation of the camera
+
+        viewMatrix = mat4.create();
+        mat4.lookAt(viewMatrix,eyePoint,lookAtPoint,upVector);
+        gl.uniformMatrix4fv(uViewMatrixPointer,false,new Float32Array(viewMatrix));
+        /**END VIEW MATRIX SPECIFICATION**/
+
+        //MODEL MATRIX
+        modelMatrix = mat4.create();
+        modelMatrix = mat4.identity(modelMatrix);
+        gl.uniformMatrix4fv(uModelMatrixPointer,false,new Float32Array(modelMatrix));
+    
+        
+        var square_position = [   // Coordinates
+          2.0, 2.0, 2.0, 1.0,     //vertex 1 position
+         -2.0, 2.0, 2.0, 1.0,     //vertex 2 position
+         -2.0,-2.0, 2.0, 1.0,     //vertex 3 position
+          2.0,-2.0, 2.0, 1.0      //vertex 4 position
+        ];
+        var square_position_buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, square_position_buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(square_position), gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,4,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPositionPointer);
+        
+        
+        /**START UV-MAPPING**/
+        var square_uv = [ //UV-mapping
+          1.0, 1.0,       //vertex 1 UV
+          0.0, 1.0,       //vertex 2 UV
+          0.0, 0.0,       //vertex 3 UV
+          1.0, 0.0        //vertex 4 UV
+        ];
+        
+        //create pointer to attribute variable in the vertex shader for passing uv coords
+        var aUVCoordinatesPtr = gl.getAttribLocation(program,"aUVCoordinates");
+        
+        //create buffer for UV Coordinates
+        var square_uv_buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, square_uv_buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(square_uv), gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aUVCoordinatesPtr,2,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aUVCoordinatesPtr);
+        
+        
+        
+
+        //create texture object to store all information about texturing
+        var texture = gl.createTexture();
+        if (!texture) {
+          console.log('Failed to create the texture object');	
+        }
+        
+        //create a sampler object responsible for texture sampling
+        var uSampler = gl.getUniformLocation(program, 'uSampler');
+        if (!uSampler) {
+          console.log('Failed to get the storage location of u_Sampler');
+        }
+        
+        //create an image object to store our image from file
+        var image = new Image();  // Create the image object
+        if (!image) {
+          console.log('Failed to create the image object');
+          return false;
+        }
+        
+        
+        //create a function that triggers when an image file is sucessfully loaded in the image object
+        image.onload = function() {
+          // Flip the image's y axis
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1); 
+          
+          // Enable texture unit0
+          gl.activeTexture(gl.TEXTURE0);
+          // Bind the texture object to the target
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+
+          // Set the texture parameters
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+
+          // Set the texture image
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
+
+          // Set the texture unit 0 to the sampler
+          gl.uniform1i(uSampler, 0);
+          
+          gl.clearColor(0.0,0.0,0.0,1.0);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.drawArrays(gl.TRIANGLE_FAN, 0, 4); 
+          
+        }
+        image.src = "heart512.png";
+        
+      }
+    </script>
+  </head>
+
+  <body onload="main()">
+    <canvas id="main_canvas" width="800" height="800" style="border: 1px black solid; ">
+    </canvas>
+  </body>
+</html>

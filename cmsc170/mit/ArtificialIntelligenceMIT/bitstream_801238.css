@@ -1,0 +1,510 @@
+/* OCW Scholar Courses supplemental stylesheet */
+
+#courses h1,
+#courses_inner h1,
+#download_inner_main h1{
+	color: #000;
+}
+
+.scholar_bar {
+	padding: 5px 5px 5px 8px;
+	font-family: verdana;
+	color: #fff;
+	font-size: 1.05em;
+	font-weight: bold;
+	width: 718px;							/* 718 vs. 524 */
+	height: 35px;
+	margin-left: 4px;
+	margin-top: 10px;
+}
+
+#content_body img.donate_but {
+	margin-top: 45px;  						/* 24 vs. 80 */
+}
+
+hr {
+	border-top: 1px solid #888;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+hr.top {
+	width: 534px;							/* 534 vs. 728 */
+	margin-bottom: 10px;
+}
+
+div.coursedescription {
+	padding-top: 0;
+}
+
+p.sl_highlight {
+	font-size: 0.9em;
+}
+
+.get_started li.none {
+	background: url('http://ocw.mit.edu/images/trans.gif') no-repeat scroll 3px 8px transparent;
+}
+
+.get_started li.selected {
+	background-color: #c9c6bb;
+}
+
+.get_started li.none a {
+	font-size: 0.9em;
+}
+
+a.low-indent {
+	margin-left: 7px;
+}
+
+.line2indent {
+	margin-left: 19px;
+}
+
+a.low-indent span.line2indent {
+	margin-left: 12px;
+}
+
+.get_started ul ul li {
+	margin-left: 27px;
+	_margin-left: 10px;				/* IE-specific instruction */
+	*margin-left: 10px;				/* IE-specific instruction */
+	font-size: 0.7em;
+	_font-size: 0.9em;				/* IE-specific instruction */
+	*font-size: 0.9em;				/* IE-specific instruction */	
+	_padding-bottom: 3px;			/* IE-specific instruction */
+	*padding-bottom: 3px;			/* IE-specific instruction */
+}
+
+.get_started ul li.redhead a {
+	color: #a33033;
+	font-weight: 200;
+	background-color: #c9c6bb;
+}
+
+span.sl_topic a:link,
+span.sl_topic a:visited,
+span.sl_topic a:hover {
+	background: none;
+	text-decoration: none;
+	font-size: 0.7em;
+	_font-size: 0.9em;				/* IE-specific instruction */
+	*font-size: 0.9em;				/* IE-specific instruction */
+	color: #000;
+	margin-left: -10px;
+}
+
+.get_started ul ul li.selected,
+.get_started ul ul li a:link,
+.get_started ul ul li a:visited {
+	width: 140px;
+}
+
+/* .get_started li a:link, 
+.get_started li a:visited, */
+.get_started .linkHolder .mO span.sl_topic a, 
+.get_started .linkHolder .mC span.sl_topic a {
+	width: 230px;
+	_width: 176px;
+	*width: 176px;
+}
+
+
+
+span.sl_topic a.selected {
+    color: rgb(163, 48, 51);
+}
+span.sl_wrapped_topic {
+    margin-left: 20px;
+	_margin-left: 29px;
+	*margin-left: 29px;
+
+}
+
+.mC,
+.mO {
+	background: none;
+	_padding-left: 0;				/* IE-specific instruction */				
+	*padding-left: 0;				/* IE-specific instruction */
+	-webkit-padding-start: 4px;
+}
+
+p.begin {
+	font-size: 0.9em;
+}
+
+.col_a {
+	width: 335px;
+	margin-right: 50px;
+	float: left;
+}
+
+.col_b {
+	width: 335px;
+	float: right;
+}
+
+
+
+div.hint {
+	background-color: #eee;
+	border: thin solid #f9f8f4;
+	margin-left: 20px;
+	padding: 6px;
+	font-size: 0.8em;
+	width: 500px;
+}
+div.hintin {
+	margin-left: 21px;
+	width: 500px;
+	background: #eee;
+	padding: 7px;
+	font-size: 0.8em;
+}
+div.inset {
+	border:thin solid #ecebe7;
+	background-color: #f9f8f4;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size:1.0em;
+	margin-right: 15px;
+	padding: 8px 8px 8px 60px;
+	background-position:10px 12px;
+	background-repeat:no-repeat;
+}
+
+div.inset_noimg {
+	border:thin solid #ecebe7;
+	background-color: #f9f8f4;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	padding: 0px 10px 0px 10px;
+	margin: 10px 0 0 15px;
+}
+
+div.inset_noimg p {
+	font-size:0.7em;
+}
+
+div.bulb {
+	background-image:url(../images/lightbulb.png);
+}
+div.check {
+	background-image:url(../images/check.png);
+}
+
+
+/*-- expandy styles from previous draft */
+
+div.expandy {
+	background-color: #e4e4dc;
+	margin: 0 0 1px 20px;
+	padding: 6px;
+	font-size: 0.8em;
+}
+	
+div.expandy a {
+	text-decoration: none;
+	font-weight: bold;
+}
+div.expandin {
+	margin-left: 20px;
+	margin-bottom: 25px;
+}
+div.expandin_item {
+	padding: 0px 10px 0px 25px;
+	border: none;
+}
+div.expandin_item a {
+	text-decoration: none;
+}
+div.expandin_item p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+li p {
+	font-size: 1.0em;
+}
+li.nb {
+	background-image: none;
+}
+li.nb_selected {
+	background-color:#C9C6BB;
+	background-image: none;
+}
+li.nb a,
+li.nb_selected a {
+	font-color: #000;
+	font-size: 1.0em;
+    text-decoration: none;
+	margin-left: -8px;
+}
+
+#courses_inner h1 {
+	width: 725px;
+}
+
+.course1 {
+	padding: 0em;
+}
+/*-- toggle styles 09-16-2010 */
+#scholar_container {
+    width: 672px;
+    padding-left: 20px;
+    margin-bottom: 1px;
+}
+h2.trigger {
+	padding: 0 0 0 25px;
+	margin: 0 0 5px 0;
+	background: rgb(228, 228, 220) url(../images/h2_trigger_open_close.gif) no-repeat;
+	color: #680A12;
+    height: 30px;
+	line-height: 30px;    
+    font-size: 0.8em;
+    font-weight: bold;
+	float: left;
+    width: 100%;
+    margin: 0.09em 0 0;
+}
+h2.trigger a {
+	color: #680A12;
+	text-decoration: none;
+	display: block;
+}
+h2.active {background-position: left bottom;}
+
+.toggle_container {
+	padding:0 10px 0 25px;
+	overflow: hidden;
+	clear: both;
+    margin-bottom:25px;
+}
+
+/* div .toggle_container p {		- removed, KC
+    margin-bottom:4px;
+    margin-top:4px;
+
+div .toggle_container a {
+    text-decoration:none;
+}
+
+} */
+
+/*Programmed and CopyWrited by Larry Battle 2008 - 3/6/09*/	
+.quiz-el{
+	/* background: #999999; */
+	font-size: 0.8em;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	position: relative;
+	padding: 0.1em;
+	width: 500px;
+}
+.quiz-el div{
+	/* padding: 0.2em; */
+}
+.quiz-el input{
+	font-size: 0.9em;
+}
+/* .q-innerArea = .q-header, .q-help, .q-prob, .q-intro, .q-gameOver */
+.q-innerArea{
+	background: #ffffff;
+	position:relative;
+	clear: both;
+	color: black;
+	padding-bottom: 1px;
+}
+.q-header, .q-help, .q-review-menu {
+	/* border-bottom: thin #999999 solid; */
+	margin-bottom: 15px;
+}
+.q-intro{
+	padding: 0.2em;
+}
+.q-title{
+	overflow: hidden;
+	width: 80%;
+	margin: 0;
+    /* font-size: 1.1em; */
+    font-weight: bold;
+	display: none;
+}
+.userInputArea {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+/*This is a hack, because IE fails on float:right.*/
+.q-counter{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	margin-right: 1%;   /* margin changed to margin-right */
+	padding: 0%;
+}
+.q-counter{
+	float: right;
+}
+.q-help{
+	position: relative;
+	clear:both;
+}
+.q-help, .q-ques, .q-check-btn {
+		margin-bottom: 5px;
+}
+/*.q-probArea = .q-ques, .q-ansSel, .q-result */
+.q-probArea{
+	/* background: #E2E1D9; */
+	border-bottom: thin #999999 solid;   /* border changed to border-bottom only */
+	font-size: 1.0em;
+    font-weight: bold;
+	position: relative;
+}
+.q-result {
+	font-weight: normal;
+}
+.q-help-menu{
+	/* width: 97%; */
+}
+.q-help-info{
+	clear:both;
+}
+.q-quit-area{
+	float:right;
+	display: none;			/* was display:inline; */
+	width:auto;
+}
+.q-help-btn {
+	display: none;
+}
+
+.q-center{
+	text-align: center;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.q-gameOver .q-statTotal{
+	color: blue;
+}
+.q-quesInput{
+	width: 95%;
+}
+.q-ol{
+	list-style-type: upper-alpha;
+	list-style-position: inside;
+	padding: 0;
+	margin: 0;
+}
+.q-ol-li{
+	margin: 0.4em auto 0.4em auto;
+}
+.q-ol-hover{
+	background: #E4E4DC;	/* was 727266 */
+}
+.q-ol-active{
+	background: #E4E4DC;	/* was 727266 */
+	color: #000000;
+}
+/*IE displays the wrong width for <select> tags.*/
+.q-select{
+	width : 80%;
+}
+.q-select{
+	font-size: 0.8em;
+	width: 100%;
+}
+.q-timer-area{
+	display:block;
+	text-align:center;
+	width: auto;
+}
+.q-review-menu{
+	/* text-align: center; */
+	width: auto;
+	margin-top: 5px;
+}
+.q-review-nav {
+	font-size: 0.8em;
+}
+.q-missMarker {
+	margin-left: 10px;
+}
+.q-reviewBar {
+	margin-top: 5px;
+}
+.q-reviewBar-btns{
+	display: inline-block;
+	width: 49%;
+    border: 1px solid #999999;
+}
+.q-review-btn,
+.q-details-btn {
+	color: #b41f24;
+	text-decoration: underling;
+}
+.q-reviewBar-btns .q-review-btn {
+	font-weight: bold;
+}
+.q-reviewBar-btns .q-details-btn {
+	font-weight: bold;
+}
+
+.q-leftArrow{
+	float:left;
+	display: inline;
+	width:auto;
+    border: 1px solid #999999; 
+	margin-right: 25px;
+}
+.q-timer-area{
+	line-height: 0;
+	height:0;
+}
+.q-rightArrow{
+	border: 1px solid #999999;
+	float: right;
+	margin-right: 10px;
+	margin-left: 25px;
+}
+input.q-del-btn {
+	display: none;
+}
+
+.q-check-btn, .q-help-btn, .q-quit-btn, .q-restart-btn, .q-quitYes-btn, .q-quitNo-btn{
+    border: 1px solid #999999; 
+}
+
+/* Non-JW video embed shading */
+
+.embedbg {
+	border: thin solid #000;
+	padding: 10px 10px 10px 25px;
+	margin-right: 56px;
+	background-color: #edecdf;
+}
+.scholarmedia {
+	border-bottom: none;
+	height: 80px;
+}
+.scholardownload {
+	margin-left: 120px;
+}
+.mediatext p a {
+	text-decoration: none;
+}
+p.scholar_medsm {
+	font-size: 0.7em;
+}
+
+/* Chalkboard thumbnail styles */
+
+.chalk {
+	border-top: 1px solid #C0C0C0;
+	border-bottom: none;
+	height: auto;
+}
+.chalk img {
+	border: solid thin #000;
+	margin: 0 0 16px 30px;
+}
+.chalk img.first {
+	margin-left: 0px;
+}

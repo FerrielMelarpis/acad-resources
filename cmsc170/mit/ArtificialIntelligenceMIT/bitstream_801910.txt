@@ -1,0 +1,465 @@
+6.034 Final Examination Solutions 
+December 15,2003 
+Problems are arranged in the order the corresponding topics were discussed. In each 
+problem, easy parts are in ht. Be sure to pace yourself so that you do dl the easy 
+puts! Note tear off sheet on back, which repeats helpful drawings and text. 
+Question 1: Search (17 points) 
+Supposeyou are trying to find a path from Sto G in the directed graph shown below. 
+You will use several search techniques to find this path. 
+Make the following assumptions: 
+The length of each link between nodes is given along the link. 
+The heuristic value for each node is given in parentheses next to the no&. 
+All heuristics are admissible. 
+Nodes are said to be "expanded" when a node is the fbd node in a path popped 
+off the search queue. 
+G will be discovered when a path to it is removed fiom the queue, not added to 
+the queue. 
+In the case of a "tie," nodes are expanded in alphabeticalorder. 
+Part 1.1:Different Algorithms (14 points) 
+1.1.1: Depth First Search (2 points) 
+List in order the nodes expanded by depth-first search (no enqueued list): 
+1.1.2: HilEClimbing (3 points) 
+List in order the nodes expaaded by hiklimbing search (with backup; no enqueued 
+list): 
+1.1.3: A* (9 points) 
+List in order the nodes expanded by A* search (with expandedlist): (4) 
+What is the path found by this A* search? (3) 
+When the A* search concludes, how many paths are lefi on the search queue? (2) 
+Part 1.2: Bidirectional Search (3 points) 
+Now, instead of doing a simple search from S to G, we choose to implement a 
+bidirectional search In the bidirectional search, a search from S to G is interdigitated 
+with a search from G to S. In other words, one search starts from S and produces all paths 
+of depth 1;then,another search starts fromG, goes against the mows, and produces all 
+paths of depth 1. The searches then alternate, adding additional layers to their search 
+queues, until an expansion prcduces a pa& fiam S that shares a node with a path fiom G. 
+Suppose we implement bidirectional breadtbfirst search without an enqueued list 
+That is, each of the two searches proceeds in a breadthfirst manner. In the search fiom S, 
+nodes at each level are expanded in alphnbetical order. I.the search from G, nodes at 
+each level are expanded in reverse alphabetical order. What is the path found (fromS 
+to G) by such a search? 
+Question 2: Rules (17 points) 
+Note: the two parts of this problem are independent! 
+Part 2.1: Backward chaining (10 points) 
+2.1.1: Backward Chaining Simulation (9 points) 
+As anyone with a strong enough eyeglasses prescription knows, a key problem in wearing 
+glasses is finding them again once you've set them down. In this problem, you will work 
+with a backwards chaining rules system used for finding a pair of glasses. Conflict 
+resolution is by rule order. 
+The rules, in order, are: 
+(R1 (IF (3% has bad breath) 
+
+(?x is stiff) 
+
+THEN (?x was sleeping))) 
+
+(R2 (IF (?x has back crick) 
+
+THEN (?x was on couch) ) ) 
+
+(R3 (IF (?x has bed-head) 
+
+THEN ( ?X was in bed) ) ) 
+
+(R4 (IF (?x has blanket-fuzz on face) 
+
+THEN ( ?x was in bed) ) 
+
+(R5 (IF (?x has wet hair) 
+
+THEN (?x was showering) )) 
+
+(R6 (IF (?x was sleeping) 
+
+(?x was on couch) 
+
+THEN (?x glasses are on coffeetable) 1) 
+
+(R7 (IF (?x was sleeping) 
+
+(?x was in bed) 
+
+THEN (?x glasses are on night-stand))) 
+
+(R8 (IF (?x was showering) 
+
+THEN (?x glasses are on sink) 1) 
+
+You are to determine how the backward chainer works given (Jake glasses are on ?x) 
+using the following assertions database. 
+(Abi has back crick) 
+
+(Abi has wet hair) 
+
+(Jake has bad breath) 
+
+(Jake has bed-head) 
+
+(Jake is stiff) 
+
+You are to show how backward cbaining works. In particular, you are to indicate the 
+
+patterns the system tries to match against the database by filling out the following table, 
+
+indicating the order in which the backward chainer tries to match pattern against the 
+
+database. To get you started, we have shown (Jake glasses are on ?x) as the first pattern 
+matched against the database. You have enough roam or more than enough room in the 
+table. 
+Note that if the system matches an instantiated pattern against the database, you are 
+to show in the table the pattern with each instantiated variable replaced by its 
+binding. Assume that the user answers no to dl questions. Assume that the 
+backwd chrrfner places no assertions into the database, so it may derive the same 
+result more than once. 
+You may find it useful to complete the tree we have started for you, but this is for your 
+ownconvenience. The only thing that will be graded is your answer in the table. 
+@ (Jake glasses are on ?x) 
+FI(Jake glasses are on ?x) 
+r;-=;; 
+/i-' (Take bhJbsu) 
+.Flaik ha* YUb. &i 
+'IF-;
+F- Cr,e ha5 Ira* -\
+F,;k *LC *) 
+(=ke has &-he4
+rYd,
+F l 
+Fr-
+2.1.2: Backward Chaining result (1 points) 
+Where are Jake's glasses? 
+Part 2.2: Rule Ordering (7 points) 
+You have these rules, but they are not necessarily shown in the order tbat they are 
+provided in the databae of rules: 
+(R1 (IF (baz ?x ?y) 
+
+THEN (qux ?y ?x))) 
+(R2 (IF (?x ?y d) 
+
+AND-IF (or (eq? '?x 'qux) (eq? '?x baz)) 
+THEN (qux a a))) 
+(R3 (IF (foo ?x) 
+
+(bar ?y) 
+
+THEN (baz ?x ?y) 1 ) 
+(R4 (IF (qux ?x ?y) 
+
+THEN STOP)) 
+(R5 (IF (foo ?XI 
+THEN (bar ?x) ) ) 
+You have these initial assertions, which are in the order shown.Assume new assertions 
+are added to the end of the list. 
+(bar a) 
+
+(foo b) 
+
+(bar dl 
+
+(foo C) 
+
+(baz a d) 
+
+(bar b) 
+
+We run a fmard chainer using "least recently fired" conflict resolution (i.e. given two 
+triggered instances, the one from the rule fired longer ago will be chosen). If the least- 
+recently-fired strategy produces a tie, then the rule earlier in the list has precdence. 
+Running the forward chainer produces the following new asdons: 
+(bar c) 
+
+(baz b a) 
+
+(qwcd a) 
+
+(qwc a a) 
+
+STOP 
+Show the order the rules are provided in the database of rules. If the order cannot be 
+determined, explain why. 
+Question 3: Perceptrons and Neural Nets 
+(19 points) 
+The two parts of this problem are independent. 
+Part 3.1: Perceptrons (7 points) 
+You are given the following data and perceptron network that classifies the data. Asme 
+that perceptrows output 0or 1, and that +, -,o are classes. 
+Label the nodes in the network according to their types: B (boundary line node), A (AND 
+logic node), 0 (OR logic node), N (NOT logic node). Label a node by writing the 
+appropriate letter (B, A, 0,or N) inside the node. 
+Part 3.2: Neural Nets (12 points) 
+The following neuralnetwork has 4 neurons labeled 1,2,3 and 4. All neurons behave as 
+sigmoid units except that they compute an output value using the function y = 22 + 1 
+(where z is the unit's input value) instead of the regular sigmoid fimction. Also, this 
+network uses a nonstandard error functionE = (1/3) 6' -y)3.This network is to be 
+used for the next two questions. 
+3.2.1: Forward Propagation (2 points) 
+Using the initial weights in the diagram and the input vector [XI,x2] = [2, -11, compute 
+
+the output of each specified neuron during forward propagation. 
+
+yl (output hm neuron 1) 
+
+y2 (output hm neuron 2) 
+3.2.2: Backward Propagation (10 points) 
+Using a learning rate of 1 and a &sired ouput vector of [y3,y4] = [O, I] backpropagate 
+the network computing the S values for units 1,3 and 4 and new values for weights in 
+the table below. Assume initial values for the weights are as specified in the diagram and 
+assume the following values for neuron outputs: 
+yl(outputatnodel)=-1.0 
+y2 (output at node 2) = 5.0 
+y3 (output at node 3) =0.2 
+y4 (output at node 4) = 0.9 
+Helpful backward propagation formulas appear on the teawff sheet at the end of 
+the examination 
+Express all 6s in terms of derivative free expressions. 
+Express the weights in terms of ds and numbers. 
+Question 4: Constraints (20 points) 
+Note: the parts of this problem are independent! 
+Part 4.1: Constrained search (14 points) 
+4.1.1: Pure ConstraintPropagation (6 points) 
+Consider the following three constraint networks: 
+In each of these networks, the nodes represent variables A, B, C, and D. The numbers in 
+each node are the domain of that variable. A link between a node repmmts a symmetric 
+constmint, d'cing the condition that the two variables, when sorted in alphWcal 
+order, will have their values in numerical order. In other words, the constraintsenforce 
+the conditionsA <B, A<C, B<D, and C<D. 
+Solve each constrajnt network using Pure Constraint Propagation, which eliminates 
+values hndomains using constraints, but does not do any form of search, For each 
+network: 
+a) Conclude that no solution exists 
+b) Find a solution that makes a unique assignment to each variable 
+c) Terminate inconclusively, without providing an answer as to whether a solutionexists. 
+Then circle the appropriate conclusion for each network: 
+Network 1 
+No solution 
+@ Returns solution 
+inconclusive 
+Network 2 
+@ Nosolution 
+Returnssolution 
+Inconclusive 
+Network 3 
+No solution 
+Returnssolution 
+Inconclusive 
+4.1.2: Simple Backtracking Search (4 points) 
+Consider the following network, which is Network 1 hmthe previous part. 
+Find one valid solution for this problem, if it exists, using backtracking (without 
+forward checking). Do not assume that any constraint propagation has been done. 
+Start from the initial doh values shown for each variable in the above network 
+Examine variables in alphabeticalorder and values in left to right order as given. Assume 
+that the search algorithm assigns a variable value, then checks constraints.Use the space 
+above to show your work, but be sure to write your answers in the box. 
+How many variable assignments were made? 
+4.13: Backtracking Search with Forward Checking (4 points) 
+Consider the same network as the previous part, Network 1, which is shown again here 
+for your convenience. 
+Find one valid solution for this problem, if it exists, using backtracking with forward 
+checking and pmpagation through domains of one. Do not assume that any 
+constraint propagation has been done. Start &om the initial domain values shown 
+for each variable in the above network. Examine variables in alphabetical order and 
+values in left to right order as given. Assume that the search algorithm assigns a variable 
+value, then checks comtrakts. Use the space above to show your work,but be sure to 
+write your answers in the box. 
+How many variable assignments were made? 
+Part 4.2: Representing in CSP (6 points) 
+IAP is nearly here, which means that Mystery Hunt, MIT's annual puzzle competition, is 
+right around the comer. In preparation, you &ci& to build some puzzle-solving tools. 
+A B 
+B A C 
+A B 
+
+B A C 
+
+ABC 4,$$$ ABC 4+5$ 
+CORRECTLY Wed Puzzle INCORRECTLYSolved Puzzle 
+One type of puzzle you might see looks like a crossword puzzle, but wjth different rules. 
+When the puzzle is correctly solved, each nonblack square in the grid has a letter 
+assigned to it. Above each column of the grid is a set of letters, each of which must 
+appear in exactly one of the cells in that column. Similary,to hleft of each row is a set 
+of letters, each of which must appear in exactly one of the cells in that row. Below the 
+unsolved puzzles are two attempted solutions, one correct and one incomect solution. The 
+incorrect solution is faulty because cell (3,2) contains a C, but row 2 should only contain 
+A and B. Similary, cell (1,l) contains a C, but column 1 should only contain A and B. 
+This class of puzzles can be represented using as a CSP problem with an appropriate 
+choice of variables, values, domains, and constraints. Actually, there are at least three 
+logical ways to do so. Below, we provide you with several options for variables, values, 
+domains, and constraints. Your job is to find three different combinations of these 
+options, each of which ensures that a CSP solver will be able to correctly solve the 
+puzzle, Note that you only need one typeof constraint, and each pair of variables 
+will be linked by at most one constraint. 
+Variable Options: 
+Interpretation 
+rv
+One variable fix each non-bkk cell 
+TFI
+One variable for each row 
+One variable for each column 
+14-1 One variable for each row, plus one variable for each column 
+One variable for each different letter (eg,3 variables, A, B, 
+rndq 
+One variable for each instance of a letter above a column or 
+instances beside a row 
+Value Options : 
+I~umb~rIYO* answer IInterpretation 
+T r I individual letters 
+' ~ ~ i n d i m u lletters, plus the value "empty" 
+cell oooniinates 
+vectors of letters, optionally with dashes standing in for black 
+Domain Options : 
+1YLiG-F~nterpretation 
+All variables initialized with the same domains 
+Constraint Options :Note that you only need one type of constraint, and each pair of 
+variables will be linked by at most one constraint. 
+/I7 
+each constraint requires that the values are equal 
+each constraint requiresthat the values are not equal 
+12-
+
+each constraint requires that the values both equal a specific value, or
+FF'ficmget 
+neiheNah 
+each emstrain*requiresthat specificcomponents ofthe values are eqd 
+constraint requires that specific components of the values are not 
+4.2.1: Representation Option 1(2 points) 
+4.2.2: Representation Option 2 (2 points) 
+4.2.3: Representation Option 3 (2 points) 
+Question 5: Trees & Learning (15 points) 
+Part 5.1: Topological Sort (4 points) 
+For this question, use this inheritance tree when doing CLIMBTREE options. 
+Resolve questions of precedence using the linearization produced by topological sort 
+(using alphabetical order to break ties). 
+What is the most specific shared superclass for the following pairs? If there is no 
+consistent answer, write "None."Two pairs have straightfinward answers; one is a tricky 
+case. Note that you do not need to Iinearize the eatire treeto work tBisproblem, just 
+those parts of the tree above the nodes specified in the pairs. 
+Alan and Zane 
+Eddie and Susie 
+Jealous and Fred 
+Part 5.2: Near-Miss: Updating the Model (3 point 
+points) 
+For this question, again use the inheritance tree provided in the previous part and resolve 
+questions of precedence using the linearization produced by topological sort (using 
+alphabetical order to break ties). You need not have solved the previous part to do this 
+part correctly. Also, there are no tricky cases. 
+Your near-miss system currently has the model of "grandparent" shown on the left and is 
+given the HIT training example shown on the right. 
+Show the model produced by applying near-miss learning: 
+LSp%&%. 
+
+6-q Payen+ 
+NEW MODEL 
+Part 5.3: Near-Miss: Teaching The System (5 points) 
+Your near-miss system currently has the model of sibling rivalry shown on the left and 
+
+you wish to teach it the new model on the right by means of a single example. 
+
+In general, a near miss requires a single Merenee, but redl from the arch example 
+in the newmiss lecture, two merences are allowed, and both are handled 
+simultaneously, if they are the same kind of difference and they involve the same 
+relations. 
+I 
+Your example should be a: 
+Hit 
+@ Near-Miss 
+The type of learning done will be: 
+0Specialization 
+Generalization 
+Both 
+Neither 
+Show an example that works here: 
+xlzlfl 
+NEW-
+"%= 
+eXCl~plt-
+Part 5.4: Near-Miss: Quality of an Example (3 points) 
+Your near-misslearner d y has the following model of inheritance (the kind that 
+occurs when you die). 
+'I'tuNG Wt' 
+MODEL 
+You decide your model needs work Circle your choice of the following three examples 
+for use as the next traitling example. 
+Question 6: Support Vectors (12 points) 
+The following diagrams represent graphs of support vector machines trained to separate 
+pluses (+) fiom minuses (-).The origin is at the lower left comer in all diagrams. See the 
+separate color sheet for a clearer view of these diagrams. 
+Part 6.1: Classifier quality (2 points) 
+Consider the following diagrams for SVMs, all trained on the same data set 
+A C 
+Which diagram represents the best classifier for the training data? Indicate your choice 
+here: 
+Part 6.2: Reasons for quality (3 points) 
+Circle all true statements. 
+The classifier claimed to be best... 
+Has a linear kernel. 
+Has a polynomial kernel. 
+@ Has fewer support vectors than some or all ofthe others. 
+e> Has fewer misclassified points than some or all of the others. 
+Has fewer classifiedpoints than some or all of the others. 
+@ Has fewer nonzero weights than some or all of the others. 
+Part 6.3: Characteristics(3 points) 
+Given the diagram,what can we say about the SVM that produced it? Circle alltrue 
+statements. 
+It has a linear kernel. 
+It has a polynomial kernel. 
+@ It has a radial basis kernel. 
+It has classified all points correctly. 
+It has overfit the data. 
+Part 6.4: Learning (1 points) 
+Assume that a support vector machine is to learn to separate all + fkom - in the following 
+diagram. Sketch the decision boundary the gutters) and circle the points 
+corresponding to support vectm 
+Part 6.5: Characteristics(3 points) 
+What can we say about SVMs prodwed with the training data shown in the diagram in 
+the jmvious part? Circle all true statements. 
+@ A radial basis kernel hdsthe same decision boundary.
+A radial basis kernel with a very small sigma finds more support vectors. 
+A radial basis kernel with a very small sigma finds fewer support vectors. 
+A radial basis kernel with a very large sigma finds more support vectors. 
+A radial basis kernel with a very large sigma finds fewer support vectors. 
+
+Tea~ffsheet 
+Useful equations and defmitlons: 
+
+z =zwuu 
+~euroninput function; wt =weight,XI = input value 
+
+y =f(z) 
+Neurcw output hction; for sigmoid neural net, y =s(z)=-
+1 + 
+1 
+e-' 
+E Enor hction; standard error hction; E =xx(y*-Y)2 
+*=-
+aE 
+"Blanie" for output neurons, derivative of error with respect to total input 
+m 
+dy 
+"BlamenforirmermmmsS =--~~w~,~ 
+&J k 
+w =w -r Descent rule 
+yr is x, for input layer 
+The rules: 
+(IF (?x has bad breath) 
+(?x is stiff 
+THEN (?x wars sleeping))) 
+(IF (?x has back crick) 
+THEN (?x wac3 on Couch))) 
+(IF (?x has bed-head) 
+THEN ( ?x war3 in bed) 1 ) 
+(IF (?x has blanket-fuzz on face) 
+THEN (?x war3 in bed) ) 
+(IF (?x has wet hair) 
+THEN (?x war3 showering) ) ) 
+(IF (?x was sleeping) 
+(?x was on couch) 
+THEN (?x gliasses are on coffeetable) 1) 
+(IF (?x was sleeping) 
+(?xwas in bed) 
+THEN (?x glinsses are on night-stand) ) ) 
+(IF (?x was showering) 
+THEN (?x glinsses are On sink) ) ) 
+The assertions database: 
+(Abi has back crick) 
+(Abi has wet hair) 
+(Jake has bad breath) 
+(Jake has bed-head) 
+(Jake is stiff) 

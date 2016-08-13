@@ -1,0 +1,373 @@
+Foundations: fortunate choices
+
+? Unusual choice of separation strategy:
+
+> Maximize ?street? between groups
+
+?	 Attack maximization problem: 
+> Lagrange multipliers + hairy mathematics 
+? New problem is a quadratic minimization:
+
+> Susceptible to fancy numerical methods
+
+? Result depends on dot products only
+
+> Enables use of kernel methods.
+
+Key idea: find widest separating ?street? 
+
+Classifier form is given and constrained 
+? Classify as plus if:
+
+f (x) = w ?u + b > 0
+
+?	 Then, constrain, for all plusses: 
+f (x) = w ? x
++
++ b ? 1 
+? And for all minuses
+
+f (x) = w ? x
+?
++ b ??1
+
+Distance between street?s gutters
+
+? The constraints require:
+
+w ? x
+1 
++ b =+1
+
+1
+x
+2
+x
+w ? x
+2 
++ b =?1
+
+?	 So, subtracting:
+
+w ?(x
+1 
+? x
+2
+) = 2
+
+?	 Dividing by the length of w 
+produces the distance between 
+the lines:
+
+w 2
+
+?(x
+1 
+? x
+2
+) = 
+w
+ w
+
+From maximizing to minimizing?
+
+? So, to maximize the width of the street, you 
+
+need to ?wiggle? w until the length of w is 
+
+minimum, while still honoring constraints:
+
+2 
+=separation
+w 
+?	 Alternatively, you can ?wiggle? to 
+minimize the following, while still honoring
+constraints 
+1 2 
+w 
+2 
+?while honoring constraints
+
+? Remember, the minimization is constrained
+
+? You can write the constraints as: 
+y
+i 
+(w ? x
+i 
++ b) ? 1
+
+Where yi is 1 for plusses and ?1 for minuses.
+
+Dependence on dot products 
+?	 After some hairy mathematics, you get to 
+the following problem: 
+Maximize	
+? 
+l 
+a
+i 
+? 
+1 
+? 
+l 
+a
+i
+a
+j
+y
+i
+y
+j 
+x
+i 
+? x 
+j 
+i=1
+2 
+i, j=1 
+l 
+Subject to 
+?
+a
+i
+y
+i 
+= 0
+i 
+and a
+i 
+? 0 
+i 
+l 
+Then check sign of f (x) = w ?u + b = (
+?
+a
+i
+y
+i 
+x
+i 
+?u) + b 
+i, j=1 
+Key to importance 
+?	 Learning depends only on dot products of 
+sample pairs. 
+?	 Recognition depends only on dot products 
+of unknown with samples. 
+?	 Exclusive reliance on dot products enables 
+approach to problems in which samples 
+cannot be separated by a straight line. 
+Example
+
+Another example
+
+Not separable? 
+
+Try another space!
+
+Problem starts here, 2D Dot products computed here, 3D
+
+What you need
+
+?	 To get into the high-dimensional space, you use 
+?(x
+1
+) 
+?	 To optimize, you need 
+?(x
+1
+) ??(x
+2
+) 
+?	 To use, you need 
+?(x
+1
+) ??(u) 
+?	 So, all you need is a way to compute dot products in high-
+dimensional space as a function of vectors in original 
+space! 
+What you don?t need 
+? Suppose dot products are supplied by
+
+?(x
+1
+) ??(x
+2
+) = K(x
+1
+, x
+2
+) 
+? Then, all you need is 
+K(x
+1
+, x
+2
+) 
+? You don?t need 
+?(x
+1
+) 
+Standard choices 
+? No change 
+?(x
+1
+) ??(x
+2
+) = K(x
+1
+, x
+2
+) = x
+1 
+? x
+2
+
+? Polynomial 
+K (x
+1
+, x
+2
+) = (x
+1 
+? x
+2
+)
+n 
+? Radial basis function 
+2
+
+? x
+1 
+?x
+2
+
+K (x
+1
+, x
+2
+) = e 
+2?
+2
+
+Polynomial Kernel
+
+Radial-basis kernel
+
+Another radial-basis example
+
+Aside: about the hairy mathematics 
+
+? Step 1: Apply method of Lagrange 
+multipliers
+
+1
+ 2
+Minimize w subject to constraints y
+i 
+(x
+i 
+? w + b) ? 1 
+2 
+yields 
+2
+Find places where L = 
+1 
+?
+? 
+l 
+a
+i 
+( y
+i 
+(x
+i 
+? w + b) ?1)w 
+2 
+i=1
+
+has zero derivatives
+
+Aside: about the hairy mathematics 
+Step 2: remember how to differentiate vectors 
+2
+? w 
+?x ? w 
+= 2w and = x 
+?w ?w 
+Step 3: find derivatives of the Lagrangian L 
+?L 
+= w ?
+? 
+l 
+a
+i 
+y
+i 
+x
+i 
+= 0 
+?w 
+i=1 
+?L
+l 
+=
+?
+a y
+i 
+= 0 
+?b
+i=1 
+i 
+Aside: about the hairy mathematics 
+? Step 4: do the algebra 
+L
+Dual 
+=
+? 
+l 
+a
+i 
+? 
+1 
+? 
+l 
+a
+i
+a
+j
+y
+i
+y
+j 
+x
+i 
+? x 
+j 
+i=1
+2 
+i, j=1 
+? Step 5: do more mathematics, obtaining
+
+l 
+?
+a
+i
+y
+i 
+= 0 
+i=1 
+0 ? a
+i 
+? C 
+Summary
+
+?	 Quadratic minimization depends on only on 
+dot products of sample vectors 
+? Recognition depends only on dot products 
+
+of unknown vector with sample vectors 
+
+?	 Reliance on only dot products key to 
+remaining magic 

@@ -1,0 +1,259 @@
+6.034 Quiz 2
+
+November 16, 2005
+
+Name 
+Email 
+Problem 
+number 
+Maximum Score Grader 
+1 34 
+2 30 
+3 36 
+Total 100 
+1 
+Problem 1. Constraint Propagation (34 pts)
+
+The following constraint network represents a coloring problem with 6 variables (Var 1 though 6) and one 
+or two or three colors in the domain of each variable (B, G, R, and Y).  Each line represents a constraint 
+that requires that the two variables have different colors. 
+1 
+B,G,R
+B, G 
+4 
+B,R 
+6 
+R 
+B,Y 
+5
+2
+3 
+Y 
+Binary constraints between variables are due to touching regions, while the domain restrictions on each 
+variable come from some other source. 
+Part A: (6 pts) 
+Draw a map containing 6 ?countries? that exhibits the same constraints as the above constraint graph: 
+6
+
+5
+
+Two of the 6 countries are drawn for you. Draw 4 additional countries above such that if there is a 
+
+constraint between two blocks, the two blocks share a boundary.
+
+Part B (28 points)
+
+Find one of the valid solutions for this problem using backtracking with forward checking AND 
+
+propagating through singleton domains . Examine variables in numerical order and values in 
+
+alphabetical order.  
+
+(1) Variables are explored in numerical order, starting with Variable 1. 
+(2) Values (Colors) are explored in alphabetic order (B first, then G, then R, then Y) 
+2 
+Draw a search tree for using backtracking with forward checking AND propagating through singleton 
+domains . 
+In addition: 
+1.	 For every node in the tree draw only the valid descendants at that point and 
+2.	 For every node in the tree draw the domains at that point, assuming constraint propagation runs 
+through all singleton domains  until no further domain reduction is possible anywhere and 
+3.	 Mark with an ASTERISK (*) ALL nodes at which assignments initiate constraint propagation 
+through singleton domains. 
+A portion of the tree is drawn for you 
+B 
+G 
+S 
+D(2) = 
+Var 1 
+D(3) = 
+D(4) = 
+D(5) = 
+D(6) = 
+Var 2 
+D(3) = 
+D(4) = 
+D(5) = 
+D(6) = 
+Var 3 
+D(4) = 
+D(5) = 
+D(6) = 
+Var 4 
+D(5) = 
+D(6) = 
+Var 5 
+D(6) =
+
+Var 6 
+3 
+Part B1: (4 pts) 
+How many asterisks did you mark in your tree? 
+Part B2: (8 pts) 
+Interpret your tree by filling in the blanks below: 
+The first time in the tree search that a variable assignment produces propagation through singleton 
+domains is when variable ________ is assigned the value ________.   
+After propagation, the domain of variable(s) _______ is /are found to be empty, and backtracking 
+occurs. 
+Part B3: (8 pts) 
+Circle either (I), (II) or (III), and fill in the corresponding blanks, if appropriate : 
+(I) 
+The second time that a variable assignment produces propagation through singleton domeains is 
+when variable ____ is assigned the value ____.    
+After propagation, the domain of variable(s) ____ is /are found to be empty, and backtracking 
+occurs. 
+(II) 
+The second time constraints are propagated through singleton domains is when variable ____ is 
+assigned the value ____. 
+After propagation, the search continues with another variable assignment. 
+(III)
+
+Constraints are not propagated through singleton domains a second time.
+
+Part B4: (8 pts) 
+After the search is finished, the resulting variable assignments are: 
+Var 1 Var 2 Var 3 Var 4 Var 5 Var 6 
+4 
+Question 2: Nearest Neighbors and ID Trees 
+(30 points) 
+Here is a set of data on Foos and Quxes.  You want to classify a and b as a Foo or a Qux.  (Note: if you 
+need a straightedge, the side of a sheet of paper works well.) 
+5 
+Part A: ID Trees (14 points) 
+First, use the ID Tree idea. We have provided you with the first test: ?Is the mass less than or equal to 6?? 
+and drawn it below: 
+Part A1 (4 points) 
+What is the disorder of the first test?  Write your answer in terms of fractions and logs. You need not 
+compute a numerical answer with a calculator. 
+6 
+Part A2 (6 points) 
+Test2, which is to test just one variable, will occur if the answer to test1 is true. Draw test2 below: 
+Test3, which is to test just one variable, will occur if the answer to test1 is false. Draw test3 below: 
+7 
+Part A4 (4 points)
+
+Using the ID tree you have completed, how would you classify a and b? 
+a is a b is a 
+Part B1 Nearest Neighbors (6 points) 
+Now you classify a and b using nearest neighbors. Draw the decision boundaries for nearest neighbor 
+decisions, assuming 1 nearest neighbor is all that matters, on the graph below. 
+Part B2 (4 points) 
+Using 1 nearest neighbor, a is a and b is a 
+Part C (6 points) 
+Using 3 nearest neighbors, a is a and b is a 
+8 
+ 
+Question 3: Neural Networks (36 points) 
+Part A: Backward Propagation (24 points) 
+For this part of the problem, you may find the backpropagation notes attached at the end of the quiz to be 
+helpful. Considering the following network, with sigmoid threshold functions. 
+1 
+3 
+Y 
+-1 
+W
+2
+ = 1 
+2 
+Below are the initial weights, repeated in this table for your convenience. Note that w
+11
+ does not originate 
+from sigmoid unit 1, but from x
+1
+, and w
+22
+ does not originate from sigmoid unit 2, but from x
+2
+. 
+1 
+1 
+-1 
+-1 
+w
+11
+ = 1 
+w
+22
+ = 1 
+W
+13
+ = -2 
+W
+23
+ = 2 
+W
+1
+ = 1 
+W
+3
+ = 0 
+w
+1 
+w
+11 
+w
+13 
+w
+2 
+w
+22 
+w
+23 
+w
+3 
+1 1 -2 1 1 2 0 
+The actual outputs of the units are as follows: 
+y
+1
+ (output of unit 1) = 1/2 
+y
+2
+ (output of unit 2) = 1/2 
+y
+3
+ (output of unit 3) = 1/2 
+Using a learning rate of 2, and desired output of Y = 0, and an error function E =
+1
+(Y - Y*)
+2 
+for the input
+2 
+(x
+1
+, x
+2
+) = [1, 1], backpropagate the network for one iteration, by computing the new values for the weights 
+w
+23 
+and w
+22
+ and filling out the values below. Provide numerical answers and show your work for partial 
+credit. 
+w
+23
+ = 
+w
+22
+ = 
+9 
+0 
+Part B1: Boundary Lines (8 points)
+
+X -2 
+Y 1 
+-1 
+output
+Z 
+All units have step function thresholds, not sigmoids!! 
+That is, output = 1 for input greater than 0; output = 0 for input equal to or less than 0. The black box in 
+the diagram is a transmogrifier that converts its input into the following outputs: 
+Z Output 
+1 
+0 
+Draw the boundary line this unit produces on the following graph: 
+Part B2 (4 points) 
+What will our system output if we feed it any point above the boundary line? Circle your answer. 
+10 
+Backprop notes
+
+11 

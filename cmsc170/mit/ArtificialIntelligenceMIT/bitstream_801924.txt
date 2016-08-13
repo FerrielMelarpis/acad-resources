@@ -1,0 +1,571 @@
+6.034 Quiz 2 
+October 25, 2006 
+Name   
+EMail   
+ 
+ 
+Problem number  Maximum  Score Grader 
+1  50   
+2  50   
+Total  100   
+There are 10 pages in this quiz, including this one.  
+Tear-off sheets are provided at the end with 
+duplicate drawings and data. 
+ 1
+Problem 1: Search in Games (50 points) 
+ 
+Part A: Minimax (6 points) 
+ 
+ 
+ 
+ 
+Compute the minimax value of 
+ 
+A =  
+ 
+ 
+B =  
+ 
+ 
+ 
+ 
+ 
+C = 
+ 2
+Part B: Minimax with Alpha-Beta Pruning  
+(20 points) 
+ 
+In the game tree below, clearly indicate with a checkmark the nodes/states that are 
+statically evaluated during minimax with alpha-beta pruning. 
+ 
+ 
+ 
+ 
+ 
+ 3
+Part C: Minimax with Alpha-Beta Pruning and 
+Progressive Deepening (10 points) 
+ 
+When answering the question in Parts C.1 and C.2 below, assume you have already applied 
+minimax with alpha-beta pruning and progressive deepening on the corresponding game 
+tree up to depth 2. The value shown next to each node of the tree at depth 2 is the 
+respective node?s static-evaluation value. Assume the procedure uses the information it has 
+acquired up to a given depth to try to improve the order of evaluations later. In particular, 
+the procedure reorders the nodes based on the evaluations found up to depth 2 in an attempt 
+to improve the effectiveness of alpha-beta pruning when running up to depth 3. 
+ 
+We want to know in which order the nodes/states A, B, C, and D in the game tree are 
+evaluated when the procedure runs up to depth 3, after running up to depth 2 and 
+reordering. 
+ 
+Part C.1: Game Tree I (5 points) 
+ 
+Choose the order in which the nodes/states A, B, C and D in game tree  I above are 
+evaluated when running minimax with alpha-beta pruning and progressive deepening after 
+running up to depth 2 and reordering. (Circle your answer) 
+ 
+a. A B C D 
+b. D A B C 
+c. B A D C 
+d. C D A B 
+e. D C B A 
+ 4
+Part C.2: Game Tree II (5 points) 
+ 
+ 
+ 
+ 
+Choose the order in which the nodes/states A, B, C and D in game tree  II above are 
+evaluated when running minimax with alpha-beta pruning and progressive deepening after 
+running up to depth 2 and reordering (Circle your answer) 
+ 
+f. A B C D 
+g. D A B C 
+h. B A D C 
+i. C D A B 
+j. D C B A 
+ 
+ 5
+Part D: Optimal Minimax with Alpha-Beta 
+Pruning (14 points) 
+ 
+ 
+In the game tree below, cross out the nodes/states that are not statically evaluated in the 
+best case for minimax with alpha-beta pruning (when the procedure performs the smallest 
+number of static evaluations ever possible for the given game tree). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 6
+Problem 2: Constraints (50 points) 
+ 
+In the following questions, you will be asked to color in a map of some states and regions 
+of the United States according to how you think they will vote in this years? election.  You 
+created the following constraint network, which contains: 
+? Nodes (which are the variables representing states that you will color) 
+? Edges (which represent the constraints between variables) 
+? Domains (the possible colors for each state or region, also listed in each node) 
+ 
+You also know that Massachusetts will vote Blue, and that Texas will vote Red.  For this 
+reason, you have restricted the value of those domains to just B and R, respectively.  If 
+you?ve determined the vote of a particular state, no surrounding state may be the opposite 
+color.  Whenever possible, you want to color surrounding states the same color, but if that 
+is not possible, you decide to color them yellow, which acts as a buffer between the blue 
+and red states. However, yellow states cannot share a border. 
+ 
+The constraint used is NOT THE SAME AS IN THE MAP COLORING PROBLEM.  
+Instead, the edge between states (or regions) indicates: 
+? R-B, B-R, and Y-Y pairs are not allowed  
+? R-R, B-B, R-Y, B-Y are allowed by the constraint 
+New England 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+MA 
+{B} 
+ 7
+Part A:  Backtracking Search with 
+Forward Checking (20 points) 
+ 
+Draw a search tree using backtracking with forward checking (no propagation beyond 
+neighbors of just-assigned variable).  For every node in your tree, draw only all its valid 
+descendants. 
+ 
+The constraint you should use is repeated below: 
+The edge between states (or regions) indicates: 
+? R-B, B-R, and Y-Y pairs are not allowed  
+? R-R, B-B, R-Y, B-Y are allowed by the constraint 
+ 
+For each node that was just assigned, order the descendents of the node in the order R, B, Y.  
+ 
+A portion of the tree is drawn for you. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Massachusetts 
+B 
+Texas 
+S 
+ 
+New England 
+ 
+ 
+Ohio Valley 
+ 
+ 
+ 
+Southeast 
+ 
+ 
+ 
+Great Lakes 
+ 
+ 
+Mid-Atlantic 
+ 
+ 
+ 
+Midwest 
+ 
+ 
+ 
+South 
+ 
+ 
+New York 
+ 
+ 
+ 
+Florida 
+ 
+ 8
+ 
+Part B: Backtracking Search with Forward 
+Checking and Constraint Propagation (20 points) 
+ 
+Draw the search tree that results from using backtracking with forward checking AND 
+propagating through domains that are reduced to size 1 [singleton domains]. For every 
+node in your tree, draw only all its valid descendants.  
+ 
+The constraint you should use is repeated below: 
+The edge between states (or regions) indicates: 
+? R-B, B-R, and Y-Y pairs are not allowed  
+? R-R, B-B, R-Y, B-Y are allowed by the constraint 
+For each node that was just assigned, order the descendents of the node in the order R, B, Y.  
+ 
+A portion of the tree is drawn for you. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Massachusetts 
+B 
+Texas 
+S 
+ 
+New England 
+ 
+ 
+Florida 
+ 
+ 
+ 
+Mid-Atlantic 
+ 
+ 
+ 
+Midwest 
+ 
+ 
+Ohio Valley 
+ 
+ 
+ 
+Great Lakes 
+ 
+ 
+ 
+South 
+ 
+ 
+New York 
+ 
+ 
+ 
+Southeast 
+ 
+ 9
+ 
+Part C: Ordering Variable Assignments (10 points) 
+ 
+Bill really wants to color states with his favorite color, and he has asked your help in order 
+to do so.  Instead of assigning colors randomly, you decide to assign colors to states/regions 
+using the same algorithm that you would use to speed up map coloring.  Using this 
+algorithm for regular map coloring, after assigning values to Massachusetts and Texas, 
+which state(s) would you color next? 
+(If you think more than one state should be colored next, circle more than one answer.) 
+ 
+Florida     Great Lakes     Mid-Atlantic     Midwest     New England      
+ 
+New York     Ohio Valley     Southeast     South 
+ 
+Using the map coloring algorithm for ordering variable assignments, why did you choose 
+your answer from above?  (Please answer in one sentence or less).   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+A copy of the graph is repeated below for your convenience. 
+ 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+MA 
+{B} 
+New England 
+{R, B, Y} 
+ 10
+Tear-off Sheets 
+ 
+For 1.A: Minimax  
+ 
+ 
+ 
+For 1.B: Minimax with Alpha-Beta Pruning 
+ 
+ 
+ 
+For 1.C.1: (Minimax with Alpha-Beta Pruning and 
+Progressive Deepening) Game Tree I 
+ 
+ 
+ 
+ 
+ 
+ 
+For 1.C.2: (Minimax with Alpha-Beta Pruning and 
+Progressive Deepening) Game Tree II 
+ 
+For 1.D: Optimal Minimax with Alpha-Beta 
+Pruning 
+ 
+ 
+ 
+ 
+ 
+Domain Tables for 2.A: Backtracking Search with 
+Forward Checking 
+ 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+   
+ 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+ 
+ 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+Variables Domains 
+Massachusetts B 
+Texas R 
+New England R   B   Y 
+Ohio Valley R   B   Y 
+Southeast R   B   Y 
+Great Lakes R   B   Y 
+Mid-Atlantic R   B   Y 
+Midwest R   B   Y 
+South R   B 
+New York R   B 
+Florida R   B 
+Domain Tables for 2.B: Backtracking Search with 
+Forward Checking and Constraint Propagation 
+ 
+Variables Domains Variables Domains 
+Massachusetts B Massachusetts B 
+Texas R Texas R 
+New England R   B   Y New England R   B   Y 
+Florida R   B Florida R   B 
+Mid-Atlantic R   B   Y Mid-Atlantic R   B   Y 
+Midwest R   B   Y Midwest R   B   Y 
+Ohio Valley R   B   Y Ohio Valley R   B   Y 
+Great Lakes R   B   Y Great Lakes R   B   Y 
+South R   B  South R   B  
+New York R   B New York R   B 
+Southeast R   B  Y 
+ 
+Southeast R   B  Y 
+ 
+ 
+Variables Domains Variables Domains 
+Massachusetts B Massachusetts B 
+Texas R Texas R 
+New England R   B   Y New England R   B   Y 
+Florida R   B Florida R   B 
+Mid-Atlantic R   B   Y Mid-Atlantic R   B   Y 
+Midwest R   B   Y Midwest R   B   Y 
+Ohio Valley R   B   Y Ohio Valley R   B   Y 
+Great Lakes R   B   Y Great Lakes R   B   Y 
+South R   B  South R   B  
+New York R   B New York R   B 
+Southeast R   B  Y 
+ 
+Southeast R   B  Y 
+ 
+ 
+Variables Domains Variables Domains 
+Massachusetts B Massachusetts B 
+Texas R Texas R 
+New England R   B   Y New England R   B   Y 
+Florida R   B Florida R   B 
+Mid-Atlantic R   B   Y Mid-Atlantic R   B   Y 
+Midwest R   B   Y Midwest R   B   Y 
+Ohio Valley R   B   Y Ohio Valley R   B   Y 
+Great Lakes R   B   Y Great Lakes R   B   Y 
+South R   B  South R   B  
+New York R   B New York R   B 
+Southeast R   B  Y 
+ 
+Southeast R   B  Y 
+For 2: Constraints 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+MA 
+{B} 
+New England 
+{R, B, Y} 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+MA 
+{B} 
+New England 
+{R, B, Y} 
+ 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+MA 
+{B} 
+New England 
+{R, B, Y} 
+Texas 
+{R} 
+South 
+{R, B} 
+Florida 
+{R, B} 
+Southeast 
+{R, B, Y} 
+Mid-Atlantic 
+{R, B, Y} 
+Midwest 
+{R, B, Y} 
+ 
+Ohio Valley 
+{R, B, Y} 
+Great Lakes 
+{R, B, Y} 
+New York 
+{R, B} 
+New England 
+{R, B, Y} 
+MA 
+{B} 

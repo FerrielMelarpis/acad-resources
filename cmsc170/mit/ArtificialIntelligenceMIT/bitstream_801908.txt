@@ -1,0 +1,88 @@
+                       
+skip to content 
+This is an archived course. A more recent version may be available at ocw.mit.edu.
+ 
+ 
+  
+Home
+Courses
+Donate
+About OCW
+ 
+           
+  Advanced Search
+ 
+Help
+Contact Us
+ 
+VIEW ALL COURSES
+   f!--Left Nav Starts -->
+Course Home
+Syllabus
+Readings
+Assignments
+Exams
+Tools
+
+ 
+Translations*
+?????????
+Archived Versions
+Fall 2002
+Home > Courses > Electrical Engineering and Computer Science > Artificial Intelligence > Assignments 
+Assignments 
+
+Problem Set Grading Policy
+What is GraderBot?
+Problem sets are graded automatically. The tests measure whether you understand the general AI concepts, but the problem sets make sure you can apply these concepts in real code. In order to test that the code you wrote works and meets the requirements of the problem, we run the code on an expanded version of tester.scm, called the "hidden tester".
+The public test cases - the ones that you should be sure to pass before submitting - are included in the hidden tester, and will be worth at least 33% of the points.
+The Scheme code you submit needs to run without human intervention! The TAs do not have time to balance your parentheses or define your undefined variables. Your best bet is to run tester.scm right before you submit. If tester.scm does not run, then GraderBot will not be able to give you a grade.
+On Problem Set 1, we dealt with this by fixing the code until it would at least run and giving partial credit for the points it earned. But there's a much simpler way to do this, now that there's a policy for late problem sets.
+From now on, code that does not run does not count as a submission. We'll just e-mail you and tell you that it doesn't work, and you get to resubmit it late. Yes, you lose credit that way, so that's why you should make sure your code runs.
+Late Problem Sets
+We've come up with a policy on turning in problem sets late.
+The main point is that we hope you don't do it, because it makes things difficult for us. Start your problem sets early, and ask your questions in tutorial. If you have a legitimate reason that you need an extension (not just procrastination), ask the TAs well in advance.
+If you want to turn in a problem set late, you must do these things:
+E-mail the TAs before midnight, telling them not to expect your problem set.
+Submit your problem set in the usual way when you're done.
+E-mail the TAs and tell them that you're done.
+Problem sets that are turned in 0-2 days late will lose 25% of the points they would otherwise get (this is different from losing 25 points).
+Problem sets that are turned in more than 2 days late will lose 50% of the points. (We want to release solutions by then. If you submit after this, you're on your honor not to look at the solutions or the hidden tests until you submit.)
+Problem sets that are turned in more than a week late will get no credit.
+Problem Sets
+The assignments in this section refer to Athena, which is MIT's UNIX??-based computing environment.
+Assignments files.
+ASSIGNMENTS
+SUPPORTING??FILES
+Problem Set 0 (PDF)
+Using Dr. Scheme (PDF)
+(ZIP) (The ZIP file contains: 4 .scm files.)
+Problem Set 1 (PDF)
+(ZIP) (The ZIP file contains: 10 .scm files.)
+Problem Set 2 (PDF)
+(ZIP) (The ZIP file contains: 4 .scm files.)
+Problem Set 3 (PDF)
+(ZIP) (The ZIP file contains: 6 .scm files.)
+Problem Set 4a (PDF)
+(ZIP) (The ZIP file contains: 6 .scm files.)
+Problem Set 4b (PDF)
+(ZIP) (The ZIP file contains: 7 .scm files.)
+Problem Set 5 (PDF)
+Boost Notes (PDF) (Courtesy of Luis Ortiz. Used with permission.)
+(ZIP) (The ZIP file contains: 5 .scm files.)
+
+ 
+ 
+ 
+ 
+ 
+  
+ RSS Feeds
+Privacy and Terms of Use
+Site Map
+Cite OCW Content
+Your use of the MIT OpenCourseWare site and course materials is subject to our Creative Commons License and other terms of use.
+ 
+   
+ 
+ 

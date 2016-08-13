@@ -1,0 +1,343 @@
+6.034 Quiz 2 5oluhbns 
+November 17,2003 
+- - " - 
+I 
+i Problem number 
+I ."" - --- ". -- . "" =.-.-is- - - , - -- - m 
+, / 
+.................................... I...."IIIIIIXI" -.... . ........ " .. . ...*.-........-..--.- ... 
+I ............... .... 
+Total 
+...*. ...... .. ............. --*.,- "". 
+..... 
+I Name 
+... 
+............................................. ................... 
+.............. 
+................................................................................................................. ,,,,, 
+Question 1: Semantic Transition Trees (12 points) 
+Use the grammar shown below (in the syntax used for PS3) to answer all parts of this 
+
+question. Lines of the grammar file are numbered for reference. 
+
+1: (?sentence ?noun-phrase ?verb-phrase 
+
+%end '(action = ,?verb-phrase thing = ,?noun-phrase) 
+
+2: (?noun-phrase ?determiner ?noun %end ?noun) 
+
+3: (?verb-phrase ?verb ?direction ?place %end ?verb) 
+
+4: (?place ?determiner ?noun %end ?noun) 
+
+5: (?direction (onto %end ' 0 ) 
+
+(into Bend ' () ) 
+
+(around %end ' 0 )) 
+
+6: (?verb (hopped %end ' jump) 
+(ran %end 'traverse) 
+
+(leaped %end 'jump) 
+
+(walked %end 'traverse)) 
+
+7: (?noun (rabbit %end 'rabbit) 
+
+(table %end 'table) 
+
+(bunny %end 'bunny) 
+
+(chair %end 'chair)) 
+
+8: (?determiner (the %end '0) 
+
+(a %end ' 0) 
+
+(an %end ' 0)) 
+
+Part 1.1: Parsing (6 points) 
+1.1.1: (3 points) 
+What will be returned fiom a parse of the sentence, "The rabbit hopped onto the table"? 
+
+(If the parse fails, enter "NULL") 
+
+1.1.2: (3 points) 
+What will be returned fiom a parse of the sentence, "The rabbit leaped over to the chair"? 
+(If the parse fails, enter "NULL") 
+f 
+1 NULL 
+1
+-- * **"* . 
+Part 1.2: Augmenting the Grammar (6 points) 
+Suppose we want to augment the grammar so the system can handle sentences with zero 
+or one adjective. The goal is to change the grammar so a parse of sentences such as, "The 
+cute bunny walked onto the table" will not fail but that all sentences that previously 
+parsed correctly will still continue to do so. To accomplish this, We start by creating the 
+adjective tree shown below. This line is added to the end of our grammar file. 
+9: (?adjective (cute %end ' 0)(red Bend ' 0) (fuzzy %end ' 0)) 
+1.2.1: (3 points) 
+One other line must be changed so our parser will make use of this adjective tree and 
+achieve the goal described above. Changing what line will accomplish this task? Note 
+that there is more than one correct answer. 
+1.2.2: (3 points) 
+Enter your changed line here: 
+"- - - - --" "*-
+- - - -------- "-*-- - --* 
+I 
+noufi-phrorc 
+(? d&rmkr ?noun 76~4?rroun) 
+(?d&m;ntr ?ad,ie&ue ?n~un 7w.d ?~ou 
+Question 2: ~earestNeighbors and Identification 
+Trees (37 points) 
+For your convenience in working this problem, we provide a table of logarithms, which 
+you may find useful when checking some of your answers. The table is also on the tear-
+off sheet at the end of the quiz. 
+Part 2.1: Decision boundaries, warm up (9 points) 
+2.1.1: Nearest neighbors (3 points) 
+Draw the decision boundaries produced by a 1-nearest neighbor classifier on the 
+following samples of circles and triangles. 
+Repeat, but this time, draw the decision boundaries found by an identification tree 
+builder. Assume that all tyts are of the form x <T ory <T, where T is a threshold value. 
+4. A A 
+I 
+J 
+A 
+i 
+A 
+4 
+a-W A x 
+I 
+4 
+2.1.2: Standard identification tree (3 points) 
+2.1.3: Augmented identification tree (3 points) 
+Again, find the decision boundaries found by an identification tree builder, but this time 
+suppose that your test options include not only x < T and y < T but also x -y <T and x + 
+y <T, where T is a threshold value. 
+Part 2.2: Decision boundaries, movies (q8 points) 
+Excited about the performance of classifiers you used for learning viewer preferences and 
+recommending movies, you decide to apply your expertise to a new domain. This time, 
+you want to recommend music to people, based on what hey have rated highly before. 
+However before you make any recommendations, you need to recognize each listener's 
+category, based on each listener's music tastes, determined by the listener's ratings for 
+two songs. 
+Below, you are given a chart that shows how various people, belonging to 3 different 
+listener groups, rated two songs. To make a recommendation to a new person, you first 
+want to identify to which listener group they belong, and then to make a recommendation 
+based on what others in the listener group rated high. 
+The circles, triangles and diamonds represent three groups of people with a consistent 
+music taste. 
+2.2.1: Nearest neighbors (8 points) 
+On the chart, draw the decision boundaries produced by a 1-nearest neighbor classifier on 
+the samples. Later on, we will refer to this as option A. 
+Extra copies of this chart ar
+Y
+on the tear-off sheet at the end of the quiz. 
+2.2.2: Standard identification tree (4 points) 
+Repeat, but this time, draw the decision boundaries found by an identification tree 
+builder. Assume that all tests are of the form x <T or y <T, where T is a threshold value. 
+Later on, we will refer to this as option B. 
+2.2.3: Disorder Calculation (4 points) 
+What is the entropy (disorder) associated with the first test in the decision tree found by 
+an identification tree builder? You may write your answer as a number or a variable-fiee 
+expression. 
+2.2.4: Augmented identification tree (4 points) 
+Again, find the decision boundaries found by an identification treebuilder, but this time 
+suppose that your test options include only x -y <T and x +y <T, where T is a threshold 
+value. Later on, we will refer to this as option C. 
+2.2.5: Disorder Calculation (4 points) 
+What is the entropy (disorder) associated with the first test in the decision tree found by 
+an identification tree builder described in 2.2.4?You may write your answer as a number 
+or a variable-free expression. 
+2.2.6: Picking a theory (2 points) 
+Which of the three options do you consider best? 
+Which of the three options do you consider worst? 
+2.2.7: Identification (2 points) 
+In the following chart, what is the label of the unknown person *U, using the 1-Nearest 
+Neighbor method and the Euclidean distance as the distance metric? 
+What is the label using the 3-Nearest Neighbor method and the Euclidean distance? 
+What data point is most likely to be noise? Circle it on the graph. 
+A 
+3 
+PJ 
+2 
+8 
+1 
+i
+j t i i 
+i
+I 
+I i
+1 1 
+i 
+@ i 
+8 
+---
+i --A& I 
+-f-- -f"----
+1 1 
+I i
+i 
+--l-- 1 
+t 
+I i
+I I I * f
+i 
+- 4"-"..-B-;rpt
+i
+------ k..---....""-..".-. "&
+7' 
+-
+i 
+! f I 
+I 
+* 
+1 
+I + 
+i
+1 
+i 
+j 
+i I
+* 
+I 
+i +
+! i
+.------- A . -..-----
+t T 
+-
+i 
+I 
+i
+1 * i t
+i 
+i 
+i i I 
++ 
+i 
+1
+i i 
+j 
+i i 
+i i 1 i 
+1 2 3 Song 1 
+b 
+Question 3: Neural Nets (31 points) 
+
+Consider the following network (several copies are on a tear-off sheet at the end, for your 
+convenience: 
+There are four neurons, a, b, c, and d, all of which use a sigmoid function. 
+You can use the following values to approximate the sigrnoid function. The table is also 
+on the tear-off sheet. 
+Part 3.1: Forward Propagation (21 points) 
+You are given all but three of the weights, along with this data, which provides the 
+observed output, given three sets of input values: 
+Note: all of the numbers should come out nicely if you round to the nearest tenth. 
+Calculate the values of the three unknown weights: 
+3.1.1: Alpha (12 points) 
+3.1.2: Beta (6 points) 
+3.1.3: Gamma (3 points) 
+Part 3.2: Backward Propagation (10 points) 
+Consider a situation when the inputs are X=2, Y=7,2=2 and the output is Q=0.5. If the 
+desired value Q* is 0, and the rate constant is 4, then how much does gamma change 
+after backpropagation? Note that we are not asking for the new gamma, but only the 
+change. 
+Question 4: Miscellaneous (20 points) 
+Circle the best answer for each multiple choice question. No penalty for wrong answers. 
+Perceptron units are less useful than sigmoid units because: 
+Perceptron units are much more computationallyexpensive 
+@ Multilayer perceptrons are too hard to train 
+Perceptrons cannot be used to differentiatemore than two types of object 
+All of the above 
+None of the above 
+Neural networks ... 
+Use faithful models of neurons in the human brain. 
+Always eventually converge to the correct answer. 
+Work best with very little training data. 
+All of the above 
+@ None of the above 
+Given an arbitrarybinary expression (e.g. (X AND Y) OR(NOT2))the minimum 
+neural network that can be used to compute it is: 
+A network with 1layer of neurons. 
+@ A network with 2 layers of neurons. 
+@ A network with 3 layers of neurons. 
+A network with 4 layers of neurons. 
+A network with an arbitrarynumber of layers, 
+It may not be computable. 
+You have to develop a classificationsystem given a n-dimensional sample set for which 
+it is known that some of the dimensions are completelyirrelevant. Unfortunately, you do 
+not know which of the dimensions are irrelevant. You immediately conclude that the best 
+approach of the following approaches is: 
+A nearest-neighbor classifier. 
+A neural-net classifier. 
+ah identification-treeclassifier. 
+The topological sorting algorithm ensures that: 
+Precedence order is depth-first, up-to-join 
+@ Precedence order obeys the no-superclassbefore subclass principle. 
+A precedence order is always found 
+All of the above 
+None of the above 
+Robotic armcontrol has been done successfullyby calulating motor torques using: 
+Using classical mechanics and carellly measured masses and moments of inertia. 
+Genetic algorithms. 
+Table lookup with practice-derived table entries. 
+Simple feedback mechanisms. 
+All of the above 
+None of the above 
+Generally speaking, genetic algorithms can be viewed as: 
+Hill climbing with steps in random directions 
+Hill climbing with an occasionallybig step 
+An embodiment of certain principles characteristic of real evolution 
+Optimizationprograms 
+@ All of the above 
+None of the above 
+It is easy to build a natural language interface to relational databases because: 
+@ Noun phrases correspond to relational select operations. 
+Verb phrases correspond to relational project operations. 
+Conjunctions correspond to relational join operations. 
+Negation words (no, not, etc.) correspond to relational deletion operations. 
+All of the above 
+None of the above 
+The purpose of a trajectory frame is: 
+To speed up relational operations.
+@ To describe an object in motion. 
+To describe a change in a variable. 
+All of the above 
+None of the above 
+Transition frames can be used to: 
+Describe how variable values change over time. 
+Describe events such as car crashes. 
+Describe change, appearance, and disappearance.
+@ All of the above 
+None of the above 
+In this part of the exam, we provide extra, scratch copies of drawings 
+for you to work with. You may tear these ow, you need not hand them 
+in. 
+Table of sigrnoid function values: 
+lInputp-=-~~-~T=~~"~ 
+[OutputpppppFppppppp 
+la 
+a
+BILL=. -tj 
+0 = -4-4 +O 
+0 &S 24,cJ 0-
+[~b) --Z 
+2 
+-==25.9 (ZZ)-aW)-& 
+- X 
+05 513(19)-
+*9 
+(a:.a'* L'O
+-
+@ 4' fly -+'DL @~W=*?L 
+so 
+0 z 
+2 
+0 X 
+GD 
+Zb'py 
+"'Py
+'F]
+0 z 
+

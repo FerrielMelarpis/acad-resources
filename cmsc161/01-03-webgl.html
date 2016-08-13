@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+      First WebGL Program
+  </title>
+  
+  <!--Import external javascript file-->
+  <!--Helper javascript methods for initializing webgl-->
+  <script src="./lib/webgl-init.js"></script>
+  <script src="./lib/webgl-utils.js"></script>
+  <script src="./lib/webgl-debug.js"></script>
+  
+  <!--Vertex Shader-->
+  <script type="x-shader/x-vertex" id="vshader">
+    void main() {
+      //Built-in variable in GLSL ES that dictates the position of the vertex
+      gl_Position = vec4(0.0,0.0,0.0,1.0);
+      
+      //Built-in variable in GLSL ES that dictates the size of the vertex
+      gl_PointSize = 10.0;
+    }
+  </script>
+  
+  <!--Fragment Shader-->
+  <script type="x-shader/x-fragment" id="fshader">
+    void main() {
+      //Sets the color for every fragment created by primitive assembly
+      gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+    }
+  </script>
+  
+  
+  <script>
+  function main() {
+    //Retrieve <canvas> element
+    var canvas = document.getElementById("main_canvas");
+    if(!canvas) {
+        console.log("Failed to retrieve the <canvas> element");
+    }
+    
+    
+    //Get the rendering context (WebGL)
+    var gl = initializeWebGL(canvas,true);
+
+    //initialize shader programs
+    var vertexShader = initializeShader(gl,"vshader");
+    var fragmentShader = initializeShader(gl, "fshader");
+    var program = initializeProgram(gl,vertexShader,fragmentShader);
+    gl.useProgram(program);
+    
+    //color for clearing <canvas>
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    //clear <canvas>
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    //Execute a vertex shader to draw shapes (mode,first,count)
+    gl.drawArrays(gl.POINTS,0,1);
+  }
+  </script>
+</head>
+
+<body onload="main()">
+	<canvas id="main_canvas" width="400" height="400" style="border: 1px black solid">
+	</canvas>
+	
+</body>
+</html>

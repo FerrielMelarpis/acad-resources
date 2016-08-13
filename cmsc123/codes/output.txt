@@ -1,0 +1,4 @@
+Machine 1:   5  9
+Machine 2:   4  8
+Machine 3:   3  6 10
+Machine 4:   2  1  7

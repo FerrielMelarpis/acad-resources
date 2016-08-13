@@ -1,0 +1,236 @@
+6.034 Quiz 3 
+November 15, 2006 
+Name   
+EMail   
+ 
+ 
+Problem number  Maximum  Score Grader 
+1  50   
+2  50   
+Total  100   
+There are 8 pages in this quiz, including this one.   
+ 1
+Problem 1: Nearest Neighbors  
+and Identification Trees (50 points) 
+Part A: Nearest neighbors (16 points) 
+ 
+David normally thinks of xs and os in terms of football plays, but this time, he is thinking 
+about classification using nearest neighbors.  He is given the following data: 
+ 
+ 
+ 
+To decide if nearest neighbors is a good idea, David decides to treat of each of the ten 
+points, one by one, as if it were an unknown to be classified rather than a sample.  In each 
+case, he asks if the nearest neighbor algorithm would produce the correct classification of 
+the sample from the other nine samples. 
+Part A1 (8 points) 
+How many of the 10 samples would David?s test correctly identify? 
+Part A2 (8 points) 
+How many of the 10 samples would David?s test correctly identify if he used 3-nearest 
+neighbors rather than just 1-nearest neighbor
+ 2
+Part B: Identification trees (34 points) 
+ 
+Laura needs to find a way to identify objects that belong to category x and to category o 
+using the samples provided in the following diagram.   
+ 
+0.5 1.0
+0.5
+x1 x2
+ 
+Part B1 (10 points) 
+In preparation for placing the first decision boundary, what disorder does Laura compute 
+for the decision boundary x = x1.  You may write your answer in terms of a variable-free 
+expression involving only integers, arithmetic operations, and logarithms. 
+ 
+ 
+ 
+ 
+In preparation for placing the first decision boundary, what disorder does Laura compute 
+for the decision boundary x = x2.  You may write your answer in terms of a variable-free 
+expression involving only integers and logarithms. 
+ 
+ 
+ 
+ 
+ 
+ 3
+ 
+ 
+Part B2 (8 points) 
+On the diagram on the previous page, draw the decision boundaries Laura produces using 
+the identification-tree algorithm.  In case two decision boundaries are equally good, use a 
+horizontal rather than a vertical.  If there is still a tie, use the smaller threshold.  You will 
+not need to use a calculator to solve this problem. 
+Part B3 (8 points) 
+Patrick writes a program to solve the problem, but he makes a sign error in the method that 
+computs disorder, so it computes the negative of disorder instead of disorder.  Write the 
+disorder Patrick?s program finds for the first decision boundary it draws on the diagram.  
+In this part, we want an exact numerical answer, with no logarithms. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Write the equation for the first  decision boundary placed by Patrick?s program.
+ 4
+Part B4 (8 points) 
+Ignoring Patrick?s work, Matt suggests that it would be interesting to apply the correct 
+algorithm to the data displayed in a polar coordinate system, in which 
+ 
+                                          (? = arctan (y/x); r = sqrt(x
+2
+ + y
+2
+)). 
+ 
+Part B4a 
+ 
+Sketch the data on the following coordinate system: 
+ 
+r = 2
+? = ?/2
+ 
+ 
+Part4b 
+ 
+Show the decision boundaries he produces by the identification-tree algorithm from 
+these samples. 
+  
+ 5
+Problem 2: Neural Nets (50 points) 
+ 
+You now wish to train a neural net using gradient ascent on the standard performance 
+function, P = -? (d-z)
+2
+.  Dissatisfied with linear decision boundaries, you use a net 
+containing a new kind of artificial neuron, B, which is the same as a standard sigmoid unit 
+except that one input is the product of variables x
+1
+ and x
+2
+.  Both of the other artificial 
+neurons, A and D, are standard sigmoid units. 
+ 
+  
+ 6
+Part A (17 points) 
+After running the first example in your training data through this net, you note that the 
+output, z differs from the desired value d.   Write an expression for ?w
+bd
+, the amount by 
+which w
+bd
+ is adjusted during backpropagation of the result.  The learning rate is r. Write 
+your expression in terms of r, d, z, y
+a
+, y
+b
+, x
+1
+, x
+2 
+, and any weights shown on the diagram.  
+Recall that the sigmoid function o = s(i) is 1/(1+e
+-i
+) and its derivative is o(1-o).   
+ 
+ 
+    ?w
+bd
+ 
+ 
+ 
+ 
+ 
+ 
+Write an expression for ?w
+mb
+, the amount by which w
+1b
+ is adjusted during backpropagation 
+of the result.  Write your expression in terms of r, d, z, y
+a
+, y
+b
+, x
+1
+, x
+2 
+, and any weights shown 
+on the diagram. 
+ 
+ 
+   ?w
+mb
+ 
+ 
+ 
+ 
+                       
+Part B (12 points) 
+In this part, you are to work with the same neural net as in part A, but the neurons are not 
+sigmoid units. Instead, each artificial neuron, A, B, and D is a threshold unit; each outputs 
+1 if the sum of the weighted inputs is greater than 0, and 0 otherwise. The neural net is to 
+distinguish between pineapples and the letter ?L.?  The output of the net is interpreted as 
+?L? when the output of the net, z, is 1, and ?pineapple? otherwise.  Which decision 
+boundaries can the net correctly implement?  You may assume that the x
+1
+ and x
+2
+ axes have 
+the same scale.  Circle all that apply and cross out those that do not apply. 
+ 
+ 7
+Part C (21 points) 
+In this part, you are to work with a neural net in which the neurons are not sigmoid units. 
+Instead, each artificial neuron, A, B, C, and D, is a threshold unit; it outputs 1 if the sum of 
+the weighted inputs is greater than 0, and 0 otherwise.  Determine integer values for the 
+weights in the network so that it correctly classifies all of the training data.    The output of 
+neuron D should be 1 for ?L? and 0 for pineapple.  Some weights are provided for you. 
+ 
+ 
+w
+a
+-2 
+W
+1a
+-1 
+w
+2a
+ 
+w
+b
+1 
+w
+1b
+ 
+w
+2b
+ 
+w
+c
+ 
+w
+1c
+ 
+w
+2c
+-1 
+w
+d
+ 
+w
+ad
+4 
+w
+bd
+2 
+w
+cd
+ 
+ 
+ 8

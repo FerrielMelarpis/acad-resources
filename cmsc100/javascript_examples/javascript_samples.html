@@ -1,0 +1,109 @@
+<html>
+<head>
+<script type="text/javascript">
+function show_alert()
+{
+alert("Hello! I am an alert box!");
+}
+
+function show_prompt()
+{
+var name=prompt("Please enter your name","Harry Potter");
+if (name!=null && name!="")
+  {
+  document.write("Hello " + name + "! How are you today?");
+  }
+}
+
+function show_confirm()
+{
+var r=confirm("Press a button");
+if (r==true)
+  {
+  alert("You pressed OK!");
+  }
+else
+  {
+  alert("You pressed Cancel!");
+  }
+}
+</script>
+</script>
+</head>
+<body>
+<script type="text/javascript">
+document.write("Hello world!");
+document.write("<br/> <h1>This is a header. </h1>");
+</script>
+<input type="button" onclick="show_alert()" value="Show alert box" />
+<br/><br/>
+<input type="button" onclick="show_prompt()" value="Show prompt box" />
+<br/><br/>
+<input type="button" onclick="show_confirm()" value="Show confirm box" />
+<br/><br/>
+
+<script type="text/javascript"> 
+var i=0;
+//for loop example 
+for (i=0;i<=5;i++)
+{
+document.write("The number is " + i);
+document.write("<br />");
+}
+document.write("<br/>");
+
+//while loop example 
+var i = 5;
+var x = 0;
+while (x <=5)
+{
+document.write("The number is " + x +"<br/>");
+x = x+1;
+}
+document.write("<br/>");
+
+//for...each loop example 
+var person={fname:"John",lname:"Doe",age:25}; 
+for (x in person)
+{
+document.write(person[x] + " ");
+}
+document.write("<br/>");
+
+//arguments variable example 
+function max(a,b,c) {
+for (g in arguments) {
+document.write(arguments[g] + "<br/>");
+}
+}
+max("cmsc",100, "ef");
+
+//break statement example 
+var i=0;
+for (i=0;i<=10;i++)
+  {
+  if (i==3)
+    {
+    break;
+    }
+  document.write("The number is " + i);
+  document.write("<br />");
+  }
+  
+document.write("<br />");
+
+//continue statement example 
+var i=0;
+for (i=0;i<=10;i++)
+  {
+  if (i==3)
+    {
+    continue;
+    }
+  document.write("The number is " + i);
+  document.write("<br />");
+  }
+  
+</script>
+</body>
+</html>

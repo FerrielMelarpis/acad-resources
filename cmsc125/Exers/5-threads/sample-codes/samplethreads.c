@@ -1,0 +1,54 @@
+/*
+	COMPILE: gcc -o samplethreads samplethreads.c -lpthread
+	RUN: ./samplethreads
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<pthread.h>
+
+/* Functions for Threads */
+void *function1(void * r);
+void *function2(void * r);
+
+int main()
+{
+	/* Thread Declaration */
+	pthread_t t1, t2;
+	
+	/* Thread Creation */
+	/* pthread_create(&threadID, threadAttrib, function, fxnArguments) */
+	pthread_create(&t1, NULL, function1, NULL);
+	pthread_create(&t2, NULL, function2, NULL);
+	
+	  
+	/* Thread Joining */
+	
+	/* Wait till threads are completed before main continues. Unless we */
+	/* wait, we run the risk of executing an exit which will terminate  */
+	/* the process and all threads before the threads have completed.   */
+	/* Similar to wait() System Call */
+	
+	/* pthread_join(threadID, &status) */
+	pthread_join(t1, NULL);
+	pthread_join(t2, NULL);
+	
+	/* Thread Termination */
+	/* pthread_exit(&resturnStatus) */
+	pthread_exit(NULL);
+}
+
+/* (void *) - generic pointer */
+void *function1(void * r){
+	printf("Printed by Thread 1\n");
+	
+	/* Thread Termination */
+	pthread_exit(NULL);
+}
+
+void *function2(void * r){
+	printf("Printed by Thread 2\n");
+	
+	/* Thread Termination */
+	pthread_exit(NULL);
+}

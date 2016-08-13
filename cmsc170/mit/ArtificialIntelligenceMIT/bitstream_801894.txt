@@ -1,0 +1,188 @@
+                       
+skip to content 
+This is an archived course. A more recent version may be available at ocw.mit.edu.
+ 
+ 
+  
+Home
+Courses
+Donate
+About OCW
+ 
+           
+  Advanced Search
+ 
+Help
+Contact Us
+ 
+VIEW ALL COURSES
+   f!--Left Nav Starts -->
+Course Home
+Syllabus
+Readings
+Assignments
+Exams
+Tools
+
+ 
+Translations*
+?????????
+Archived Versions
+Fall 2002
+Home > Courses > Electrical Engineering and Computer Science > Artificial Intelligence > Syllabus 
+Syllabus 
+
+Course Meeting Times
+Lectures: 2 sessions / week, 1 hour / session
+Recitations: 2 sessions / week, 1 hour / session
+Tutorials: 1 session / week, 1 hour / session
+Should I take the subject this semester?
+The following are the major differences between the fall and spring versions:
+Professor Patrick H. Winston is in charge in the fall; Professor Tomas Lozano-Perez is in charge in the spring.
+Much of the material covers the same ground. The most conspicuous differences are that the fall version focuses toward the end of the semester on models of aspects of human intelligence and the spring version includes a major section on formal logic.
+Quizzes and Evaluations
+This year, we will have 4 quizzes instead of 2, so as to both reduce time pressure and test less material per quiz.
+The final will be organized into parts corresponding to the quizzes. If you have a bad day on one of the quiz days, you can make up for it on the final, as we propose to give you the higher of the two grades.
+All quizzes and the final are open book, open notes, open problem sets and solutions, open everything, except for computers.
+Tutorials and Recitations
+As in previous years, we will have tutorials on Mondays and Tuesdays and recitations on Thursdays and Fridays. In addition, this year we are introducing the concept of a megarecitation, to be held 11-12 on Fridays. Roughly, the purpose of each element is as follows:
+Syllabus table.
+ELEMENTS
+PURPOSE
+Lectures
+To introduce most of the material and provide the big picture
+Tutorials
+To provide help with the homework and assess understanding
+Mega Recitation
+To demonstrate how to work problems of the kind that tend to show up on the quizzes
+Regular Recitations
+To introduce some of the material, answer questions, provide additional perspective, and be a venue small enough for discussion
+Times and Places of Recitations and Tutorials
+We will ask you to fill out a schedule form in the first lecture so that we can make assignments. Ignore the times listed by the registrar.
+There will be no tutorials, regular recitations, or mega-recitation during the first week of class.
+Am I expected to attend lectures, tutorials, the megarecitation, and the ordinary recitations?
+Yes. We believe that the lectures, tutorials, and recitations are all an important part of the MIT experience, and we work hard to make them interesting and useful.
+Lectures introduce powerful ideas and relate the material to the "big picture." We often include questions on the quizzes and final that you can answer only by faithful lecture attendance.
+Tutorials provide you with an opportunity to ask questions and to demonstrate your understanding.
+Recitations play a major role in clarifying the material and demonstrating how problems are solved.
+Can I collaborate with friends on the homework?
+Yes. We create the homework to help you learn the material. For many, that means working together, and certainly when you get stuck, you should seek help. On the other hand, you are not to simply submit someone else's work, as this would be both unethical and detrimental to your own learning, which will be reflected in quiz performance. Also, we get very sore if we catch someone cheating.
+Do I need to know how to program in scheme?
+The subject is not centered on programming, but a substantial fraction of the homework requires an understanding of Scheme and working out some small Scheme programs. The quizzes and final do not include questions that require any knowledge of Scheme programming. Veterans of 6.001 should have no trouble with the programming involved; students skilled in some other programming language will have to spend a couple of weekends reading the Scheme book and should work out a catch-up plan with their tutor; students with no programming experience are advised not to take the subject.
+What can I bring to the quizzes and the final?
+All quizzes and the final are open book, open notes, open problem sets and solutions, open everything, except for computers.
+How are grades to be computed?
+The Tangible
+There are to be four quizzes with corresponding elements on the final examination. On each quiz and for each element on the final, we decide how to translate your score into a letter grade. Thus, if you have a bad day on one of the quiz days, you can make up for it on the final, as we propose to give you the max of the two grades.
+The final also will include a fifth part devoted to material introduced during the final week or so of the semester after the final quiz. You only get one shot at that material, alas.
+We never compute a class average. Instead, in summarizing results, we use various terms that have, roughly, the following translations:
+Thorough Understanding: A
+Acceptable Understanding: B
+Of course, if all your grades are in the A or B range, you get an A or a B. When your grades are mixed, we form a kind of GPA like average from the four max grades using a sigmoid around the breakpoints that flattens out about 5 points above and below the breakpoint.
+If you are consistently below the acceptable understanding/needs help breakpoint, you are probably destined for a C. If you are way below that breakpoint, you could do worse. See the next subsection on the intangibles.
+The GPA is combined with your homework grade in something like a 4 to 1 ratio. That is, the homework accounts for about 20% of your final grade.
+The Intangible
+Tutorial participation moves a substantial number of subject grades up or down a letter. We note when students seek help and try hard; if no one has ever seen you, that is noted too.
+What is the final grade distribution likely to be?
+Because MIT does not, by policy, permit grading on a curve, and because there will be little or no time pressure on the quizzes and the final, we expect the grade distribution to reflect understanding. In the past, we have seen a great deal of understanding.
+Calendar
+Recitation sessions, although not listed, were held weekly and key concepts from the week reviewed.
+Course calendar.
+SES??#
+TOPICS
+KEY??DATES
+1
+What is AI?
+Problem set 0 out
+2
+Symbolic Integration
+??
+3
+Goals and Rules
+Problem set 0 due
+Problem set 1 out
+4
+Basic Search
+??
+5
+Optimal Search
+Problem set 1 due
+??
+Quiz 1
+Problem set 2 out
+6
+Games
+??
+7
+Genetic Algorithms
+Problem set 2 due
+8
+Constraints in Drawings
+Problems set 3 out
+9
+Constraints in Maps and Schedules
+??
+10
+Learning to Recognize Objects
+Problem set 3 due
+11
+Frames and Representation
+??
+??
+Quiz 2
+??
+12
+Nearest Neighbor Learning
+??
+13
+Identification Tree Learning
+Problem set 4a out
+14
+Neural Net Learning
+??
+15
+Self-organizing Maps
+Problem set 4a due
+16
+Support-vector Machines
+??
+??
+Quiz 3
+Problem set 4b due
+17
+Boosting
+??
+18
+Learning From Near Misses
+??
+19
+Learning Phonological Rules
+Problem set 5 due
+20
+Architectures for Intelligence and Are We Just Rats With Big Brains
+??
+??
+Quiz 4
+??
+21
+Guest Lecturer (Michael Coen) - Cross-modal Clustering and Birdsongs
+??
+22
+Farewell Summary; Comments on Grading and Final
+??
+
+ 
+ 
+ 
+ 
+ 
+  
+ RSS Feeds
+Privacy and Terms of Use
+Site Map
+Cite OCW Content
+Your use of the MIT OpenCourseWare site and course materials is subject to our Creative Commons License and other terms of use.
+ 
+   
+ 
+ 

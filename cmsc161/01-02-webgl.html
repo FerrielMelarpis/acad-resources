@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    First WebGL Program
+  </title>
+  
+  <!--Import external javascript file-->
+  <!--Helper javascript methods for initializing webgl-->
+  <script src="./lib/webgl-init.js"></script>
+  <script src="./lib/webgl-utils.js"></script>
+  <script src="./lib/webgl-debug.js"></script>
+  
+  
+  <script>
+  function main() {
+    //1. Retrieve <canvas> element
+    var canvas = document.getElementById("main_canvas");
+    if(!canvas) {
+        console.log("Failed to retrieve the <canvas> element");
+    }
+    
+    //2. Get the rendering context (WebGL)
+    // 2nd param means enable debugging
+    var gl = initializeWebGL(canvas,true);
+    
+    //3. Draw using methods on that context
+    
+    //color for clearing <canvas>
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    //clear <canvas>
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }
+  </script>
+</head>
+
+<body onload="main()">
+	<canvas id="main_canvas" width="400" height="400" style="border: 1px black solid">
+	</canvas>
+	
+</body>
+</html>

@@ -1,0 +1,135 @@
+                       
+skip to content 
+This is an archived course. A more recent version may be available at ocw.mit.edu.
+ 
+ 
+  
+Home
+Courses
+Donate
+About OCW
+ 
+           
+  Advanced Search
+ 
+Help
+Contact Us
+ 
+VIEW ALL COURSES
+   f!--Left Nav Starts -->
+Course Home
+Syllabus
+Readings
+Assignments
+Exams
+Tools
+
+ 
+Translations*
+?????????
+Archived Versions
+Fall 2002
+Home > Courses > Electrical Engineering and Computer Science > Artificial Intelligence > Readings 
+Readings 
+
+Most of the assigned readings for the course are taken from the textbook:
+ Winston, Patrick H. Artificial Intelligence. 3rd ed. Reading, MA: Addison-Wellsley, 1992. ISBN: 0201533774.
+Readings by Session
+Course readings.
+SES??#
+TOPICS
+READINGS
+1
+What is AI?
+??
+2
+Symbolic Integration
+??
+3
+Goals and Rules
+Chapter 3, pp. 53-60.
+4
+Basic Search
+Chapter 4
+5
+Optimal Search
+Chapter 5
+??
+Quiz 1
+??
+6
+Games
+Chapter 6
+7
+Genetic Algorithms
+Chapter 25
+8
+Constraints in Drawings
+Chapter 12
+9
+Constraints in Maps and Schedules
+??
+10
+Learning to Recognize Objects
+Chapter 26
+11
+Frames and Representation
+Chapter 9
+??
+Quiz 2
+??
+12
+Nearest Neighbor Learning
+Chapter 19
+13
+Identification Tree Learning
+Chapter 21
+14
+Neural Net Learning
+Neural Net Notes (PDF)
+15
+Self-organizing Maps
+??
+16
+Support-vector Machines
+Handout (PDF)
+??
+Quiz 3
+??
+17
+Boosting
+Schapire, Robert. "The Boosting Approach to Machine Learning An Overview." MSRI Workshop on Nonlinear Estimation and Classification, 2002.
+18
+Learning From Near Misses
+Chapter 16
+19
+Learning Phonological Rules
+Yip, Kenneth, and Gerald J. Sussman. "Sparse Representations for Fast, One-Shot Learning." Proceedings of AAAI'97, July 1997.
+20
+Architectures for Intelligence and Are We Just Rats with Big Brains
+??
+??
+Quiz 4
+??
+21
+Guest Lecturer (Michael Coen) - Cross-modal Clustering and Birdsongs
+Coen, Michael. "Self-Supervised Acquisition of Vowels in American English." To appear in Proceedings of AAAI'06, 2006.
+22
+Farewell Summary; Comments on Grading and Final
+??
+
+ 
+ 
+ 
+ 
+ 
+  
+ RSS Feeds
+Privacy and Terms of Use
+Site Map
+Cite OCW Content
+Your use of the MIT OpenCourseWare site and course materials is subject to our Creative Commons License and other terms of use.
+ 
+   
+ 
+ 

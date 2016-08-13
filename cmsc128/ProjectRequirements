@@ -1,0 +1,24 @@
+3.6 Adviser View List of Advisees
+    3.6.1    Description and Priority 
+        This highly prioritized feature allows the adviser to view the list of his current advisees. 
+
+    3.6.2    Stimulus/Response Sequences 
+    The user selects "View Advisees" in the navigation bar.
+
+    3.6.3    Functional Requirements 
+REQ1: Logged-in Adviser Account - This feature can only be used if the current user 
+of the system is logged in as an adviser. 
+REQ2: Existing Adviser Account - This feature can only be used if the Adviser 
+Accounts exists.
+
+3.7 Adviser View Number of Graduates per Semester
+3.7.1    Description and Priority 
+This highly prioritized feature allows the adviser to view the list of graduates among his current advisees and their total number for the current semester.
+
+3.7.2    Stimulus/Response Sequences 
+ The user selects "View Graduates" in the navigation bar.
+
+3.7.3    Functional Requirements
+REQ1: Logged-in Adviser Account - This feature can only be used if the current user 
+of the system is logged in as an adviser.
+

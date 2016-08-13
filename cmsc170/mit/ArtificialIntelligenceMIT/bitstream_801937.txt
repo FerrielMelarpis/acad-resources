@@ -1,0 +1,583 @@
+December 6, 2006
+
+Name 
+EMail 
+Problem number 
+1 
+2 
+Total 
+Maximum 
+50 
+50 
+100 
+Score Grader 
+There are 10 pages in this quiz, not including this 
+one. 
+1 
+MIT EECS 
+6.034: Arti?cial Intelligence 
+(Fall 2006) 
+Quiz 4: SVMs and Boosting
+
+Problem 1: Boosting Identi?cation Trees using AdaBoost 
+(50 points) 
+As you recall, back in 2001, you were just appointed as a research assistant at PacMan 
+Institute of Technology, where you worked for Pinky, Winky, Binky, and Hinky on research 
+projects. 
+Binky asked you to build a Ghostbot that can collect and dispose of styrofoam foodtruck 
+containers (a very useful task around P.I.T.). They should go into two di?erent trucks P 
+(for Powerpellet Kitchen) or S (for Strawberry King). 
+You were given the following training set (repeated on a tear o? sheet for your convenience 
+at the end of this examination). Note that ?Maybe? is a possible result for the Un?nished? 
+test. 
+Training Ex. # Colorful? (C) Un?nished? (U) Greasy? (G) Truck (output y) 
+1 Y Y N S (?1) 
+2 N Y N S (?1) 
+3 N Y N S (?1) 
+4 Y Y Y P (+1) 
+5 N N Y S (?1) 
+6 N Maybe Y P (+1) 
+That time, you completed the project by learning the following ID tree from the training 
+data. 
+Greasy?
+Y N
+Unfinished?
+Y
+N
+Maybe
+P PS
+S
+Applying AdaBoost 
+After spending ?ve years at P.I.T., you are signi?cantly smarter now (or so you hope:) As 
+a matter of fact, you have just recently learned about a great algorithm for learning strong 
+Page 1 of 10
+
+? 
+? ? ?
+Quiz 4: SVMs and Boosting
+
+classi?ers from data called AdaBoost. You are then reminded that the outcome of that old 
+project back in 2001 has not had the success you expected. So you decide to give AdaBoost 
+a run at that old data. 
+Single-Test Classi?ers (aka Decision Stumps) 
+First you de?ne the test function as 
++1, if condition holds,
+test(condition) = 
+?1, otherwise. 
+Mapping Problem Inputs and Outputs 
+Then, you map the feature variables into the vector 
+x = (Colorful?, Un?nished?, Greasy?). 
+You also map Truck output in to the output variable 
+y = test(Truck = P). 
+In other words, if Truck = P, the output is +1 and if Truck = S, the output is ?1. 
+The Weak Learner 
+You then go ahead and program a simple weak learning algorithm that considers only the 
+following simple classi?ers based on the following 12 tests (6 basics plus their inverses): 
+Test condition Test condition (inverse) 
+TRUE Always true (+1) FALSE Always false (?1) 
+C=Y Colorful? = Y C=N Colorful? = N 
+U=Y Un?nished? = Y U?=Y Un?nished? ?= Y 
+U=N Un?nished? = N U?=N Un?nished? ?= N 
+U=M Un?nished? = Maybe U?=M Un?nished? ?= Maybe 
+G=Y Greasy? = Y G=N Greasy? = N 
+Note that Test TRUE (i.e., Always true) means the output of classi?er TRUE is always +1, 
+or in other words that the value of Truck is always P. Similarly, Test FALSE (i.e., Always 
+false) means the output of classi?er FALSE is always ?1, or in other words that the value 
+of Truck is always S. 
+If multiple tests have the same weighted error, the learner breaks ties by the test 
+label, in order, ?rst from TRUE to G=Y and then from FALSE to G=N, so that 
+TRUE is the most preferred and G=N is the least preferred. In other words, 
+the order of preference is TRUE, C=Y, U=Y, U=N, U=M, G=Y, FALSE, C=N, 
+U=Y, U=N, U=M, G=N. 
+Page 2 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 1.A: Only E?ective Weak/Base Classi?ers Needed (10 points) 
+Fill in the table below. (Some of the entries have been ?lled in for you already.) 
+Test Misclassi?ed training examples Test Misclassi?ed training examples 
+TRUE 1, 2, 3, 5 FALSE 
+C=Y C=N 
+U=Y U?=Y 
+U=N U?=N 1, 2, 3 
+U=M U?=M 
+G=Y G=N 
+Which tests will never be used? (Cross out all that apply.) 
+All will be used 
+TRUE C=Y U=Y U=N U=M G=Y 
+FALSE C=N U?=Y U?=N U?=M G=N 
+Page 3 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 1.B: Running and Tracking AdaBoost (20 points) 
+You decide to run AdaBoost for T = 3 rounds, using your simple weak learning algorithm. 
+Track the execution of AdaBoost by ?lling in the table below the respective values you 
+found on each round t = 1, 2, 3. 
+Training # i D
+1
+(i) D
+2
+(i) D
+3
+(i) 
+1 1/6 1/10 
+2 1/6 
+3 1/6 
+4 1/6 5/18 
+5 1/6 
+6 1/6 
+Weak classi?er h
+t 
+h
+1 
+= 
+Test U=M 
+h
+2 
+= Test h
+3 
+= Test 
+Error ?
+t 
+?
+1 
+= ?
+2 
+= ?
+3 
+= 1/9 
+Weights ?
+?
+t 
+?
+?
+1 
+= ?
+?
+2 
+= ?
+?
+3 
+= 
+Part 1.C: The AdaBoost Classi?er (10 points) 
+The ?nal classi?er output by AdaBoost is 
+? ? ? 
+H(x) = sign 
+? 
+test 
+? 
+Un?nished? = Maybe 
+? 
++ 
+? ? 
+test 
+? ? 
++ 
+? ?? 
+test 
+? ?? 
+. 
+Page 4 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 1.D: Comparing the ID-Tree and AdaBoost Classi?ers on the 
+Training Data (5 points) 
+Is your new AdaBoost classi?er worse than your old ID tree classi?er from 2001 on the 
+training data? (i.e., does your new AdaBoost classi?er make more mistakes than 
+your old ID tree classi?er from 2001 on the training data?) 
+Yes No 
+Part 1.E: Comparing the ID-Tree and AdaBoost Classi?ers on New
+
+Unseen Examples (5 points)
+
+Is your new AdaBoost classi?er the same as your old ID tree classi?er from 2001? (i.e.,
+
+do both classi?ers agree on every possible input x?)
+
+Yes No 
+Page 5 of 10
+
+Quiz 4: SVMs and Boosting
+
+Problem 2: Support Vector Machines (50 points) 
+Part 2.A: Working with Linear SVMs (14 points) 
+Consider the following data set with one positive example ?x
+1 
+= (0, 0), y
+1 
+= +1 and one 
+negative example ?x
+2 
+= (4, 4), y
+2 
+= ?1. 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+Part 2.A.1. Is the data linearly separable? 
+Yes No 
+Part 2.A.2. If your answer to Part 2.A.1 is No, then explain in a single short sentence 
+why not? 
+Page 6 of 10
+
+? 
+Quiz 4: SVMs and Boosting
+
+If your answer to Part 2.A.1 is Yes, then 
+1. provide the SVM classi?er below. 
+h(?x) =	
++1, if x
+1 
++ x
+2 
++ ? 0, 
+?1, otherwise. 
+2. Also provide the weight value of the support vectors ?
+1 
+and ?
+2
+, as well as the o?set-
+threshold value b of the SVM classi?er. 
+?
+1 
+= 
+?
+2 
+= 
+b = 
+Part 2.B: On Properties of Linear SVMs I (10 points) 
+Suppose we have an additional positive example ?x
+3 
+= (?1, ?1), y
+3 
+= +1. 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+Part 2.B.1. Which data points are support vectors? (Circle) 
+none 1 2 3 
+Page 7 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 2.B.2. If both this data set and that in Part 2.A are linearly separable, then 
+1. is the decision boundary for this data set di?erent than for Part 2.A?
+
+Yes No
+
+2. Relative to the support vectors for the data set in Part 2.A, the weights (? values) 
+of the support vectors for the data set in this part are 
+the same smaller larger. 
+Part 2.C: On Properties of Linear SVMs II (10 points) 
+Suppose we have an additional positive example ?x
+4 
+= (2, 2),y
+4 
+= +1. 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+4
+Part 2.C.1. Which data points are support vectors? (Circle) 
+none 1 2 3 4 
+Part 2.C.2. If both this data set and that in Part 2.B are linearly separable, then 
+1. is the decision boundary for this data set di?erent than for Part 2.B?
+
+Yes No
+
+2. Relative to the support vectors for the data set in Part 2.B, the weights (? values) of 
+the support vectors for the data set in this part are 
+the same smaller larger. 
+Page 8 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 2.D: On the Power of SVMs (10 points)
+
+Suppose we have an additional negative example ?x
+5 
+= (?3, ?3), y
+5 
+= ?1. 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+4
+5
+Circle the number(s) to the left side of the kernels described in the enumerated list below 
+that can separate the data. 
+1. linear: K(?u,v?) = u? v?? 
+2. polynomial of degree n ? 2: K(?u,v?) = (1+ ?u v?)
+n 
+? 
+3. Radial Basis Function / Gaussian with su?ciently small scale parameter ?: K(?u,v?) = 
+e
+? 
+?u??v?? 
+2?
+2 
+4. none 
+Page 9 of 10
+
+Quiz 4: SVMs and Boosting
+
+Part 2.E: On Data Transformations and Kernels (6 points) 
+NOTE: It is possible to solve this problem without solving for the ??s. 
+Hint: Think of the de?nition of a kernel. 
+Suppose we have two additional examples: one positive example x?
+6 
+= (+1, +1),y
+6 
+= +1, 
+and one negative example ?x
+7 
+= (?4, ?4),y
+7 
+= ?1. 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+4
+5
+6
+7
+Consider using the following kernel: 
+K(?u, ?v) = 2??u???v?. 
+1. Find the SVM classi?er: 
+h(?x) = 
+? 
++1, if ? 2 x
+2 
+1 
++ 
+?1, otherwise. 
+x
+1
+x
+2 
++ x
+2 
+2 
++ x
+1 
++ x
+2 
++ ? 0, 
+2. Which data points are support vectors? (Circle) 
+none 1 2 3 4 5 6 7 
+Page 10 of 10
+
+? ? ?
+Tear-O? Sheets 
+There are 5 pages of tear-o? sheets. 
+Problem 1 
+Training Ex. # Colorful? (C) Un?nished? (U) Greasy? (G) Truck (output y) 
+1 Y Y N S (?1) 
+2 N Y N S (?1) 
+3 N Y N S (?1) 
+4 Y Y Y P (+1) 
+5 N N Y S (?1) 
+6 N Maybe Y P (+1) 
+Parts 1.A, 1.B and 1.C
+
+Test condition Test condition (inverse) 
+TRUE Always true (+1) FALSE Always false (?1) 
+C=Y Colorful? = Y C=N Colorful? = N 
+U=Y Un?nished? = Y U?=Y Un?nished? ?= Y 
+U=N Un?nished? = N U?=N Un?nished? ?= N 
+U=M Un?nished? = Maybe U?=M Un?nished? ?= Maybe 
+G=Y Greasy? = Y G=N Greasy? = N 
+The order of preference is TRUE, C=Y, U=Y, U=N, U=M, G=Y, FALSE, C=N, 
+U=Y, U=N, U=M, G=N. 
+Test Misclassi?ed training examples Test Misclassi?ed training examples 
+TRUE 1, 2, 3, 5 FALSE 
+C=Y C=N 
+U=Y U?=Y 
+U=N U?=N 1, 2, 3 
+U=M U?=M 
+G=Y G=N 
+1
+
+1
+2
+3
+4
+5
+6
+Parts 1.D and 1.E
+
+Training Ex. # Colorful? (C) Un?nished? (U) Greasy? (G) Truck (output y) 
+Y Y N S (?1) 
+N Y N S (?1) 
+N Y N S (?1) 
+Y Y Y P (+1) 
+N N Y S (?1) 
+N Maybe Y P (+1) 
+Greasy?
+Y N
+Unfinished?
+Y
+N
+Maybe
+P PS
+S
+2
+
+Problem 2 
+Part 2.A 
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+Part 2.B
+
+3
+
+Part 2.C
+
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+4
+Part 2.D
+
+4
+
+Part 2.E
+
+-5
+-4
+-3
+-2
+-1
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+-5 -4 -3 -2 -1  0  1  2  3  4  5
+x
+?
+x
+?
+1
+2
+3
+4
+5
+6
+7
+5
+

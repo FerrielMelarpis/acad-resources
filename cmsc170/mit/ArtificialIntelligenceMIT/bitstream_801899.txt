@@ -1,0 +1,62 @@
+                       
+skip to content 
+This is an archived course. A more recent version may be available at ocw.mit.edu.
+ 
+ 
+  
+Home
+Courses
+Donate
+About OCW
+ 
+           
+  Advanced Search
+ 
+Help
+Contact Us
+ 
+VIEW ALL COURSES
+   f!--Left Nav Starts -->
+Course Home
+Syllabus
+Readings
+Assignments
+Exams
+Tools
+
+ 
+Translations*
+?????????
+Archived Versions
+Fall 2002
+Home > Courses > Electrical Engineering and Computer Science > Artificial Intelligence > Tools 
+Tools 
+
+Much of the material in 6.034 is reinforced by online artificial-intelligence demonstrations developed by us or otherwise available on the Web. Those developed by us are provided via the easy-to-use Java??? Web Start mechanism, which comes with the Java??? Runtime Environment, the so-called JRE.
+The demonstrations illustrate the following ideas:
+Blocks world manipulation (After Winograd)
+Search: depth-first, breadth-first, hill-climbing, beam, branch and bound, A*
+Games: mini-max, alpha-beta
+Genetic Algorithms: crossover, mutation, fitness
+Constraint Satisfaction: drawing analysis (after Waltz, using Huffman labels)
+Domain Reduction: map coloring, resource allocation
+Learning: nearest neighbors, self-organizing maps, support vector machines, boosting
+The JavaTM Runtime Environment needs to be installed on your computer before running the demonstrations. To install this application, visit the following Web site.
+Preliminary instructions for using the demonstrations (PDF)
+Run the demonstrations. (JNLP)
+
+ 
+ 
+ 
+ 
+ 
+  
+ RSS Feeds
+Privacy and Terms of Use
+Site Map
+Cite OCW Content
+Your use of the MIT OpenCourseWare site and course materials is subject to our Creative Commons License and other terms of use.
+ 
+   
+ 
+ 

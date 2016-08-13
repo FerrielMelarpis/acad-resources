@@ -1,0 +1,604 @@
+6.034f Neural Net Notes 
+November 10, 2006 
+These notes are a supplement to material presented in lecture. I lay out the mathematics more prettily and 
+extend the analysis to handle multiple-neurons per layer. Also, I develop the back propagation rule, which is 
+often needed on quizzes. 
+I use a notation that I think improves on previous explanations. The reason is that the notation here plainly 
+associates each input, output, and weight with a readily identified neuron, a left-side one and a right-side one. 
+When you arrive at the update formulas, you will have less trouble relating the variables in the formulas to 
+the variables in a diagram. 
+One the other hand, seeing yet another notation may confuse you, so if you already feel comfortable with 
+a set of update formulas, you will not gain by reading these notes. 
+The sigmoid function 
+The sigmoid function, y =1/(1 + e
+?x
+), is used instead of a step function in artificial neural nets because 
+the sigmoid is continuous, whereas a step function is not, and you need continuity whenever you want to 
+use gradient ascent. Also, the sigmoid function has several desirable qualities. For example, the sigmoid 
+function?s value, y, approaches 1 as x becomes highly positive; 0 as x becomes highly negative; and equals 
+1/2 when x =0. 
+Better yet, the sigmoid function features a remarkably simple derivative of the output, y, with respect to 
+the input, x: 
+dy d 1 
+= ( )
+dx dx 1+ e
+?x 
+= 
+d 
+(1 + e
+?x
+)
+?1 
+dx 
+= ? 1 ? (1 + e
+?x
+)
+?2 
+? e
+?x 
+??1 
+1 e
+?x 
+= ?
+1+ e
+?x 
+1+ e
+?x 
+1 1+ e
+?x 
+? 1 
+= ?
+1+ e
+?x 
+1+ e
+?x 
+1 1+ e
+?x 
+1 
+= ? ( ? )
+1+ e
+?x 
+1+ e
+?x 
+1+ e
+?x 
+=y(1 ? y) 
+Thus, remarkably, the derivative of the output with respect to the input is expressed as a simple function of 
+the output. 
+The performance function 
+The standard performance function for gauging how well a neural net is doing is given by the following: 
+1
+P = ? (d
+sample 
+? o
+sample
+)
+2 
+2 
+where P is the performance function, d
+sample 
+is the desired output for some specific sample and o
+sample 
+is 
+the observed output for that sample. From this point forward, assume that d and o are the desired and observed 
+outputs for a specific sample so that we need not drag a subscript around as we work through the algebra. 
+The reason for choosing the given formula for P is that the formula has convenient properties. The 
+formula yields a maximum at o = d and monotonically decreases as o deviates from d. Moreover, the 
+derivative of P with respect to o is simple: 
+2 
+dP d 1 
+= [? (d ? o)
+2
+]
+do do 2 
+= ? 
+2 
+? (d ? o)
+1 
+??1
+2 
+= d ? o 
+Gradient ascent 
+Backpropagation is a specialization of the idea of gradient ascent. You are trying to find the maximum of a 
+performance function P, by changing the weights associated with neurons, so you move in the direction of 
+the gradient in a space that gives P as a function of the weights, w. That is, you move in the direction of most 
+rapid ascent if we take a step in the direction with components governed by the following formula, which 
+shows how much to change a weight, w, in terms of a partial derivative: 
+?P
+?w ? 
+?w 
+The actual change is in?uenced by a rate constant, ?; accordingly, the new weight, w
+prime
+, is given by the following: 
+?P 
+w
+prime 
+= w + ? ? 
+?w 
+Gradient descent 
+If the performance function were 
+1
+(d
+sample 
+? o
+sample
+)
+2 
+instead of ?
+1
+(d
+sample 
+? o
+sample
+)
+2
+, then you 
+2 2 
+would be searching for the minimum rather than the maximum of P, and the change in w would be subtracted 
+from w instead of added, so w
+prime 
+would be w ? ? ? 
+?
+?
+w
+P 
+instead of w + ? ? 
+?
+?
+w
+P 
+. The two sign changes, one in 
+the performance function and the other in the update formula cancel, so in the end, you get the same result 
+whether you use gradient ascent, as I prefer, or gradient descent. 
+The simplest neural net 
+Consider the simplest possible neural net: one input, one output, and two neurons, the left neuron and the 
+right neuron. A net with two neurons is the smallest that illustrates how the derivatives can be computed layer 
+by layer. 
+x 
+Sigmoid 
+W
+l 
+p
+l
+i
+l 
+o
+l 
+x 
+Sigmoid 
+W
+r 
+p
+r 
+o
+r
+i
+r 
+Left neuron Right neuron 
+3 
+Note that the subscripts indicate layer. Thus, i
+l 
+, w
+l 
+, p
+l 
+, and o
+l 
+are the input, weight, product, and output 
+associated with the neuron on the left while i
+r 
+, w
+r 
+, p
+r
+, and o
+r 
+are the input, weight, product, and output 
+associated with the neuron on the right. Of course, o
+l 
+= i
+r 
+. 
+Suppose that the output of the right neuron, o
+r 
+, is the value that determines performance P. To compute 
+the partial derivative of P with respect to the weight in the right neuron, w
+r 
+, you need the chain rule, which 
+allows you to compute partial derivatives of one variable with respect to another in terms of an intermediate 
+variable. In particular, for w
+r 
+, you have the following, taking o
+r 
+to be the intermediate variable: 
+?P ?P ?o
+r 
+= ? 
+?w
+r 
+?o
+r 
+?w
+r 
+Now, you can repeat, using the chain-rule to turn 
+?
+?
+w
+o
+r
+r 
+into 
+?
+?
+o
+p
+r
+r 
+? 
+?
+?
+w
+p
+r
+r 
+: 
+?P ?P ?o
+r 
+?p
+r 
+= ? ? 
+?w
+r 
+?o
+r 
+?p
+r 
+?w
+r 
+Conveniently, you have seen two of the derivatives already, and the third, 
+?
+?
+w
+p
+r
+r 
+= 
+?(w
+?
+r
+w
+?
+r
+o
+l 
+)
+, is easy to compute: 
+?P 
+=[(d ? o
+r 
+)] ? [o
+r 
+(1 ? o
+r
+)] ? [i
+r
+]
+?w
+r 
+Repeating the analysis for w
+l 
+yields the following. Each line is the same as the previously, except that one 
+more partial derivative is expanded using the chain rule: 
+?P	 ?P ?o
+r 
+=	 ? 
+?w
+l	
+?o
+r 
+?w
+l
+
+?P ?o
+r 
+?p
+r
+
+=	 ? ? 
+?o
+r	
+?p
+r 
+?w
+l 
+?P	 ?o
+r 
+?p
+r 
+?o
+l 
+=	 ? ? ? 
+?o
+r	
+?p
+r 
+?o
+l 
+?w
+l 
+?P	 ?o
+r 
+?p
+r 
+?o
+l 
+?p
+l 
+=	 ? ? ? ? 
+?o
+r 
+?p
+r 
+?o
+l 
+?p
+l 
+?w
+l 
+=[(d ? o
+r 
+)] ? [o
+r 
+(1 ? o
+r 
+)] ? [w
+r
+] ? [o
+l 
+(1 ? o
+l 
+)] ? [i
+l 
+] 
+Thus, the derivative consists of products of terms that have already been computed and terms in the vicinity 
+of w
+l 
+. This is clearer if you write the two derivatives next to one another: 
+?P 
+=(d ? o
+r 
+) ? o
+r 
+(1 ? o
+r
+) ? i
+r
+?w
+r 
+?P 
+=(d ? o
+r 
+) ? o
+r 
+(1 ? o
+r
+) ? w
+r 
+? o
+l 
+(1 ? o
+l 
+) ? i
+l
+?w
+l 
+You can simplify the equations by defining ?s as follows, where each delta is associated with either the left or 
+right neuron: 
+?
+r 
+=o
+r 
+(1 ? o
+r 
+) ? (d ? o
+r 
+) 
+?
+l 
+=o
+l 
+(1 ? o
+l 
+) ? w
+r 
+? ?
+r 
+Then, you can write the partial derivatives with the ?s: 
+?P 
+=i
+r 
+? ?
+r
+?w
+r 
+?P 
+=i
+l 
+? ?
+l
+?w
+l 
+? 
+4 
+If you add more layers to the front of the network, each weight has a partial derivatives that is computed 
+like the partial derivative of the weight of the left neuron. That is, each has a partial derivative determined by 
+its input and its delta, where its delta in turn is determined by its output, the weight to its right, and the delta 
+to its right. Thus, for the weights in the final layer, you compute the change as follows, where I use f as the 
+subscript instead of r to emphasize that the computation is for the neuron in the final layer: 
+?w
+f 
+= ? ? i
+f 
+? ?
+f 
+where 
+?
+f 
+= o
+f 
+(1 ? o
+f 
+) ? (d ? o
+f 
+) 
+For all other layers, you compute the change as follows: 
+?w
+l 
+= ? ? i
+l 
+? ?
+l 
+where 
+?
+l 
+= o
+l 
+(1 ? o
+l 
+) ? w
+r 
+? ?
+r 
+More neurons per layers 
+Of course, you really want back propagation formulas for not only any number of layers but also for any 
+number of neurons per layer, each of which can have multiple inputs, each with its own weight. Accordingly, 
+you need to generalize in another direction, allowing multiple neurons in each layer and multiple weights 
+attached to each neuron. 
+The generalization is an adventure in summations, with lots of subscripts to keep straight, but in the end, 
+the result matches intuition. For the final layer, there may be many neurons, so the formula?s need an index, 
+k, indicating which final node neuron is in play. For any weight contained in the final-layer neuron, f
+k 
+, you 
+compute the change as follows from the input corresponding to the weight and from the ? associated with the 
+neuron: 
+?w =? ? i ? ?
+f
+k 
+?
+f
+k 
+=o
+f
+k 
+(1 ? o
+f
+k 
+) ? (d
+k 
+? o
+f
+k 
+) 
+Note that the output of each final-layer neuron output is subtracted from the output desired for that neuron. 
+For other layers, there may also be many neurons, and the output of each may in?uence all the neurons in 
+the next layer to the right. The change in weight has to account for what happens to all of those neurons to the 
+right, so a summation appears, but otherwise you compute the change, as before, from the input corresponding 
+to the weight and from the ? associated with the neuron: 
+?w =? ? i ? ?
+l
+i 
+?
+l
+i 
+=o
+l
+i 
+(1 ? o
+l
+i 
+) ? w
+l
+i 
+?r
+j 
+? ?
+r
+j 
+j 
+Note that w
+l
+i 
+?r
+j 
+is the weight that connects the j
+th 
+right-side neuron to the output of the i
+th 
+left-side neuron. 
+  
+  
+  
+? 
+? 
+5 
+Summary 
+Once you understood how to derive the formulas, you can combine and simplify them in preparation for 
+solving problems. For each weight, you compute the weight?s change from the input corresponding to the 
+weight and from the ? associated with the neuron. Assuming that ? is the delta associated with that neuron, 
+you have the following, where w
+?r
+j 
+is the weight connecting the output of the neuron you are working on, 
+the i
+th 
+left-side neuron, to the j
+th 
+right-side neuron, and ?
+r
+j 
+is the ? associated with that right-side neuron. 
+w
+prime 
+=w + ?w 
+?w =? ? i ? ? 
+(d ? o), for the final layer; 
+? =o(1 ? o) ? 
+j
+w
+?r
+j 
+? ?
+r
+j 
+, otherwise. 
+That is, you computed change in a neuron?s w, in every layer, by multiplying ? times the neuron?s input 
+times its ?. The ? is determined for all but the final layer in terms of the neuron?s output and all the weights 
+that connect that output to neurons in the layer to the right and the ?s associated with those right-side neurons. 
+The ? for each neuron in the final layer is determined only by the output of that neuron and by the difference 
+between the desired output and the actual output of that neuron. 
+Weights and deltas in layer to the right 
+Neuron with weight to be adjusted 
+w
+?r
+1 
+w 
+x 
+o 
+i 
+x 
+x 
+? ? 
+x 
+x 
+x 
+? ? 
+x 
+x 
+x 
+? ? 
+?1 
+?? 
+w
+?r
+N 
+Weight to be adjusted 

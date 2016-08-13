@@ -1,0 +1,494 @@
+6.034 Final Examination 
+Tuesday, December 20,2005 
+Note that problems are given roughly in the order the material was covered, not in 
+the order of difficulty or expected time to complete. The total number of points is 300, 
+100 for each of the three sections, each of which corresponds to approximately 113 of the 
+subiect. 
+Name 
+Email 
+Problem 
+number 
+flj fi 12 0 fl /lU Skc CT 
+/ Total 1 300 13 m/ 
+I 
+Section I, Problem 1, Rules (50 points) 
+Important note: This problem resembles a problem on the first quiz, but is 
+sufficiently different that you must not think to solve it by copy and pasting 
+the solution to that corresponding problem. 
+Sam Urai decides to use his 6.034 knowledge to defend MIT. To this end, he wants to 
+identify ninjas. He would like to identify less powerful ninja first, to allow him to level up 
+before the boss battle. 
+He produces the following rule set: (Reproduced in supplement) 
+(PO 
+
+(IF 
+
+THEN (evaluate-gradstudents))) 
+
+(PI 
+
+(IF (evaluate-gradstudents) 
+
+(?person is gradstudent 
+
+(?person researches ?topic) 
+
+(?topic national-secret) 
+
+THEN (?person ninja) ) ) 
+
+(P2 
+
+(IF (evaluate-gradstudents) 
+
+DELETE (evaluat e-gradstudent s) 
+
+ADD (evaluate-prof essors) ) ) 
+
+(P3 
+
+(IF (?x is professor) 
+
+(?y is student of ?x) 
+
+(?y ninja) 
+
+THEN (?x ninja))) 
+
+He then debugs it on the following fabricated data set: 
+Al: (Cat researches ethics) 
+
+A2: (Tanis researches finance) 
+
+A3: (Jennifer researches ColdFusion) 
+
+A4: (ethics national-secret) 
+
+AS: (ColdFusion national-secret) 
+
+A6: (Cat is gradstudent) 
+
+A7: (Tanis is gradstudent) 
+
+A8: (Jennifer is gradstudent) 
+
+A9: (Winston is professor) 
+
+A10: (Cat is student of Winston) 
+
+All: (Tanis is student of Winston) 
+
+Part A, Forward Chaining (25 points) 
+Part A1 (15 points) 
+Sam calls (chain 6). Fill in the table with what the computer does, assuming: 
+1 Ties are broken by rule order 
+2 Ties between rules are broken by assertion order 
+Note that only the far-right column will be graded; the 
+other columns are for whatever scratch work you choose to 
+do. 
+Matched Triggered 
+E'ired Changed 
+5
+<E~&LOPTE-GRWS~~D~~ 
+(CAT AJ]UJN 
++-
++
+(lt?c,oi~smtm7~) 
+(wmu&i-L=-P'1cct.3s&d~) 
+r 
+(w,+&,w - ~124m3m)
+-
+f
+(~J,+LU~~FCRA~S~~M% 
+-
+[W@Lvi@-&?AD~d 
+Part A2 (5 points) 
+Who is a identified as a ninja after (chain 6)? 
+Part A3 (5 points) 
+Who is identified as a ninja after (chain loo)'! 
+pfir,-7t-n, IV 1~24 
+Part B, Backward Chaining (25 points) 
+Now, Sam calls a backward chainer on the assertion (Winston is Ninja) 
+Part B1 (20 points) 
+Fill in the table with the assertion that the backward chainer is trying to match, in the 
+order that the backward chainer tries to match them. Assume, as in quiz 1: 
+1 If the system asks the user if an assertion is true, the answer is no. 
+
+2 The backward chainer does not modify the assertion base, so it can derive the same 
+
+assertion multiple times. 
+3 Conflict Resolution is by rule order 
+4 If a rule can have multiple bindings, then conflict resolution is by assertion order. 
+Part B2 (5 points) 
+Is Winston identified as a Ninja? 
+Section I, Problem 2, Search (50 points) 
+Part A (20 points) 
+The following are some multiple choice questions about the searches we have learned in 
+class. Answer them, considering all of the search functions we covered in class. Use the 
+convention that S is the start node, and G is the goal. Circle only 1 answer. 
+If you are more comfortable with the tree method, recall that the paths in the queue 
+are the same as the paths in the tree that can be extended. 
+Part A1 (5 points) 
+Could the path (S A B C A) appear on the search queue? 
+A Yes, it is possible for it to appear on the search queue of any of the search functions 
+we learned about in class. 
+B Yes, it can appear on the search queue, but only if you do not use an extended list. 
+@No, it cannot appear on the search queue, because the path contains a loop. 
+D No, it cannot appear in the search queue because it is not a valid path. 
+Part A2 (5 points) 
+Could the paths (S A C D B) and (S A B D C) both appear, at some point in the search, 
+on the same search queue? 
+A Yes, it is possible for them to appear on the search queue of any of the search functions 
+we learned about in class. 
+Ges, they can appear on the search queue, but only if you do not use an extended list. 
+C No, they cannot both appear on the search queue, because the two paths contain one 
+node multiple times. 
+D No, they cannot appear on the search queue, because onelboth of them are not valid 
+paths. 
+Part A3 (5 points) 
+Could the paths (S A C D) and (S A) both appear, simultaneously on the same search 
+queue'? 
+A Yes, it is possible for them to appear on the search queue of any of the search functions 
+we learned about in class. 
+B Yes, they can appear on the search queue, but only if you do not use an extended list. 
+C No, they cannot be on the search queue at the same time, because (S A) is shorter 
+appear on the search queue, because (S A) must be extended before 
+put on the search queue. 
+Part A4 (5 points) 
+What is an extended list'? 
+@A list of nodes, which have been at the end of a path which was removed from the 
+search queue. 
+B 	A list of nodes, which have been at the end of a path which was put on the search 
+queue. 
+Part B (10 points) 
+Search queues are characterized by the operations that place new paths on the queue and 
+that provide a path when asked for one. Here are the options available to you: 
+Queue A: 
+1. Puts new paths on the back of the Queue, in lexical order. 
+2. Takes a path off the front of the Queue. 
+Queue B: 
+1. Puts new paths on the front of the Queue, in lexical order. 
+2. Takes a path off the front of the Queue. 
+Queue C: 
+1. Puts new paths on the back of the Queue, ordered by their heuristic values. 
+2. Takes a path off the front of the Queue. 
+Queue D: 
+1. Puts new elements on the front of the Queue, ordered by their heuristic values. 
+2. Take a path off the front of the Queue. 
+Queue E: 
+1. Puts new elements into the Queue. 
+2. Take the path in the entire Queue with the best heuristic value. 
+Queue F: 
+1. Puts new elements into the Queue. 
+2. Take the path in the entire Queue with the least path length. 
+Queue G: 
+1. Puts new elements into the Queue. 
+2. Take the path in the entire Queue with the least (consistent estimate of distance 
+remaining + path length). 
+For each search below, circle the letter that identifies the queue type, from the list above, 
+you would use to implement the search. If you are more comfortable with the tree method, 
+recall that the queue determines the order that paths are selected to be extended. 
+Depth 
+Breadth OBCDEFG 
+
+Best First ABC@FG 
+Branch and Bound ABCDE@G 
+A* ABCDEF@ 
+Part C (10 points) 
+In the final section of this problem, we ask you to create the search tree for Mystery Search, 
+which is not the same as any search you have studied so far. Mystery Search has the 
+following characteristics: 
+1 When you finish extending a path, put the new paths on to the front of the search 
+queue, in (heuristic + path) order, such that the new path with the least (heuristic 
++ path) should end up at the front of the queue. 
+2 	When you want to extend another path, take a path off the front of the queue. 
+3 	Stop when a path with the goal comes off the queue. 
+4 	Mystery search uses backtracking and an extended list. S is the start and G is 
+the goal. 
+Part C1: Draw the tree produced by Mystery search. 
+Part C2: Does Mystery search find the shortest path in the example? 
+Part C3: Is the heuristic admissible? 
+Section 11, Question 1: Constraint Propagation (50 points) 
+Part A: Propagating through a network (10 points) 
+How long will it take to color this map of 100 blocks with 4 colors using backtracking with forward 
+checking AND uroua~atin~throu~h singleton domains, assuming: 
+1 
+(1) we start coloring from node 1 and go in sequence 
+5 
+... 
+49 50 51 
+(2) each coloring operation will take 1 second 
+(3) variables are assigned, whenever possible, RGBYRGBY.. . 
+4 99 52 
+(4) No two touching squares should have the same color. 
+3 53 
+Note that there are 43 blocks between 5 and 49, and 
+31 blocks between 96 and 64; Each of these blocks 
+54 
+~
+have exactly two blocks touching them. 
+98 
+1 55 
+Fill in the blank below: 
+It will take approximately 1fl seconds. 
+56 
+-
+P 
+Only approximate answers are required. 
+96 97 
+100 
+57 
+Explain your answer in the space below: 
+Part B: Propagating through a network (40 points) 
+After a bit of tinkering with an electrical circuit containing a voltage supply and a resistor, you develop the 
+following constraint network with the integer domains shown: (Reproduced in supplement) 
+Notice the three curvy bold lines represent a single constraint between three variables. 
+When you are propagating a constraint, you have to try every possible combination of values and eliminate 
+those values that were not part of any feasible combination. 
+PART B1: (20 pts) 
+Draw your search tree for using backtracking with forward checking (no propagation beyond neighbors 
+
+of just-assigned variable) 
+
+In addition: 
+
+1. for every node in the tree draw only the valid descendants at that point and 
+2. for every node in the tree draw the domains at that point. 
+A portion of the tree is drawn for you. 
+IR 
+
+5
+D(VR)= 
+PART B2: (20 pts) 
+Draw your search tree for using backtracking with forward checking AND propagating through 
+domains that are reduced to size 1 [singleton domains]. 
+In addition: 
+1. for every node in the tree draw only the valid descendants at that point and 
+2. for every node in the tree draw the domains at that point. 
+A portion of the tree is drawn for YOU. Note that the order of variable assignment is 
+not the same as the order specified in Part B1. 
+vo 
+D(V1) = I 0 
+Section 11, Question 2: Neural Networks (50 points) 
+Part A: Calculation of weights (30 points) 
+For this part, consider the following network: 
+output 
+All units have step function thresholds, not sigmoids!! 
+That is, output = 1 for input greater than 0; output = 0 for input equal to or less than 0. 
+The black box in the diagram is a logic box that converts its inputs into outputs according to the following 
+table: 
+Z W Out ut
+p$fq 
+0 0 
+You want to use the network on the previous page to recognize this data: 
+-5 -4 -3 -2 -1 0 +1 +2 +3 +4 +5 
+X values 
+Find the appropriate weights for a,8,and y so that this network correctly identifies all the points on the 
+data set. You may only use integral numbers as your answer. 
+Part B: Forward Propagation (20 points) 
+The following network has 6 units labeled 1,2,3,4, 5, 6. All units are sigmoid units, meaning that their 
+output $2) is computed using the sum of their weighted inputs (z): 
+Below are the initial weights, repeated in this table for your convenience. Note that wll is the multiplier of 
+the value XI,not the value from sigmoid unit 1. 
+Using these weights, and the input vector (xl,xz) = [2,O], compute the output of each unit after forward 
+propagation. 
+A table of sigmoid values is included for you at the bottom of this page. Where appropriate, use the values 
+on the table to estimate the s(z) values. 
+yi (output of unit I) = 
+0, 6 
+y~(output of unit 2) = 
+0 
+y4 (output of unit 4) = 
+05 
+yj (output of unit 5)= 
+0,5 
+Sigmoid Function S(z) 
+Section 111, Problem 1, Miscellaneous (10 pointss) 
+In all cases, circle the correct answer 
+Part A 
+Learning with the arch-learning heuristics always leads to: 
+A. Generalizations of the first example, never specializations. 
+
+Specializations of the first example, never generaizations. 
+
+Either generalizations or specializations or both. 
+
+Part B 
+An fMRI machine: 
+Q
+Is used to clean test tubes 
+
+B Detects small changes in blood flow 
+
+C. Measures gamma-ray emmissions consequent to neutron bombardment 
+
+Part C 
+Bra' areas have been found that are especially sensitive to pictures of: 
+OBody parts 
+B. Snakes and insects 
+C. Cups and bowls 
+Part D 
+Noam Chomsky has indicated that he believes human intelligence was enabled 50,000 years 
+ago by the emergence of : 
+A. The opposable thumb 
+B. Movement to carnivorous diet caused by climate change 
+
+@The ability to join concepts together without limit 
+
+Part E 
+The principle virtue of high-dimensional spaces is that: 
+It simplifies optimization by making it possible to introduce LaGrange multipliers 
+Q
+B. It is easier to find a decision boundary that appropriately divides a sample set 
+
+C. Overfitting is no longer possible 
+
+Section 111, Problem 2, Support Vector Machines (34 points) 
+Part A (10 points) 
+Suppose you train a Support Vector Machine of the form 
+h(r) = sign (CaiyiK(Zi, 3) + b) 
+where 
+on the following dataset, using a linear kernel (K(xi, xj) = Zi .Zj). 
+1. draw (directly on the diagram above) the street (not the decision boundary) that the 
+SVM classifier identifies 
+2. circle which points will have non-zero support vector weights 
+How many support vectors did you circle? (Circle your answer below.) 
+Note: Do this by visual inspection only! 
+Part B (24 points) 
+
+In this problem, we explore how an SVM classifier 
+
+with a linear kernel (K(Zi, Zj) = Zi . Zj) treats the following data set. There are two 
+negative points (-), at (0, 0) and (I, I), labeled A and B, and one postive (+) point, at 
+(2, O), labeled C. 
+Part B1 (5 points) 
+Compute the 9 kernel values: 
+Part B2 (5 points) 
+Assume that A, B, and C are all support vectors with non-zero weight obeying the following 
+2 constraints: 
+Constraint I: Caiyi = 0 
+Constraint 2: 
+h(3)= +1 for positive support vectors 
+h(~)= -1 for negative support vectors 
+Write down the coefficients in the following equations such that the equations, when 
+solved, yield values for aA, a~,ac, and b, given the above constraints. 
+- I I I O b= 6
+Eq. 1: &A+ - ag + ac + 
+0 0 0 --I
+Eq. 2: aA + aB + aC $ I b= 
+~q.3: 0 an + --2aB + 2 ac + -I b = -
+Eq.4: 0 a~+-/2a~+? ac+ 1 b=& 
+Part B3 (5 points) 
+Solve for aA,tug, aC and b, and enter your values below: 
+an= 0 aa= I ac= 1 b= -I ' 
+Part B4 (5 points) 
+Write an expression for the classifier h(x) by completing the if expression: 
+d 
+h(x)= '3 /
+-1 otherwise 
+QL 
+Show your work here: 
+Part B5 (4 points) 
+
+Draw the decision boundary for the SVM classifier for the dataset: 
+
+Section 111, Problem 3, Self Organizing Maps (20 points) 
+You are making a self-organizing map with nine nodes, which you initialize to: 
+You decide to randomly choose training points from the set of integers between 0 and 
+20. 
+The distance function you intend to use is as follows, where x is a point from the 
+map, and y is a training point: 
+That is not a typo: x is squared, y is not. The function you intend to use to modify a 
+point is: 
+For this problem, assume that a: will always be 1/2. 
+Part A (5 points) 
+The first training sample is 18. Which point in the map do you choose? Circle the best 
+answer on the map above. 
+Part B (5 points) 
+What is the new value of this point? 
+I( 
+Part C (10 points) 
+Suppose continue to train the map using random values of y in the range from 0 to 20. 
+Further suppose no modification is made to neighbors of the winning point in the map. 
+What will happen? Circle the best answer. 
+The map will converge toward predictable map values. 
+Q
+B All the map values will continue to get bigger 
+C. The map values will exhibit logarithmic relationship. 
+D. The map values will exhibit linear relationship. 
+Section 111, Problem 4, Nearest Neighbors, ID Trees and Boost- 
+
+ing (36 points) 
+
+Part A, Nearest Neighbors (3 points) 
+
+Draw the decision boundary for a 1-nearest neighbor classifier in the following data set: 
+
+Part B, ID Trees (3 points) 
+In the plot above, draw the decision boundary for an identification tree classifier built 
+using the average-disorder criterion and only using the following decision thresholds. 
+Only build the tree up to depth 2 even if the data is not perfectly classified! 
+(That is, the resulting tree should only have at most 2 decision points along any path from 
+root to leaf in the identification tree.) Also, break ties by using as preference order that 
+in which the thresholds are given above: hl is the most preferred while h6 is the least 
+preferred. 
+Part C, Boosting (30 points) 
+
+Boosting notes have been reproduced in the supplement. 
+
+Consider the following training set. The number of each data point is drawn near that 
+data point in the plot. (Reproduced in supplement) 
+In this problem, the weak learner used by AdaBoost only considers each of the decision 
+stump classifiers gi, given in the next page, and outputs the one with the smallest (weighted) 
+error. In case of ties, it outputs the classifier with the smallest index: g7 is the most 
+preferred while 912 is the least preferred (gl to gs vanished in the final minutes of exam 
+writing). Both a formal mathematical definition and a drawing of the decision stump of 
+each classifier are given in the next page. 
+(Reproduced in supplement) 
+ifx2>1.5,
+i
+1 
+g7(x)= -1 otherwise. 
+98(4 = -g7(x) 
+x2 > 1.5 
+x2 > 1.5 
+Part C1 (14points) 
+In this part, you are asked to complete a table (see below) corresponding to the weight, 
+weak classifier, error, and classifier weight values generated by running AdaBoost for T = 3 
+iterations on the training data plotted above. The table has been partially filled out for 
+you. 
+The auxiliary tables that follow will not be graded 
+but you 
+can use them to help keep track of some of the calcul .ations if 
+you wish. 
+Data points that classifier mislabels 
+Classifier error at iteration t = 2 
+97 S8 
+99 910 
+911 Q12 
+You may find the following formulas helpful. 
+
+Part C2 (3 points) 
+Write down the final classifier H(x). Please express only in terms of natural numbers and 
+the natural logarithm function (In). For example, if decision stumps g7, gs and gio are 
+the weak classifiers selected during AdaBoost, then your answer should look like H(x) = 
+sign(alg7(x) + a2gs(x) + asglo(x)), where on,a2 and as are appropriate weak-classifier 
+weights found at each iteration, and expressed in terms of natural numbers and the natural- 
+logarithm function. 
+Part C3 (4 points) 
+Draw the decision boundary for the final classifier H(x)on the plot given below. 
+Part C4 (3 points) 
+Circle the numbers corresponding to the data points that the final classifier H(x)classifies 
+incorrectly, or circle "none" if all data points are correctly classified by H(x). 
+e l 2 3 4 5 6 7 8 
+Part C5 (3 points) 
+Circle the numbers corresponding to the data points whose weights will increase if we were 
+to continue with a fourth iteration of AdaBoost, or circle "none" if none will increase. 
+none 0@ 3 4 5 &I@@ 
+Part C6 (3 points) 
+
+Circle the numbers corresponding to the data points whose weights will not change if we 
+
+were to continue with a fourth iteration of AdaBoost, or circle "none" if all will change. 
+
+G I 2 3 4 5 6 7 8 

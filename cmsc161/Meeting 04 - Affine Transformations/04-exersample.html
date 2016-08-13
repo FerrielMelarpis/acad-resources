@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="x-shader/x-vertex" id="vshader">
+    attribute vec3 aPosition;
+    uniform mat4 uTransformationMatrix;
+    void main() {
+      gl_Position = uTransformationMatrix*vec4(aPosition,1.0);
+    }
+  </script>
+  <script type="x-shader/x-fragment" id="fshader">
+  precision mediump float;
+  uniform vec4 uColor;
+
+  void main() {
+    gl_FragColor = uColor;
+  }
+  </script>
+	
+	<!--Import external javascript file-->
+  <!--Helper javascript methods for initializing webgl-->
+  <script src="./lib/webgl-init.js"></script>
+  <script src="./lib/webgl-utils.js"></script>
+  <script src="./lib/webgl-debug.js"></script>
+	<script src="./lib/gl-matrix-min.js"></script>
+	<script>
+    
+	
+    function main() {
+      var canvas = document.getElementById("c");
+      var gl = initializeWebGL(canvas);
+
+      var vertexShader = initializeShader(gl,"vshader");
+      var fragmentShader = initializeShader(gl, "fshader");
+      var program = initializeProgram(gl,vertexShader,fragmentShader);
+      gl.useProgram(program);
+
+      var aPositionPointer = gl.getAttribLocation(program,"aPosition");
+      var uColorPointer = gl.getUniformLocation(program,"uColor");
+        
+      gl.clearColor(0.0,0.0,0.0,1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      
+      var transformationMatrix = mat4.create();
+      var uTransformationMatrixPointer = gl.getUniformLocation(program,"uTransformationMatrix");
+      var angleOfRotation = 180.0;
+      var toRadians = glMatrix.toRadian(angleOfRotation);
+      
+      
+     
+      gl.uniformMatrix4fv(uTransformationMatrixPointer,false,new Float32Array(transformationMatrix));
+      
+      //draw pokemon
+      drawPokemonElectrode(gl,aPositionPointer,uColorPointer);
+      var btn_flip = document.getElementById("button_flip");
+      
+      btn_flip.onclick = function() {
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        mat4.rotateZ(transformationMatrix,transformationMatrix,toRadians);
+
+        gl.uniformMatrix4fv(uTransformationMatrixPointer,false,new Float32Array(transformationMatrix));
+        //draw pokemon
+        drawPokemonElectrode(gl,aPositionPointer,uColorPointer);
+      }
+    
+      
+      
+      
+      //set caption
+    
+    }
+    
+    function changeCaption() {
+      var header = document.getElementById("test");
+      header.textContent = "Electrode";
+
+      //from pokemon wiki :D
+      var para = document.getElementById("test2");
+      para.textContent = "It stores electric energy under very high pressure. It often explodes with little or no provocation.";
+    }
+    
+    function drawPokemonElectrode(gl,aPositionPointer,uColorPointer) {
+        
+        /**START UPPER HALF WHITE**/
+        //Vertices position definition
+        var upperhalf_vertices = [0.0,0.0,0.0];
+        var rad = 0.5
+        for(var i=0;i<=180;i++) {
+          var radian = i/180.0 * Math.PI;
+          upperhalf_vertices.push(rad*Math.cos(radian));
+          upperhalf_vertices.push(rad*Math.sin(radian));
+          upperhalf_vertices.push(0.0);
+        }
+        //Buffer object definition
+        var upperhalf_vertices_vertexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,upperhalf_vertices_vertexBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(upperhalf_vertices),gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPositionPointer);
+        //Draw upper half
+        gl.uniform4f(uColorPointer,1.0,1.0,1.0,1.0);
+        gl.drawArrays(gl.TRIANGLE_FAN,0,upperhalf_vertices.length/3);
+        /**END UPPER HALF WHITE**/
+        
+        
+        /**START UPPER HALF WHITE**/
+        //Vertices position definition
+        var lowerhalf_vertices = [0.0,0.0,0.0];
+        for(var i=180;i<=360;i++) {
+          var radian = i/180.0 * Math.PI;
+          lowerhalf_vertices.push(rad*Math.cos(radian));
+          lowerhalf_vertices.push(rad*Math.sin(radian));
+          lowerhalf_vertices.push(0.0);
+        }
+        //Buffer object definition
+        var lowerhalf_vertices_vertexBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,lowerhalf_vertices_vertexBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(lowerhalf_vertices),gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPositionPointer);
+        //Draw lower half
+        gl.uniform4f(uColorPointer,0.72,0.47,0.55,1.0);
+        gl.drawArrays(gl.TRIANGLE_FAN,0,lowerhalf_vertices.length/3);
+        /**END LOWER HALF WHITE**/
+
+        
+        /**START EYES**/
+        //Vertices position definition
+        var lines = [
+        0.5,0.0,0.0,
+        -0.5,0.0,0.0,
+        0.2,0.1,0.0,
+        0.2,0.15,0.0,
+        -0.2,0.1,0.0,
+        -0.2,0.15,0.0,
+        0.3,0.25,0.0,
+        0.2,0.3,0.0,
+        -0.3,0.25,0.0,
+        -0.2,0.3,0.0,
+        0.2,0.3,0.0,
+        0.05,0.15,0,
+        -0.2,0.3,0.0,
+        -0.05,0.15,0
+        ];
+        //Buffer object definition
+        var lineBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,lineBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(lines),gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPositionPointer);
+        //Draw eyes
+        gl.uniform4f(uColorPointer,0.0,0.0,0.0,1.0);
+        gl.drawArrays(gl.LINES,0,lines.length/3);
+        /**END EYES**/
+        
+        
+        /**START MOUTH**/
+        //Vertices position definition
+        var mouth_vertices = [0.0,-0.12,0.0];
+        rad = 0.3;
+        for(var i=185;i<=365;i++) {
+          var radian = i/180.0 * Math.PI;
+          mouth_vertices.push(mouth_vertices[0] + rad*Math.cos(radian));
+          mouth_vertices.push(mouth_vertices[1] + rad*Math.sin(radian));
+          mouth_vertices.push(0.0);
+        }
+        //Buffer object definition
+        var vertexBuffer3 = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer3);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(mouth_vertices),gl.STATIC_DRAW);
+        gl.vertexAttribPointer(aPositionPointer,3,gl.FLOAT,false,0,0);
+        gl.enableVertexAttribArray(aPositionPointer);
+        //draw inside mouth
+        gl.uniform4f(uColorPointer,1.0,1.0,1.0,1.0);
+        gl.drawArrays(gl.TRIANGLE_FAN,0,mouth_vertices.length/3);
+        //draw outline mouth
+        gl.uniform4f(uColorPointer,0,0,0,1.0);
+        gl.drawArrays(gl.LINE_LOOP,0,mouth_vertices.length/3);
+        /**END MOUTH**/
+        
+    }
+	</script>
+	<style>
+		canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+	body{
+text-align: center;
+
+	}
+	</style>
+</head>
+<body onload="main()">
+	<canvas id="c" width="400" height="400" style="border: 1px black solid; ">
+	</canvas>
+
+	<br />
+	<button id="button_flip">
+	Flip
+	</button>
+	</p>
+</body>
+</html>

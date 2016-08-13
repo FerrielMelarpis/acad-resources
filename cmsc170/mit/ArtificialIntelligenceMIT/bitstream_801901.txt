@@ -1,0 +1,33 @@
+Using DrScheme 
+Setting up DrScheme  
+There are many versions of Scheme out there. 6.001 used different ones in different 
+places. In order for the code in this class to work, though, we need to standardize on one 
+version of Scheme.  
+This class will be done entirely using the DrScheme environment. You may have used 
+DrScheme to do your projects in 6.001.  
+You should not use 6.001 Scheme or MIT Scheme to do the problem sets! If you do, you 
+will get strange error messages, and the TAs will not be able to help you.  
+You run DrScheme on Athena like this:  
+add drscheme 
+drscheme & 
+You can also download it to run it on your own computer.  
+If you're running DrScheme for the first time, it will ask you to choose a dialect of 
+Scheme. We're going to use PLT Scheme, also known as MzScheme. To set this up:  
+? Go to the Language menu and select Choose Language...  
+? In the list of languages, click on PLT.  
+? A few variants will drop down under PLT.  
+o Choose the Graphical variant. (We used Textual before problem set 3.)  
+The language  
+The MzScheme language we're working with inside DrScheme may be somewhat 
+unfamiliar if you're used to working with MIT Scheme. Here are some of the most 
+noticable differences:  
+The empty list is true. In MIT Scheme, the empty list was false -- in fact, () and #f were 
+the same value. In MzScheme, the only false value is #f.  
+Many functions are defined in libraries instead of being predefined everywhere. Perhaps 
+the most useful one of these is list.ss, which provides filter, foldl, and foldr (the 
+last two you may know better as fold-left and fold-right), as well as other useful 
+things like first through eighth and last-pair.  
+A guide to using these libraries is available:  
+http://download.plt-scheme.org/doc/352/html/mzlib/  
+6.034 Artificial Intelligence, Fall 2006       Using Dr. Scheme 
+Prof. Patrick H. Winston        Page 1 of 1 

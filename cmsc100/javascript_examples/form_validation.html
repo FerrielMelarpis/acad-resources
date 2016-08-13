@@ -1,0 +1,50 @@
+<html>
+<head>
+<script type="text/javascript">
+function validate()
+{ 
+	if (document.myForm.userName.value=="")
+	{
+	 alert("User Name is required.");
+	 return false;
+	}
+	else
+	if (document.myForm.password.value!=document.myForm.confirmPassword.value)
+	{
+	alert("Passwords don't match.");
+	return false;
+	}
+	else
+	{
+	document.write("<h1>Registered Successfully!</h1>");
+	return true;
+	}
+	
+	
+}
+	
+</script>
+</head>
+<body>
+	<table>
+	<form name="myForm" action="wala.html" onsubmit="validate()">
+	<tr>
+		<td>User Name </td>
+		<td> <input type="text" name="userName"/> </td>
+	</tr>
+	<tr>
+		<td>Password </td>
+		<td> <input type="password" name="password"/> </td>
+	</tr>
+	<tr>
+		<td>Confirm Password </td>
+		<td> <input type="password" name="confirmPassword"/> </td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"> <input type="submit" value="Submit" /> </td>
+	</tr>	
+	</form>
+	</table>
+</body>
+</html>

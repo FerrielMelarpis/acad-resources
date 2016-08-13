@@ -1,0 +1,189 @@
+6.034 Quiz 2 
+November 16,2005 
+Problem 
+Maximum 
+number 
+Name 
+Email 
+( Total / 100 
+50 ILI%QO 5 
+-- 
+Problem 1. Constraint Propagation (34 pts) 
+The following constraint network represents a coloring problem with 6 variables (Var 1 though 6) and one 
+or two or three colors in the domain of each variable (B, G, R, and Y). Each line represents a constraint 
+that requires that the two variables have different colors. 
+Binary constraints between variables are due to touching regions, while the domain restrictions on each 
+
+variable come from some other source. 
+
+Part A: (6 pts) 
+
+Draw a map containing 6 "countries" that exhibits the same constraints as the above constraint graph: 
+
+I--
+6
+/-I 1
+I 
+\ 
+5 
+2, 
+Two of the 6 countries are drawn for you. Draw 4 additional countries above such that if there is a 
+
+constraint between two blocks, the two blocks share a boundary. 
+
+Part B (28 points) 
+
+Find one of the valid solutions for this problem using backtracking with forward checking AND 
+
+propagating through singleton domains. Examine variables in numerical order and values in 
+
+alphabetical order. 
+
+(1) Variables are explored in numerical order, starting with Variable 1. 
+(2) Values (Colors) are explored in alphabetic order (B first, then G, then R, then Y) 
+Draw a search tree for using backtracking with forward checking AND pro saga tin^ throu~h sin~Jeton 
+domains. 
+In addition: 
+1. 	For every node in the tree draw only the valid descendants at that point and 
+2. 	 For every node in the tree draw the domains at that point, assuming constraint propagation runs 
+through all singleton domains until no fiuther domain reduction is possible anywhere and 
+3. 	 Mark with an ASTERISK (*) &nodes at which assignments initiate constraint propagation 
+through singleton domains. 
+Part B1: (4 pts) 
+How many asterisks did you mark in your tree? 
+Part B2: (8 pts) 
+Interpret your tree by filling in the blanks below: 
+The first time in the tree search that a variable assignment produces propagation through singleton 
+domains is when variable I is assigned the value 2 . 
+After propagation, the domain of variable(s) 5 b islare found to be empty, and backtracking 
+occurs. 
+Part B3: (8 pts) 
+Circle either (I), (11) or (111), and fill in the corresponding blanks, if appropriate : 
+e second time that a variable singleton domeains is 
+when variable 2- is assigned the value 
+After propagation, the domain of variable(s) -6 islare found to be empty, and backtracking 
+occurs. 
+(11) 
+The second time constraints are propagated through singleton domains is when variable is 
+assigned the value . 
+After propagation, the search continues with another variable assignment. 
+(111) 
+
+Constraints are propagated through singleton domains a second time. 
+
+Part B4: (8 pts) 
+After the search is finished, the resulting variable assignments are: 
+var 1 var 2 var 3 var 4 var 5 
+R D T6 
+
+Question 2: Nearest Neighbors and ID Trees 
+(30 points) 
+Mass in Kilograms 
+Here is a set of data on Foos and Quxes. You want to classify a and b as a Foo or a Qux. (Note: if you 
+need a straightedge, the side of a sheet of paper works well.) 
+Part A: ID Trees (14 points) 
+First, use the ID Tree idea. We have provided you with the first test: "Is the mass less than or equal to 6?" 
+and drawn it below: 
+10 
+9 
+8 
+7 
+6 
+5 
+4 
+3 
+2 
+I 
+0 
+test 1 
+Mass in Kilograms 
+Key: 
+=Foo 
+0 =Qux 
+- =boundary of 
+test 1, <=6? 
+= An unclassified 
+data point 
+Part A1 (4 points) 
+What is the disorder of the first test? Write your answer in terms of fractions and logs. You need not 
+compute a numerical answer with a calculator. 
+Part A2 (6 points) 
+Test2, which is to test just one variable, will occur if the answer to testl is true. Draw test2 below: 
+IceskL 
+test 1 
+Mass in Kilograms 
+Key: 
+=Foo 
+0 = Qux 
+- =boundary of 
+testl, <=6? 
+= An unclassified 
+data point 
+the answer to testl is false. Draw 
+- =boundary of 
+test1, <=6? 
+= An unclassified 
+data point 
+test3 below: 
+Mass in Kilograms 
+Part A4 (4 points) 
+Using the ID tree ou have corn leted, how would you classif a and b? 
+a is a -1 b i b i M 1 
+Part B1 Nearest Neighbors (6 points) 
+Now you classify a and b using nearest neighbors. Draw the decision boundaries for nearest neighbor 
+decisions, assuming 1 nearest neighbor is all that matters, on the graph below. 
+Mass in Kilograms 
+Part B2 (4 points) 
+Using 1 nearest neighbor, a is a 
+= An unclassified 
+data point 
+andbisa 
+Part C (6 points) 
+Using 3 nearest neighbors, a is a [I andbisa 
+Question 3: Neural Networks (36 points) 
+Part A: Backward Propagation (24 points) 
+For this part of the problem, you may find the backpropagationnotes attached at the end of the quiz to be 
+helpful. Considering the following network, with sigmoidthreshold functions. 
+Below are the initial weights, repeated in this table for your convenience. Note that wll does not originate 
+from sigrnoid unit 1, but from XI,and w22 does not originate from sigrnoid unit 2, but from x2. 
+The actual outputs of the units are as follows: 
+yl (output of unit 1) = 112 
+y2 (output of unit 2) = 112 
+y3 (output of unit 3) = 112 
+1
+Using a learning rate of 2, and desired output of Y = 0, and an error function E = -(Y -Y*)~for the input
+2 
+(XI,x2)= [l, 11, backpropagate the network for one iteration, by computingthe new values for the weights 
+w2~and w22 and filling out the values below. Provide numerical answers and show your work for partial 
+credit. 6, = 33ir-$5)(yn.-$) 
+w23 = 
+3%-K6,j~ 
+-- 1 ( / 2) ='/s 
+w22= LJ,?- - R 5. gl-=) -
+-- A,= y~-yd(~2363) . . 
+Part B1: Boundary Lines (8 points)
+n 
+All units have step function thresholds, not sigmoids!! 
+That is, output = 1 for input greater than 0; output = 0 for input equal to or less than 0. The black box in 
+the diagram is a transmogrifier that converts its input into the following outputs: 
+Z Out ut 
+Draw the boundary line this unit produces on the following graph: 
+Part B2 (4 points) 
+What will our system output if we feed it any point above the boundary line? Circle your answer. 
+Backprop notes 
+
+where R is a rate constant and the 6s are computed with the following formulas: 
+where 
+ok 
+is output k of the output layer 
+dk 
+is the desired output k of the o~~tput layer 
+6 
+is a delta associated with the output layer 
+01, 
+is output i of left layer in ;I left-right pair 
+hr, 
+is a delta associated with the layer 1 
+, 
+is a clclta associated with the adjacent layer to the right, layer r 
+

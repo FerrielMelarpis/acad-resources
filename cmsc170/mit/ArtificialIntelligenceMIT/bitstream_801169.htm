@@ -1,0 +1,374 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>MIT OpenCourseWare | Electrical Engineering and Computer Science | 6.034 Artificial Intelligence, Fall 2006 | Assignments</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="6-034-artificial-intelligence-fall-2006" name="WT.cg_n">
+<meta content="Assignments" name="WT.cg_s">
+<meta content="Assignments" name="Title">
+<meta content="This section provides information on the grading of problem sets, the complete set of problem sets for the course, and supporting files." name="Description">
+<meta content="Winston, Patrick Henry" name="Author">
+<meta content="artificial intelligence,applied systems,rule chaining,heuristic search,constraint propagation,constrained search,inheritance,identification trees,neural nets,genetic algorithms,human intelligence,knowledge representation,intelligent systems" name="Keyword">
+<meta content="" name="Version">
+<meta content="6.034 Artificial Intelligence | Assignments" name="Search_Display">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/common.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link href="http://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<script type="text/javascript" src="../../common/scripts/common-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body id="home">
+        <a href="#main" class="skip" tabindex="-1">skip to content</a> <a id="top"></a>
+        <div id="container">
+            
+            
+                
+	<div class="courseNotification">
+		<p>This is an archived course. A more recent version may be available at <a href="http://ocw.mit.edu" title="Visit: OCW Site">ocw.mit.edu</a>.</p>
+	</div>
+
+
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header"><div id="page_header">
+<div class="logo"><h1><a href="http://ocw.mit.edu/"><img height="36" width="289" alt="MIT OpenCourseWare" src="../../common/images/logo-ocw-home_new.gif"></a></h1></div>     <div class="header_links">
+<div class="newsletter_icon"><a href="http://ocw.mit.edu/jsp/subscribe.jsp?utm_source=header"><img alt="Subscribe to OCW's newsletter." title="Subscribe to OCW's newsletter." src="../../common/images/newsletter.png"></a></div>         <div class="social_media_icons">
+<a style="float: left;" href="http://twitter.com/mitocw"><img alt="Follow OCW on Twitter." title="Follow OCW on Twitter." src="../../common/images/twitter.png"></a>             <a style="float: right;" href="http://facebook.com/mitocw"><img alt="Follow OCW on Facebook." title="Follow OCW on Facebook." src="../../common/images/facebook.png"></a>
+</div>
+</div>
+</div></div>
+
+</div>
+
+
+
+
+
+<div id="primary_nav">
+<ul id="nav">
+<li class="">
+<a href="http://ocw.mit.edu/">Home</a>
+    </li>
+	<li class="first active">
+<a href="http://ocw.mit.edu/courses/">Courses</a>
+    </li>
+	<li class="">
+<a href="http://ocw.mit.edu/donate">Donate</a>
+    </li>
+	<li class="">
+<a href="http://ocw.mit.edu/about/">About OCW</a>
+    </li>
+    
+   
+</ul>
+<!-- begin search area, inputs are placed inside div blocks to validate xhtml strict --><form method="get" action="../../common/search/AdvancedSearch.htm">
+	<div class="searchform">
+		<div>
+			<input type="hidden" value="ocw" name="site"><input type="hidden" value="mit" name="client"><input type="hidden" value="*" name="getfields"><input type="hidden" value="xml_no_dtd" name="output"><input type="hidden" value="http://ocw.mit.edu/search/google-ocw.xsl" name="proxystylesheet"><input type="hidden" value="1" name="proxyreload"><input type="hidden" value="i" name="as_dt"><input type="hidden" value="utf-8" name="oe"><input type="hidden" value="web" name="departmentName"><input type="hidden" value="0" name="filter"><input type="hidden" name="courseName">
+</div>
+		<div>
+			<input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Enter search keyword" name="q" class="search" id="terms"><input type="image" alt="Go" src="../../common/images/go_new.gif" name="btnG" class="but"><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a>
+		</div>
+	</div>
+</form>
+
+<!-- end search area -->
+<ul id="secondary_nav">
+<li class="first"><a href="http://ocw.mit.edu/help">Help</a></li>
+    <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>
+</ul>
+<!-- end Primary Nav -->
+</div>
+
+            
+            
+            <div id="main">
+                
+                <div id="local_navigation">
+                    
+
+
+
+
+<div class="get_started">
+	<ul>
+<li><a href="http://ocw.mit.edu/courses">VIEW ALL COURSES</a></li>
+	</ul>
+</div>
+
+<script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><div class="get_started">
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/index.htm" class="">Course Home</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/syllabus/index.htm" class="">Syllabus</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/readings/index.htm" class="">Readings</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/assignments/index.htm" class="selected">Assignments</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/exams/index.htm" class="">Exams</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul>
+<li> 
+		           <a href="../../contents/tools/index.htm" class="">Tools</a>
+		        </li>
+                </ul>
+</div>
+	        
+		
+	    
+	        <div>
+               <ul></ul>
+</div>
+	        
+		
+	</div>
+	
+
+<!--Left Nav Ends -->
+
+
+<div class="get_started">
+	<div class="leftNavSubhead">Translations*</div>
+	<ul>
+<li><a href="http://www.core.org.cn/OcwWeb/Electrical-Engineering-and-Computer-Science/6-034Artificial-IntelligenceFall2002/CourseHome/index.htm" title="Chinese (Simplified) version of this course">简体字</a></li>
+	</ul>
+</div>
+<div class="get_started">
+	<div class="leftNavSubhead">Archived Versions</div>
+	<ul>
+<li><a href="http://hdl.handle.net/1721.1/39663" title="Fall 2002">Fall 2002</a></li>
+	</ul>
+</div>
+
+
+
+
+
+
+
+
+
+                </div>
+                
+                               
+                <div id="content_body">
+        <div class="page_links">
+            <div class="breadcrumb">
+                <div id="portal-breadcrumbs">
+
+    <a href="http://ocw.mit.edu/">Home</a>
+    <span class="breadcrumbSeparator">
+        &gt;
+        
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://ocw.mit.edu/courses">Courses</a>
+            <span class="breadcrumbSeparator">
+                &gt;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science">Electrical Engineering and Computer Science</a>
+            <span class="breadcrumbSeparator">
+                &gt;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            <a href="../../contents/index.htm">Artificial Intelligence</a>
+            <span class="breadcrumbSeparator">
+                &gt;
+                
+            </span>
+            
+         
+    </span>
+    <span dir="ltr">
+        
+            
+            
+            <span>Assignments</span>
+         
+    </span>
+</div>
+
+            </div>
+        </div>
+        <div id="main_content_course">
+            <div id="courses_inner">
+                <h1>
+        <span class="" id="parent-fieldname-title">
+            Assignments
+        </span>
+    </h1>
+                <div class="clear"></div>
+                <div class="mod8">
+                    
+                    
+        <div class="" id="parent-fieldname-text">
+            <h2 class="subhead">Problem Set Grading Policy</h2> <h3 class="subsubhead">What is GraderBot?</h3> <p>Problem sets are graded automatically. The tests measure whether you understand the general AI concepts, but the problem sets make sure you can apply these concepts in real code. In order to test that the code you wrote works and meets the requirements of the problem, we run the code on an expanded version of tester.scm, called the "hidden tester".</p> <p>The public test cases - the ones that you should be sure to pass before submitting - are included in the hidden tester, and will be worth at least 33% of the points.</p> <p>The Scheme code you submit needs to run without human intervention! The TAs do not have time to balance your parentheses or define your undefined variables. Your best bet is to run tester.scm right before you submit. If tester.scm does not run, then GraderBot will not be able to give you a grade.</p> <p>On Problem Set 1, we dealt with this by fixing the code until it would at least run and giving partial credit for the points it earned. But there's a much simpler way to do this, now that there's a policy for late problem sets.</p> <p>From now on, code that does not run does not count as a submission. We'll just e-mail you and tell you that it doesn't work, and you get to resubmit it late. Yes, you lose credit that way, so that's why you should make sure your code runs.</p> <h3 class="subsubhead">Late Problem Sets</h3> <p>We've come up with a policy on turning in problem sets late.</p> <p>The main point is that we hope you don't do it, because it makes things difficult for us. Start your problem sets early, and ask your questions in tutorial. If you have a legitimate reason that you need an extension (not just procrastination), ask the TAs well in advance.</p> <p>If you want to turn in a problem set late, you must do these things:</p> <ul>
+<li>E-mail the TAs before midnight, telling them not to expect your problem set.</li> <li>Submit your problem set in the usual way when you're done.</li> <li>E-mail the TAs and tell them that you're done.</li> </ul>
+<p>Problem sets that are turned in 0-2 days late will lose 25% of the points they would otherwise get (this is different from losing 25 points).</p> <p>Problem sets that are turned in more than 2 days late will lose 50% of the points. (We want to release solutions by then. If you submit after this, you're on your honor not to look at the solutions or the hidden tests until you submit.)</p> <p>Problem sets that are turned in more than a week late will get no credit.</p> <h2 class="subhead">Problem Sets</h2> <p>The assignments in this section refer to Athena, which is MIT's UNIX®-based computing environment.</p> <div class="maintabletemplate"><table summary="See table caption for summary." class="tablewidth50">
+<caption class="invisible">Assignments files.</caption> <thead><tr>
+<th scope="col">ASSIGNMENTS</th> <th scope="col">SUPPORTING FILES</th> </tr></thead>
+<tbody>
+<tr class="row">
+<td>Problem Set 0 (<a href="../../contents/assignments/pset0.pdf">PDF</a>)</td> <td>
+<p>Using Dr. Scheme (<a href="../../contents/assignments/using_drscheme.pdf">PDF</a>)</p> <p>(<a href="../../contents/assignments/ps0.zip">ZIP</a>) (The ZIP file contains: 4 .scm files.)</p>
+</td> </tr>
+<tr class="alt-row">
+<td>Problem Set 1 (<a href="../../contents/assignments/pset1.pdf">PDF</a>)</td> <td>(<a href="../../contents/assignments/ps1.zip">ZIP</a>) (The ZIP file contains: 10 .scm files.)</td> </tr>
+<tr class="row">
+<td>Problem Set 2 (<a href="../../contents/assignments/pset2.pdf">PDF</a>)</td> <td>(<a href="../../contents/assignments/ps2.zip">ZIP</a>) (The ZIP file contains: 4 .scm files.)</td> </tr>
+<tr class="alt-row">
+<td>Problem Set 3 (<a href="../../contents/assignments/pset3.pdf">PDF</a>)</td> <td>(<a href="../../contents/assignments/ps3.zip">ZIP</a>) (The ZIP file contains: 6 .scm files.)</td> </tr>
+<tr class="row">
+<td>Problem Set 4a (<a href="../../contents/assignments/pset4a.pdf">PDF</a>)</td> <td>(<a href="../../contents/assignments/ps4a.zip">ZIP</a>) (The ZIP file contains: 6 .scm files.)</td> </tr>
+<tr class="alt-row">
+<td>Problem Set 4b (<a href="../../contents/assignments/pset4b.pdf">PDF</a>)</td> <td>(<a href="../../contents/assignments/ps4b.zip">ZIP</a>) (The ZIP file contains: 7 .scm files.)</td> </tr>
+<tr class="row">
+<td>Problem Set 5 (<a href="../../contents/assignments/pset5.pdf">PDF</a>)</td> <td>
+<p>Boost Notes (<a href="../../contents/assignments/boost_notes.pdf">PDF</a>) (Courtesy of Luis Ortiz. Used with permission.)</p> <p>(<a href="../../contents/assignments/ps5.zip">ZIP</a>) (The ZIP file contains: 5 .scm files.)</p>
+</td> </tr>
+</tbody>
+</table></div>
+            
+        </div>
+    
+                    
+
+
+
+
+
+                    
+                    
+                    
+                    
+        <div class="" id="parent-fieldname-bottomtext">
+            
+            
+        </div>
+    
+                                       
+                </div>
+<!-- mod8 ends -->
+            </div>
+<!-- courses_inner ends -->
+            
+        </div>
+<!-- main_content_course ends -->
+      </div>
+<!-- content_body END -->
+                                
+            </div>
+<!-- main end -->
+            <div id="footer">
+                
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer"><div class="footer">
+<div class="footer_logo">
+<a href="http://web.mit.edu"> 
+<img width="65" height="35" align="top" title="MIT Logo" src="../../common/images/trans.gif" alt="MIT Logo"></a>  
+<a href="../../common/terms/index.htm"> 
+<img width="100" height="13" align="top" title="Copyright MIT" src="../../common/images/trans.gif" alt="Copyright MIT"></a>
+</div>
+<div class="footer_links">
+<ul>
+<li class="first">
+<a href="http://ocw.mit.edu/about/rss/">
+<img width="32" height="15" align="absbottom" src="../../common/images/footer_rss_new.gif" alt="RSS Feeds"></a> 
+<a href="http://ocw.mit.edu/about/rss/">RSS Feeds</a>
+</li>
+    <li><a href="../../common/terms/index.htm">Privacy and Terms of Use</a></li>
+    <li><a href="http://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="http://ocw.mit.edu/help/faq-cite-ocw-content/">Cite OCW Content</a></li>
+</ul>
+<p>Your use of the MIT OpenCourseWare site and course materials is subject to our Creative Commons License and other terms  of use.</p>
+<!-- end footer links -->
+</div>
+<div class="license">
+<a class="first" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" rel="license" target="_blank"><img width="80" height="15" src="../../common/images/cc_logo_new.gif" alt="Creative Commons - some rights reserved"></a><br><a class="first" href="http://www.ocwconsortium.org/" target="_blank">
+<img width="80" height="44" src="../../common/images/ocw-logo_new.gif" alt="OCW Consortium"></a>
+</div>
+</div></div>
+
+</div>
+
+
+
+
+
+                
+            </div>
+<!-- footer end -->
+        </div>
+<!-- container end -->    
+      </body>
+</html>

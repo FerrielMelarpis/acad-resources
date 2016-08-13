@@ -1,0 +1,174 @@
+? 
+? ? 
+? 
+? ? 
+? 
+MIT EECS
+
+6.034: Arti?cial Intelligence
+
+(Fall 2006)
+
+Instructor: Luis E. Ortiz
+
+1
+Notes on Boosting: AdaBoost
+
+?One for all, and all for one?
+
+The Three Musketeers by Alexandre Dumas, p`ere
+
+The AdaBoost Algorithm: From Weak to Strong 
+Given training examples (x
+1
+,y
+1
+),..., (x
+m
+,y
+m
+) such that x
+i 
+? X, y
+i 
+? Y = {?1, +1}. 
+Initialize D
+1
+(i) = 1/m. (D
+t
+(i) represents how much weight is given to example i on 
+iteration t.) 
+For t = 1,...,T : 
+1. Train weak learner using distribution D
+t
+: Outputs a weak classi?er h
+t 
+: X Y (h
+t
+?
+can be an ID tree, a NN-based classi?er, ...) 
+2. Compute the error ?
+t 
+of the classi?er h
+t
+: ?
+t 
+= sum of the weights of the data samples 
+that h
+t 
+classi?es incorrectly, or more formally, 
+?
+t 
+= D
+t
+(i) 
+i : h
+t
+(x
+i
+)=? y
+i 
+3. Use the error to compute ?
+?
+t 
+? [0, ?]: 
+?
+?
+t 
+= ln 
+1 ? ?
+t 
+?
+t 
+(?
+?
+t 
+is the weight given to weak classi?er h
+t 
+on the voting done to obtain H. 
+2
+) 
+4. Update the weight on the samples i = 1,...,m: 
+1 
+?
+1 
+t 
+if h
+t
+(x
+i
+) = y
+i 
+(mistake),
+D
+t+1
+(i) = D
+t
+(i) ?
+?
+2 
+? 
+1?
+1 
+?
+t 
+if h
+t
+(x
+i
+) = y
+i 
+(correct) 
+Output the ?nal classi?er to be a weighted majority vote of the T base classi?ers: 
+T
+H(x) = sign ?
+t
+?
+h
+t
+(x) 
+t=1 
+Slogan: ?T just-above-average heads are as good as 1 excelent? 
+1
+These notes were prepared in conjunction with Sourabh Niyogi. (Orig. date: Nov. 18, 2004; Last 
+updated: Nov. 30, 2006) 
+? ? 
+1 1??t2
+Note that ?
+?
+t 
+is like the ?
+t 
+= 
+2 
+ln 
+?
+t 
+presented in lecture but without the 1/2 factor; that is, ?
+?
+= 2?
+t
+.
+t 
+Removing the 1/2 factor is OK because scaling in any way does not change the output of the sign function, 
+and therefore scaling does not change the ?nal classi?er H. 
+Page 1 of 2 
+Notes on Boosting: AdaBoost
+
+AdaBoost has Excellent Properties 
+?	 Integrates disparate and weak classi?ers together (i.e., combine classi?ers that con?
+centrate on di?erent aspects of the problem or, in other words, put more weight to 
+di?erent data points) 
+?	 Theoretical bounds guarantee that adding a new classi?er cannot hurt: the training 
+error can only decrease! 
+?	 Easy to program: can use any weak learner; No local minima, i.e., achives zero training 
+error eventually 
+?	 Tends to resist over?tting in practice, yet sensitive to outliers 
+?	 Has guaranteed bounds on the true error of the ?nal classi?er based (roughly) on (1) 
+general assumptions about the true underlying process generating the data; (2) the 
+amount of data m; (3) the number of rounds, i.e., the number T of weak classi?ers 
+{h
+t
+} used; and (4) the ??exibility? of the weak learning algorithm, e.g., roughly how 
+many parameters the classi?er has 
+Page 2 of 2 

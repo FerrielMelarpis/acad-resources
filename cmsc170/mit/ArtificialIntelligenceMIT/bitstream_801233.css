@@ -1,0 +1,1363 @@
+/*******************************************************************************************
+		MIT OpenCourseWare
+		http://ocw.mit.edu/
+	
+		globalnew.css - styles specific to global areas
+		v2.5
+		11 August 2011
+********************************************************************************************/
+
+/* HOME PAGE STYLES */
+
+.hero {
+	background:#B4B1A2 no-repeat top left;
+	border:1px solid #797865;
+	height:200px;
+	overflow:hidden;
+	border-width:1px 0;
+}
+.topImage {
+	margin-bottom:20px;
+}
+.unlocking_knowledge {
+	float:left;
+	width:320px;
+	margin:10px 0 0 10px;
+}
+.unlocking_knowledge h1 {
+	color:#fff;
+	font-size:1.5em;
+}
+.hero .info {
+	float:left;
+	width:240px;
+	margin-bottom:5px;
+	margin-left:10px;
+	margin-top:0;
+	font-size:0.8em;
+}
+.hero .info p {
+	font-size:1.1em;
+	color:#fff;
+	padding-bottom:5px;
+	margin-right:25px;
+}
+.hero .info img {
+	margin-top:10px;
+	margin-left:15px;
+}
+.hero .info p a:hover {
+	text-decoration:underline;
+	font-style:normal;
+	color:#fff;
+}
+.hero .quote {
+	float:right;
+	width:172px;
+	height:135px;
+	text-align:left;
+	color:#FFF;
+	_margin-bottom:0;
+	margin:15px 10px 40px 30px;
+}
+.hero .quote p {
+	font-size:0.8em;
+	margin:0 8px 0 0;
+}
+.hero .quote ul {
+	overflow:hidden;
+	_height:3.5em;
+	list-style:none;
+}
+.hero .quote li {
+	float:left;
+	font-size:0.75em;
+	_height:1%;
+	margin:0;
+	padding:0 5px 0 0;
+}
+.hero .quote a:hover {
+	text-decoration:underline;
+	color:#fff;
+}
+/* ------- SITE HOME COURSE-LIST WIDGET CHANGES---------*/
+#siteHomeCenterColumnA{
+    width:350px;
+    display:block;
+	float:left;
+	padding-bottom: 75px;
+}
+#siteHomeCourseListWidget h2{
+    padding: 17px 0px 10px;
+    color: rgb(180, 31, 36);
+    font-size: 0.7em;
+    font-weight: bold;
+    margin:0;
+}
+#siteHomeCourseListWidget #courseListScroller{
+    margin:0 0 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+#siteHomeCourseListWidget #verticalScrollDiv{
+    position:relative;
+}
+#siteHomeCourseListWidget ul.courseList{
+    margin:0px;
+}
+#siteHomeCourseListWidget li.courseID{
+    font-size:0.69em;
+    margin-bottom:0.4em;
+    background:url('../images/black-arrow.gif') no-repeat 3px 5px;
+    padding-left:10px;
+    list-style:none;
+}
+#siteHomeCourseListWidget li.courseID:hover{
+    background:url('../images/red-arrow.gif') no-repeat 3px 5px;
+}
+#siteHomeCourseListWidget li.courseID a:link,
+#siteHomeCourseListWidget li.courseID a:visited{
+    color:black;
+    text-decoration:none;
+}
+#siteHomeCourseListWidget a:hover{
+    color:#680A12!important;
+}
+/* ------- END : SITE HOME COURSE-LIST WIDGET CHANGES---------*/
+.article_teaser {
+	width:350px;
+	text-align:left;
+	display:block;
+	float:left;
+	min-height:135px;
+	margin:10px 15px -20px 2px;
+}
+.article_teaser img {
+	float:right;
+	border:1px solid #797865;
+}
+.article_teaser div.feature {
+	padding-left:25px;
+	_padding-left:22px;	
+}
+
+.article_teaser p, div.feature span {
+	margin:0 0 10px;
+	font-size:0.69em;
+}
+
+.article_teaser p.bullet {
+	font-size:1em;
+}
+.article_teaser h2, h2.corporateSponsorHeading {
+	font-size:0.7em;
+	font-weight:bold;
+}
+.article_teaser h2 {
+	background:transparent url(../images/featureicon.gif) no-repeat scroll 0 8px;
+	padding:7px 0 10px 25px;
+}
+h2.corporateSponsorHeading {
+	background:transparent url(../images/supporticon.gif) no-repeat scroll 0 8px;
+	padding:7px 0 10px 25px;
+}
+.article_teaser a:link, .article_teaser p.bullet a:link {
+	font-size:0.6em;
+	color:#680a12;
+	text-decoration:none;
+}
+.article_teaser a:visited, .article_teaser p.bullet a:visited {
+	font-size:0.6em;
+	color:#ab4347;
+	text-decoration:none;
+}
+.article_teaser a:hover, .article_teaser p.bullet a:hover {
+	font-size:0.6em;
+	color:#5151a6;
+	text-decoration:underline;
+}
+.article_teaser ul {
+	margin-left:15px;
+	padding:0;
+}
+.article_teaser li {
+	list-style-image:url(../images/black-arrow.gif);
+}
+.article_teaser a:link, div.words a:visited {
+	font-size:0.6em;
+	color:#000;
+}
+.homeCorpMore {
+	margin-left: 25px;
+	position: relative;
+	top: 175px;
+}
+.homeCorpMore p,
+.homeCorpMore p a {
+	font-size: 1.1em;
+}
+.corporate_sponsor {
+	width:345px;
+	text-align:left;
+	padding-bottom:10px;
+	display:block;
+	float:right;
+	min-height:135px;
+	margin:0 2px 10px 0;
+}
+.corporate_sponsor img {
+	margin:0;
+}
+.corporate_sponsor img.sponsor1 {
+	margin:0 20px 8px 0;
+}
+.corporate_sponsor a:link, .corporate_sponsor a:visited {
+	font-size:1em;
+	color:#000;
+	text-decoration:none;
+}
+.newsletter {
+	width:350px;
+	text-align:left;
+	margin:0 20px 0 2px;
+	padding:0;
+	clear:both;
+}
+.newsletter h2 {
+	color:#B41F24;
+	font-size:.7em;
+	font-weight:bold;
+	background:transparent url(../images/newsletter-icon.gif) 0 1px no-repeat;
+	padding:0 0 10px 25px;
+}
+.newsletter_divider {
+	background:transparent url(../images/horizontal_dots.gif) bottom left repeat-x;
+	padding:10px 0 0;
+}
+.newsletter p {
+	color:#000;
+	font-size:0.7em;
+	margin:-10px 0 4px;
+	padding:0 0 0 25px !important;
+}
+.newsletter p.bullet {
+	background:transparent url(../images/black-arrow.gif) 0 10px no-repeat;
+	padding:5px 0 0 6px;
+}
+.newsletter a:link, .newsletter a:visited {
+	color:#000;
+	text-decoration:none;
+}
+.newsletter ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.newsletter p.bullet a:link, .newsletter p.bullet a:visited {
+	font-size:.8em;
+	color:#000;
+	text-decoration:none;
+}
+.newsletter input {
+	vertical-align:middle;
+	margin:0;
+}
+.newsletter input.txtbox {
+	border:1px solid #999;
+	font-size:.7em;
+	padding:.1em;
+}
+.hero .info p a.bullet, .hero .quote p a.bullet {
+	background:transparent url(../images/white-arrow.gif) no-repeat scroll 0 14px;
+	font-weight:normal;
+	padding:10px 0 0 6px;
+}
+.hero .info p a:link, .hero .info p a:visited {
+	color:#fff;
+	font-size:0.75em;
+	font-style:normal;
+	text-decoration:none;
+}
+.hero .quote a:link, .hero .quote a:visited {
+	color:#fff;
+	font-size:0.85em;
+	text-decoration:none;
+}
+.corporate_sponsor a:hover, .newsletter a:hover, .newsletter p.bullet a:hover {
+	color:#b41f24;
+	text-decoration:underline;
+}
+/* END: HOME PAGE STYLES */
+ 
+/* COURSES DIV */
+#courses {
+	_padding:5px 0 10px 0;
+	_height:1%;
+	margin:0;
+	padding:5px 0 20px 4px;
+}
+#hfhHome {
+	_padding:5px 0 10px 0;
+	_height:1%;
+	margin:0;
+	padding:5px 0 20px;
+}
+#courses h1 {
+	font-size:1.6em;
+	color:#A33033;
+	font-weight:normal;
+	margin:0 0 9px;
+}
+#courses h3.thanks {
+	font-size:.9em;
+	font-weight:normal;
+	color:#000;
+	margin:15px 0 10px 15px;
+}
+#courses h3.thanks a {
+	color:#000;
+}
+#courses h3.term {
+	font-size:1.2em;
+	font-weight:normal;
+	color:#A33033;
+	margin:0 0 10px 15px;
+}
+#courses h4 {
+	font-size:.7em;
+	margin:0 0 0 17px;
+}
+#courses .ptext {
+	font-size:.7em;
+	margin:0 0 15px 17px;
+}
+#courses .subsucesstext {
+	font-size:.75em;
+	margin:0 0 15px 17px;
+}
+#courses .coursemainimg {
+	margin-left: 17px;
+	margin-bottom: 10px;
+}
+/* END: COURSES DIV */
+
+/* DEPARTMENT PAGE STYLES */
+#dept_main_container {
+	width:725px;
+	font-size:1em;
+	_padding:10px 0 10px 0;
+	margin:2px 0 0 6px;
+	padding:10px 0 20px;
+}
+#dept_main_container p {
+	line-height:125%;
+}
+
+#dept_main_container h1 {
+	width:539px;
+	margin-left:0;
+	margin-bottom:20px;
+}
+#dept_main_container #dept_content {
+	clear:both;
+	padding:0 0 2px;
+}
+#dept_main_container #dept_content img {
+	margin-left:0;
+	padding:0;
+}
+#dept_main_container #dept_links, #dept_main_container #dept_course_links {
+	margin:0 0 15px;
+	padding:0;
+	clear:both
+}
+#dept_main_container #dept_course_links h2 {
+	color:#000;
+	font-weight:bold;
+	font-size:.75em;
+	margin:10px 0 -5px;
+}
+#dept_main_container #dept_links h2 {
+	font-size:.75em;
+	margin:10px 0 0;
+}
+#dept_main_container #dept_links h1 {
+	color:#A33033;
+	font-size:1.2em;
+	font-weight:normal;
+	margin:0 0 10px;
+}
+#dept_main_container #dept_links p, #dept_main_container #dept_course_links p {
+	font-size:.7em;
+	clear:both;
+}
+#dept_main_container #dept_links .rss_ico {
+	margin-right:15px;
+	padding-left:25px;
+	background:transparent url(../images/rss-small.gif) no-repeat 0 2px;
+	text-decoration:none;
+}
+#dept_main_conatainer #dept_links a:link,  {
+	color:#680a12;
+	text-decoration:none;
+}
+#dept_main_container #dept_links a:visited {
+	color:#ab4347;
+	text-decoration:none;
+}
+#dept_main_container #dept_links a:hover {
+	color:#5151a6;
+	text-decoration:underline;
+}
+#dept_main_container .dept_courses {
+	width:500px;
+	font-size:.75em;
+	margin:0 0 10px 0px;	
+}
+
+#dept_main_container .af_legends
+{
+margin:0 0 20px 0px;
+float: left;    /* necessary for Safari bug */
+}
+
+#dept_main_container .course_list
+{
+	margin:0 0 20px 0;
+}
+
+/* Styles for DHP main Content Starts*/
+.dbutton {
+	margin-bottom: 20px;
+}
+.dottedLine {
+	background: transparent url(../images/horizontal_dots_red.gif) bottom left repeat-x;
+	overflow: hidden;
+	padding-bottom: 10px;
+	margin-bottom:10px;
+}
+#DeptInfo p {
+	padding-bottom: 0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+/* main content */
+#maincontent {
+	float:left;
+	width:539px;
+	padding-left:0;
+	background-color:transparent;
+}
+.mainContentTopArea {
+	width:auto;
+	height:auto;
+	margin:none;
+	padding:none;
+}
+.mainContentTopLeftArea {
+	width:320px;
+}
+.mainContentTopRightArea {
+	width:187px;
+	float:right;
+	margin:0;
+	padding:0 10px 0 3px;
+}
+.dhpRssText {
+	float:right;
+	width:158px;
+	font-size:0.75em;
+	margin-bottom:10px;
+}
+.dhpRssImg {
+	width:25px;
+	float:left;
+	margin-top:2px;
+}
+.course1 .mainContentTopRightArea p a.class1:hover, .dhpCourseDetailLinks a.class1:hover, .course1 .mainContentTopRightArea a:hover {
+	color:#5151A6;
+	text-decoration:none;
+}
+.mainContentTopRightArea p a:link, .mainContentTopRightArea a:link {
+	color:#AB4347;
+	text-decoration:none;
+}
+.mainContentTopRightArea p a:visited, .mainContentTopRightArea a:visited {
+	text-decoration:none;
+	color:#AB4347;
+}
+#callout1 {
+	float:right;
+	width:180px;
+	overflow:hidden;
+	_height:1%;
+	padding:5px 0 10px;
+}
+.mainContentBottomArea {
+	width:498px;
+	height:auto;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+.dhpCourseDetailLinks {
+	margin-bottom:10px;
+	text-decoration:none;
+	height:95px;
+}
+.dhpCourseDetailLinks p {
+	font-size:0.75em;
+	margin-bottom:5px;
+	margin-top:0;
+}
+/* Styles for DHP main Content Ends*/
+
+.courses_form {
+	color:#000;
+	padding:10px 0 0 15px;
+}
+.courses_form label {
+	vertical-align:middle;
+	font-size:.7em;
+}
+.courses_form input.textbox {
+	vertical-align:middle;
+	margin-top:3px;
+	font-size:.9em;
+	border:1px solid #CCC;
+	color:#000;
+	width:129px;
+	padding:1px 0 1px 5px;
+}
+::root .courses_form input.textbox {
+margin-top:0;
+padding:0 0 1px 5px;
+}
+.courses_form input.go_btn {
+	border:none;
+	vertical-align:middle;
+}
+
+::root .courses_form input.go_btn {
+margin-top:1px;
+}
+.courses_form ul {
+	list-style-type:none;
+	overflow:hidden;
+	_height:1%;
+	font-size:.9em;
+	margin:0 5px 0 0px;
+	padding:0 0 5px;
+}
+.courses_form li {
+	float:left;
+	background:transparent url(../images/black-arrow.gif) no-repeat 0 9px;
+	padding:5px 15px 5px 7px;
+}
+.courses_form li.first {
+	background:transparent url(../images/rss-small.gif) no-repeat 0 7px;
+	padding-left:27px;
+}
+.courses_form li.first a {
+	_padding-left:0;
+	text-decoration:none;
+}
+.courses_form ul li a:link, .courses_form ul li.first a:link, .courses_form label a:link.bullet {
+	color:#680a12;
+	text-decoration:none;
+}
+.courses_form ul li a:visited, .courses_form ul li.first a:visited, .courses_form label a:visited.bullet {
+	color:#ab4347;
+	text-decoration:none;
+}
+.courses_form ul li a:hover, .courses_form ul li.first a:hover, .courses_form label a:hover.bullet {
+	color:#5151a6;
+	text-decoration:underline;
+}
+.department-set {
+	margin:0 10px 0 0;
+}
+.department-set h2 {
+	color:#A33033;
+	font-size:1.2em;
+	font-weight:normal;
+	line-height:.2em;
+	clear:both;
+	margin:25px 0 15px 15px;
+}
+.dept {
+	width:240px;
+	padding-right:20px;
+	font-size:1em;
+	float:left;
+}
+.dept ul {
+	_padding-bottom:0;
+	list-style-type:none;
+	margin:0;
+	padding:0 0 30px;
+}
+.dept li {
+	margin-left:10px;
+	padding-left:20px;
+	background:url(../images/black-arrow.gif) no-repeat 1em .5em;
+	text-decoration:none;
+}
+.dept li a:link, .dept li a:visited {
+	color:#680A12;
+	line-height:1.4em;
+	text-decoration:none;
+}
+.dept li a:hover, .dept_courses a:hover {
+	text-decoration:underline !important;
+	color:#B41F24;
+}
+.mod6 .floatright {
+	float:right;
+}
+.mod6 .floatright img {
+	margin:0 0 4px;
+}
+.mod6 .photo, #dept_content .photo {
+	float:right;
+	width:400px;
+	margin:0 2px 10px 20px;
+}
+::root .mod6 .photo, ::root #dept_content .photo {
+float:right;
+width:400px;
+margin:0 3px 10px 20px;
+}
+.mod6 .photo .caption, #dept_content .photo .caption {
+	font-size:0.6em;
+	color:#666;
+	margin:5px 5px 5px 0;
+}
+.mod6 a:link, .mod6 a:visited {
+	color:#000;
+}
+.mod6 a:hover {
+	color:#B41F24;
+	text-decoration:underline;
+}
+.dept_courses a:link, .dept_courses a:visited, .mod6 a.bullet {
+	text-decoration:none;
+}
+/* new DHP styles, October 2009 */
+
+.dhp_caption {
+	float:left;
+	margin-top:-24px;
+	margin-left:0;
+	/*font-size:0.6em;*/ /* This is removed due to the fact that plone generates it's own dom structure for the metal tag*/
+}
+
+
+#parent-fieldname-image_caption_text p
+{
+font-size:0.6em;
+color:#666;
+}
+
+#dept_main_container p.dhp_more {
+	background:transparent url(../images/black-arrow.gif) 0 10px no-repeat;
+	padding-left:7px;
+	padding-top:4px;
+}
+#dept_main_container p.dhp_more a {
+	text-decoration:underline;
+	color:#680a12;
+}
+#dept_main_container #maincontent ul {
+	margin-left: 25px;	
+}
+#dept_main_container #maincontent .department-set .dept ul {
+	margin-left: 0px;	
+}
+.mod6 h2 span {
+	font-weight:normal;
+	right:0;
+	position:absolute;
+}
+a:link.deptlink, a:hover.deptlink, a:visited.deptlink {
+	text-decoration:none;
+	color:#ab4347;
+}
+/* end new DHP styles */
+/* END: DEPARTMENT PAGE STYLES */
+
+/* DONATION FORM STYLES */
+#donation_form {
+	margin:0;
+	padding:0;
+}
+#form_main_containter {
+	width:500px;
+	margin:30px 0 0 18px;
+}
+#form_main_containter .lblDollar {
+	vertical-align:top;
+	display:inline;
+}
+.form_left_side {
+	width:230px;
+	float:left;
+}
+.form_right_side {
+	width:230px;
+	float:right;
+}
+.form_section {
+	background:transparent url(../images/horizontal_dots.gif) repeat-x;
+	overflow:hidden;
+	_height:1%;
+	padding:0 0 10px;
+}
+.submit_section {
+	background:transparent url(../images/horizontal_dots.gif) repeat-x;
+	overflow:hidden;
+	_height:1%;
+	margin:15px 0 0;
+	padding:0 0 30px;
+}
+.form_section_subscribe {
+	overflow:hidden;
+	_height:1%;
+	padding:0 0 10px;
+}
+.submit_section input.submit {
+	_margin:0;
+	float:right;
+	margin:0 0 20px;
+	padding:0;
+}
+.from_section_head {
+	color:#A33033;
+	font-size:1.1em;
+	font-weight:normal;
+	margin-bottom:.5em;
+	padding-top:.3em;
+}
+.form_section h3 {
+	font-size:.7em;
+}
+#form_main_containter .form_fields, #callout .form_fields {
+	border:1px solid #999;
+	margin-bottom:5px;
+	font-size:.75em;
+}
+#donation_form legend, #callout legend {
+	font-size:0;
+	position:absolute;
+	left:-9999px !important;
+}
+.form_section select, .form_section_subscribe select {
+	display:block;
+	vertical-align:middle;
+	margin-right:5px;
+	margin-top:3px;
+}
+.form_section select.choose_card, .form_section select.state_prov, .form_section select.country {
+	width:170px;
+}
+.form_section select.expire {
+	width:60px;
+	float:left;
+}
+.form_section input.security_code {
+	width:80px;
+}
+.form_section p {
+	padding-top:6px;
+}
+.click_text {
+	font-size:.7em;
+	padding:10px 0 5px;
+}
+.form_section input {
+	vertical-align:middle;
+	margin-right:5px;
+	margin-top:3px;
+}
+.cardInfo {
+	overflow:hidden;
+	_height:1%;
+}
+#courses .form_section a.what_this {
+	background:transparent url(../images/black-arrow.gif) 0 10px no-repeat;
+	font-size:.6em !important;
+	padding:6px 0 0 6px;
+}
+#courses .form_section a:hover {
+	color:#B41F24;
+}
+#courses .form_section .code_what {
+	padding-left:138px;
+	_padding:3px 0 0 138px;
+	margin:-5px 0 0 3px;
+}
+::root #courses .form_section .code_what {
+padding:3px 0 0 138px;
+}
+label {
+	font-size:.7em;
+	display:block;
+}
+fieldset {
+	margin-bottom:5px;
+}
+.radio_cc {
+	font-size:.7em;
+	font-weight:bold;
+	padding-bottom:10px;
+}
+.radio_normal {
+	font-size:.7em;
+	padding-bottom:10px;
+}
+input.radiobutton {
+	float:left;
+	_margin:-2px 0 0 0;
+	margin:2px 5px 0 0;
+	padding:0;
+}
+#donation_form input.radio_btn {
+	float:left;
+	_margin:-2px 0 0 0;
+	margin:0 5px 0 0;
+	padding:0;
+}
+#donation_form p.amount_head {
+	font-size:.7em;
+	padding:0 0 5px;
+}
+#donation_form h3.choose_one {
+	padding:10px 0;
+}
+#donation_form label.radio {
+	padding-bottom:10px;
+}
+#callout label.lbl_bigbox {
+	padding-bottom:3px;
+}
+#donation_form label.lbl_expdate {
+	clear:left;
+	width:130px;
+	margin-right:10px;
+}
+#donation_form label.lbl_expdate select {
+	float:left;
+	margin-right:4px;
+}
+#donation_form label.lbl_secbox {
+	display:block;
+	width:90px;
+}
+#donation_form a:link, #donation_form a:visited {
+	font-size:.7em;
+	color:#000;
+}
+#donation_form .form_section input.c_name, #donation_form label.lbl_fname, #donation_form label.lbl_lname {
+	width:105px;
+}
+.card_details, #donation_form label.lbl_secbox input {
+	float:left;
+}
+#donation_form label.lbl_bigbox, #donation_form label.lbl_bigbox input {
+	width:220px;
+}
+#donation_form label.lbl_fname input, #donation_form label.lbl_lname input {
+	float:left;
+	width:80px;
+}
+/* END: DONATION FORM STYLES */
+/* DONATION PAGE MISC */
+
+.donate_error {
+	width:500px;
+	color:red;
+	margin:30px 0 0 18px;
+}
+.donate_error h2 {
+	color:red;
+	font-weight:bold;
+	font-size:.9em;
+}
+.donate_error ul {
+	margin:-5px 0 0 -25px;
+}
+.donate_error li {
+	list-style-type:none;
+	font-size:.7em;
+	padding:6px 0 0 6px;
+}
+p a:link.donation_page_link, p a:visited.donation_page_link {
+	text-decoration:none;
+	background:transparent url(../images/black-arrow.gif) 0 10px no-repeat;
+	font-weight:normal;
+	padding:6px 0 0 6px;
+}
+p a:hover.donation_page_link {
+	text-decoration:underline;
+	background:transparent url(../images/black-arrow.gif) 0 10px no-repeat;
+	font-weight:normal;
+	padding:6px 0 0 6px;
+}
+.donation_page_link a:hover {
+	text-decoration:underline;
+	color:#B41F24;
+}
+/* END: DONATION PAGE MISC */
+
+/* NEWSLETTER STYLES */
+#email_container {
+	width:550px;
+	border:1px solid #A2A191;
+	border-width:1px;
+	margin:0 auto;
+}
+.email_header {
+	background-color:#EDECDF;
+	text-align:left;
+	overflow:hidden;
+	_height:1%;
+}
+.email_header .logo {
+	float:left;
+	margin:0;
+	padding:16px 0 13px 10px;
+}
+#email_main {
+	width:100%;
+	margin-bottom:20px;
+	text-align:left;
+	overflow:hidden;
+	_height:1%;
+	padding:0;
+}
+#form_main_containter h1 {
+	color:#A33033;
+	font-size:1.1em;
+	font-weight:normal;
+	margin-bottom:.5em;
+	padding-top:.3em;
+}
+#email_main p {
+	font-size:.7em;
+}
+.btn_align_middle {
+	vertical-align:middle;
+}
+.email_error {
+	font-size:.7em;
+	color:red;
+	padding:5px 0 5px 7px;
+}
+.lbl_email_fields {
+	margin:10px 0 0;
+}
+.email_form_fields {
+	width:300px;
+	border:1px solid #999;
+	font-size:.75em;
+	margin:0;
+}
+.chkbox, .email_chkbox {
+	display:inline;
+}
+/* END: NEWSLETTER STYLES */
+
+#gl_section li {
+	margin-left:25px;
+}
+.quote p.bullet a {
+	text-decoration:underline;
+}
+.staff_list {
+	border-bottom:1px #000 solid;
+}
+li.rss_list {
+	list-style-type:none;
+	overflow:hidden;
+	_height:1%;
+	font-size:.8em;
+	padding:3px;
+}
+.global_area_midbar {
+	background:#d7d5cd;
+	margin-left:-20px;
+	height:27px;
+	vertical-align:middle;
+	padding-left:18px;
+}
+::root .global_area_midbar {
+padding-top:2px;
+height:25px;
+}
+.global_area_midbar a:link, .global_area_midbar a:visited {
+	line-height:2em;
+	font-size:.8em;
+	font-weight:normal;
+	background:url(../images/bullet1.gif) 0 .2em no-repeat;
+	padding-left:15px;
+	color:#000;
+	margin-right:30px;
+	text-decoration:none;
+}
+.global_area_midbar a:hover {
+	color:#b41f24;
+	text-decoration:underline;
+}
+ul.grad {
+	margin:-10px;
+}
+ul.grad li {
+	float:left;
+	display:inline;
+	margin-left:-25px;
+	width:150px;
+}
+.grad a:link, .grad a:visited {
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+}
+.grad a:hover {
+	color:#B41F24;
+	text-decoration:underline;
+}
+p.sublist {
+	margin-top:-2px;
+	padding-left:10px;
+}
+a:link.rss_ico {
+	color:#680a12;
+	text-decoration:none;
+}
+a:visited.rss_ico {
+	color:#ab4347;
+	text-decoration:none;
+}
+/* AV PAGE ICONS */
+
+/* ---->>> Legend Style - Image Sprite <<<---- */
+
+.legendCoursehome{margin:0 0 20px 18px}
+
+.af_legends {
+background-color:#E2E1D9;
+color:#333333;
+overflow:hidden;
+/*padding:8px 0; This is commented for the Mac firefox testing */
+padding-bottom:8px;
+width:500px;
+margin:0 0 20px 18px;
+border:1px solid #B4B1A2;
+}
+
+*:lang(en) .af_legends{
+	padding-bottom:0;
+}
+
+ul.legendList {
+	margin: 0px !important;
+	padding: 0px;
+	font-size:0.75em; /* The value is changed 0.75em for the display point of view */
+}
+
+ul.legendList
+{
+	display: inline-table;
+/* Hides from IE-mac \*/
+	height: 1%;
+	display: block;
+/* End hide from IE-mac */
+}
+
+html>body ul.legendList
+{
+	height: auto;
+}
+
+ul.legendList:after
+{
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+ul.legendList li, div.displayIcon a {
+	background:url(../images/sprite_legend.gif) no-repeat;
+	display:block;
+	float:left;
+}
+
+div.displayIcon a
+{
+	text-indent:-9999px;
+	width:12px;
+	height:12px;
+	padding:1px 2px 1px 1px;
+}
+
+ul.legendList li {
+	list-style-type: none;
+	width:138px;
+	margin:5px 2px !important;
+	padding:0 0 0 21px;	
+}
+
+ul.legendList li.lectureNotes{
+background-position:5px 0px;
+}
+
+div.displayIcon a.lectureNotes {
+background-position:0px 0px;
+}
+
+ul.legendList li.projectsExample{
+background-position:5px -27px;
+}
+
+div.displayIcon a.projectsExample {
+background-position:0px -27px;
+}
+
+ul.legendList li.imageGallery {
+background-position:5px -54px;
+}
+
+div.displayIcon a.imageGallery{
+background-position:0px -54px;
+}
+
+ul.legendList li.SelectedLectureNotes{
+background-position:5px -81px;
+}
+
+div.displayIcon a.SelectedLectureNotes {
+background-position:0px -81px;
+}
+
+ul.legendList li.projectsNoExample{
+background-position:5px -108px;
+}
+
+div.displayIcon a.projectsNoExample {
+background-position:0px -108px;
+}
+
+ul.legendList li.onlineTextBooks {
+background-position:5px -135px;
+}
+
+div.displayIcon a.onlineTextBooks {
+background-position:0px -135px;
+}
+
+ul.legendList li.assignmentsSolutions{
+background-position:5px -162px;
+}
+
+div.displayIcon a.assignmentsSolutions {
+background-position:0px -162px;
+}
+
+ul.legendList li.examsSolutions{
+background-position:5px -189px;
+}
+
+div.displayIcon a.examsSolutions {
+background-position:0px -189px;
+}
+
+ul.legendList li.multimediaContent{
+background-position:5px -216px;
+}
+
+div.displayIcon a.multimediaContent {
+background-position:0px -216px;
+}
+
+ul.legendList li.assignmentsNoSolution{
+background-position:5px -243px;
+}
+
+div.displayIcon a.assignmentsNoSolution {
+background-position:0px -243px;
+}
+
+
+ul.legendList li.examNoSolution{
+background-position:5px -270px;
+}
+
+div.displayIcon a.examNoSolution {
+background-position:0px -270px;
+}
+
+ul.legendList li.videoLectures{
+background-position:5px -297px;
+width:220px;
+}
+
+div.displayIcon a.videoLectures {
+background-position:0px -297px;
+}
+
+ul.legendList li.audioLectures{
+background-position:5px -324px;
+width:220px;
+}
+
+div.displayIcon a.audioLectures {
+background-position:0px -324px;
+}
+
+ul.legendList li.facultyIntroductions{
+background-position:5px -351px;
+}
+
+div.displayIcon a.facultyIntroductions {
+background-position:0px -351px;
+}
+
+ul.legendList li.selectedVideoLectures {
+background-position:5px -378px;
+width:220px;
+}
+
+div.displayIcon a.selectedVideoLectures {
+background-position:0px -378px;
+}
+
+ul.legendList li.selectedAudioLectures {
+background-position:5px -405px;
+width:220px;
+}
+
+div.displayIcon a.selectedAudioLectures {
+background-position:0px -405px;
+}
+
+ul.legendList li.specialFeatures {
+background-position:5px -432px;
+}
+
+div.displayIcon a.specialFeatures {
+background-position:0px -432px;
+}
+
+ul.legendList li.openStudy {
+background-position:5px -459px;
+}
+
+div.displayIcon a.openStudy {
+background-position:0px -459px;
+}
+
+ul.legendList li.ocwScholar {
+background-position:5px -486px;
+}
+
+div.displayIcon a.ocwScholar {
+background-position:0px -486px;
+}
+
+.course_table .af {
+	width:65px;
+}
+.course_table .af img {
+	margin:2px;
+}
+
+/* END: AV PAGE ICONS */
+
+/* LEGACY STYLES */
+#BodyCopy1 p {
+	margin-left:2px;
+}
+.active_tab {
+	background-color:#fff;
+	color:#000;
+	border-top:1px solid #86837A;
+	border-right:1px solid #86837A;
+	border-left:1px solid #86837A;
+	height:36px;
+	padding:0;
+}
+.inactive_tab {
+	background-color:#EDECDF;
+	border-bottom:1px solid #86837A;
+	border-top:#BFBFB5 1px solid;
+	color:#000;
+	height:35px;
+	padding:0;
+}
+#main_content #courses #BodyCopy1 #firstspacer_tab {
+	border-bottom:1px solid #86837A;
+	width:20px;
+	height:36px;
+}
+#main_content #courses #BodyCopy1 #spacer_tab {
+	border-bottom:1px solid #86837A;
+	width:45px;
+	height:36px;
+}
+#main_content #courses #BodyCopy1 #spacer_tab a {
+	text-decoration:none;
+}
+#main_content #courses #BodyCopy1 #spacer_tab a:hover {
+	background-color:#fff;
+	color:#fff;
+	text-decoration:none;
+}
+#main_content #courses #BodyCopy1 .pagelinktabs ul {
+	list-style-type:none;
+	margin:0 0 0 15px;
+	padding:0;
+}
+/*Top level list items*/
+#main_content #courses #BodyCopy1 .pagelinktabs ul li {
+	position: relative;
+	display: inline;
+	float: left;
+	margin-left: 0px;
+	width:150px;
+}
+/*Top level menu link items style*/
+#main_content #courses #BodyCopy1 .pagelinktabs ul li a {
+	display: block;
+	padding: 0em 1em;
+	height: 35px;
+	text-decoration: underline;
+	text-align: center;
+	line-height:15px;
+	color: #000;
+	font-size: 0.75em;
+}
+#main_content #courses #BodyCopy1 .pagelinktabs ul li:hover {
+	background-color: #c9c6bb;
+	color: #680a12;
+}
+/* link styles for site home page featured course */
+
+div.article_teaser div.feature a, div.article_teaser div.feature span.credit a, div.article_teaser div.newsletter a {
+	font-size:1em !important;
+	color:#680a12;
+	text-decoration:underline;
+}
+div.article_teaser div.feature a.title {
+	text-decoration:none;
+	vertical-align:middle;
+}
+div.article_teaser div.feature span.credit, .gridtable {
+	font-size:0.8em;
+	color:#666;
+}
+
+.course_table .new-ico {
+    background-image:url("/images/new-icon.gif");
+    background-position:center 3px;
+    background-repeat:no-repeat;
+}

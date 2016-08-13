@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Hello</title>
+<script>
+function runTest() {
+
+x = document.getElementById("x");
+
+y=document.getElementsByTagName("p");
+
+document.write("The Title is: "+document.title+"<br/>"); //Hello
+
+document.write("The div element contains the text: "+x.innerHTML+"<br/>"); 	//This is a div.
+
+document.write("The Node name of x is: "+x.nodeName+"<br/>"); 	//DIV
+document.write("The Node value of x is: "+x.nodeValue+"<br/>"); 	//null
+document.write("The parent node of x is: "+x.parentNode+"<br/>");	//[object HTMLBodyElement]
+document.write("The child nodes of x are: "+x.childNodes[1]+"<br/>");	//[object NodeList]
+
+document.write("The attributes of x are: "+x.attributes[0]+"<br/>");	//[object NamedNodeMap]
+
+document.write("This is the second paragraph: "+y[1].innerHTML+"<br/>");	//Hello There!
+
+//Node Relationships
+document.write("The node value of the first child of x is: "+x.firstChild.nodeValue+"<br/>");
+document.write("The parent node of x is: "+x.parentNode+"<br/>");
+document.write("The nodeName of the first child of x is: "+x.firstChild.nodeName+"<br/>");
+}
+</script>
+</head>
+<body onload='runTest()'>
+<div id='x' style="font-size: 12pt">
+This is a div.
+<p>Hello there!</p>
+<p>Good Bye!</p></div>
+
+</body>
+</html>

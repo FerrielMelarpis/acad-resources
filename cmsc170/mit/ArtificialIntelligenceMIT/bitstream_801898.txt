@@ -1,0 +1,28 @@
+Preliminary Instructions for 6.034 Demonstrations 
+ 
+General 
+ 
+The Java
+TM
+ Runtime Environment (JRE) needs to be installed on your computer before 
+running the demonstrations. To install this application, visit the Java Web Start 
+Technology webite at: http://java.sun.com/products/javawebstart/. 
+ 
+Once Java Web Start is downloaded to your local computer, the application will 
+constantly check for the most current version of JRE and for updates to the application. 
+ 
+Beginning the Program 
+ 
+1. Clicking on JNLP link to run the demonstration displays a start up screen that 
+asks if you want to open the application or ?Save to Disk.? Click Open and then 
+OK. 
+ 
+2. A Security screen will appear that asks ?Do you want to run the application?? 
+Click Run. 
+ 
+3. Once the 6.034 demonstration screen appears, click on one of the topics in the left 
+navigation bar to explore the various demonstrations. Some of the topics have 
+subtopics that will appear. For example, the Learning demonstration has a list of 
+five subtopics that appear after being clicked. 
+6.034 Artificial Intelligence, Fall 2006       Demonstrations 
+Prof. Patrick H. Winston        5/10/2007 
